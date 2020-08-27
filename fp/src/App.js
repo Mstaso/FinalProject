@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Home from './containers/Home'
+import Home from './components/Home'
 import Navbar from './components/Navbar'
+import CourseContainer from './containers/CourseContainer';
+import BusinessContainer from './containers/BusinessContainer';
 
 class App extends React.Component {
 
   state = {
+    course: {},
     courses: [],
     businesses: [],
     users: [],
@@ -30,12 +33,19 @@ class App extends React.Component {
     .then(data => this.setState({businesses: data}))
   }
 
+  appClickHandler = (courseObj) => {
+    this.setState({ course: courseObj})
+  }
+
   render() {
-    console.log(this.state.businesses)
     return (
       <div className="App">
         <Navbar />
-        <Home courses={this.state.courses}/>
+        <Switch>
+        <Route path="/home" render={() => <Home courses={this.state.courses} appClickHandler={this.appClickHandler} businesses={this.state.businesses}/>} />
+        <Route path="/courses" render={() => <CourseContainer courses={this.state.courses} appClickHandler={this.appClickHandler}/>} />
+        <Route path="/businesses" render={() => <BusinessContainer businesses={this.state.businesses}/>} />
+        </Switch>
       </div>
     );
   }
