@@ -5,8 +5,8 @@ class Course extends React.Component {
         return (
         <div>
             <br></br>
-            {this.props.course.name}
-            <img src={this.props.course.photoUrl} width="150" height="150"></img>
+            <h3>{this.props.course.name}</h3>
+            <img src={this.props.course.image} width="150" height="150"></img>
         </div>
         )
     }
