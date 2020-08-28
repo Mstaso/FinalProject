@@ -1,11 +1,13 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import Business from './Business'
 
 class Course extends React.Component {
 
     clickHandler = () => {
-        this.props.appClickHandler(this.props.course)
+      
     }
+
     render(){
         return (
             this.props.course ? 
@@ -16,7 +18,9 @@ class Course extends React.Component {
                 <img src={this.props.course.image} width="150" height="150"></img>
                  </div>
             </NavLink> 
+            
             :
+
             <div>
             <h1>{this.props.foundCourse.name}</h1>
             <img src={this.props.foundCourse.image} width="300" height="300"></img>

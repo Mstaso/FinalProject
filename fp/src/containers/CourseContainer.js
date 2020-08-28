@@ -6,6 +6,7 @@ class CourseContainer extends React.Component {
     
     render(){
         let courses = this.props.courses.map(course => <Course key={course.id} course={course} appClickHandler={this.props.appClickHandler}/>)
+        
         return (
             <>
             {this.props.courses.length === 0 ? <h1>Loading</h1>: 
