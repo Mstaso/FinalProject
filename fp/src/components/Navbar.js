@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-
+import Search from './Search'
 
 const link = {
     width: '100px',
@@ -11,17 +11,18 @@ const link = {
     color: 'white',
   }
 
+  const logo = require('../logo.png')  
+
 class Navbar extends React.Component {
     render() {
       return (
         <div className="header">
-          <h1> Nav </h1>
-          {/* <Search searchValue={this.props.searchValue} changeHandler={this.props.changeHandler} /> */}
+          <h1 class="logo"><img id="logo" src={logo}/> </h1>
+          <Search/>
           <ul className="main-nav" >
-          {/* <li><a href="#"><NavLink to="/welcome" exact>Welcome</NavLink></a></li> */}
-          {/* <li><a href="#"><NavLink to="/posts" exact>Home</NavLink></a></li>
-          <li><a href="#"><NavLink to="/newform" exact>New Post</NavLink></a></li>
-          <li><a href="#"><NavLink to="/profile" exact><span style={{fontSize:"30px"}}>🖤</span></NavLink></a></li> */}
+          <li className="coursesnav"> <a href="#"><NavLink to="/courses" exact>Courses</NavLink></a></li>
+          <li className="businessnav"><a href="#"><NavLink to="/businesses" exact>Businesses</NavLink></a></li>
+          <li className="login"><a href="#"><NavLink to="/businesses" exact>Login/Sign Up</NavLink></a></li>
           </ul>
         </div>
       )

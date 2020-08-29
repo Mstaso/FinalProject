@@ -1,11 +1,18 @@
 import React from 'react'
 import Course from '../components/Course'
 import {Route, Switch} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getCourses } from '../redux/actions'
+
 
 class CourseContainer extends React.Component {
+
+    componentDidMount(){
+        this.props.fetchCourses()
+    }
     
     render(){
-        let courses = this.props.courses.map(course => <Course key={course.id} course={course} appClickHandler={this.props.appClickHandler}/>)
+        let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
         
         return (
             <>
@@ -16,7 +23,7 @@ class CourseContainer extends React.Component {
                 <Route path='/courses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundCourse = this.props.courses.find((course)=> course.id === id)
-                    return <Course foundCourse={foundCourse} appClickHandler={this.props.appClickHandler}/>
+                    return <Course foundCourse={foundCourse}/>
                 }}/>
                 <Route path="/courses" render={() => {
 
@@ -58,4 +65,11 @@ class CourseContainer extends React.Component {
     }
 }
 
-export default CourseContainer;
+const mapStateToProps = (state) => {
+    return {courses: state.courses}
+    }
+  const mapDispatchToProps = (dispatch) => {
+    return { fetchCourses: ()=> dispatch(getCourses())}
+  } 
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(CourseContainer);

@@ -1,11 +1,16 @@
 import React from 'react'
 import Business from '../components/Business'
 import {Route, Switch} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getBusinesses } from '../redux/actions'
 
 class BusinessContainer extends React.Component {
 
+    componentDidMount(){
+        this.props.fetchBusinesses()
+    }
+
     render(){
-        console.log(this.props)
         let businesses = this.props.businesses.map(business => <Business key={business.id} business={business}/>)
         return (
             <>
@@ -58,4 +63,11 @@ class BusinessContainer extends React.Component {
     }
 }
 
-export default BusinessContainer;
+const mapStateToProps = (state) => {
+    return {businesses: state.businesses}
+    }
+  const mapDispatchToProps = (dispatch) => {
+    return { fetchBusinesses: ()=> dispatch(getBusinesses())}
+  } 
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(BusinessContainer);

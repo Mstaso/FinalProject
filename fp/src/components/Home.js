@@ -6,15 +6,10 @@ class Home extends React.Component {
 
     render(){
         return(
-            <div>
-                <h1>Lets Go</h1>
-                    <div>
-                      
-                      <CourseContainer courses={this.props.courses} appClickHandler={this.props.appClickHandler}/>
-                      <BusinessContainer businesses={this.props.businesses}/>
-                    </div>
-            </div>
-            
+            <div>     
+                <CourseContainer courses={this.props.courses}/>
+                <BusinessContainer businesses={this.props.businesses}/>
+            </div>     
         )
     }
 }

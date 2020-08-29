@@ -7,6 +7,41 @@
   pointer-events: none;
 }
 
+/* Search Form Css */
+
+
+.searchContainer {
+
+width: 42%;
+margin-top: -95px;
+margin-left: 180px;
+  /* margin-top: -100em; set to a negative number 1/2 of your height */
+  /* margin-left: -35em; set to a negative number 1/2 of your width */ 
+
+ 
+}
+#searchInput {
+  width: 100%;
+  margin-right:300px;
+
+  border: 1px solid #000;
+  border-radius: 30px;
+  font-size: 12px;
+  background-color: white;
+  background-image:url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
+
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 40px;
+  -webkit-transition: width 0.8s ease-in-out;
+  transition: width 0.8s ease-in-out;
+  outline: none;
+  opacity: 0.9;
+
+}
+
+
+
 /* Navbar Css */
 * {
   box-sizing: border-box;
@@ -31,31 +66,49 @@
   text-decoration: none;
   }
   .logo {
-  margin-left: -100px;
+  margin-left: -120px;
   font-size: 1.45em;
   }
   .main-nav {
-  margin-top: 5px;
+  display: inline;  
+	margin: 0 auto;
   }
   .logo a,
   .main-nav a {
   padding: 10px 15px;
   text-transform: uppercase;
   text-align: center;
-  display: block;
+  display: inline;
+  min-width: 800px;
   }
   .main-nav a {
-  color: #34495e;
-  font-size: .99em;
+  margin-top: -19px;  
+  margin-right: -200px;
+  color:rgb(244, 247, 248);
+  font-size: .9em;
+  }
+
+  
+  .coursesnav {
+    margin-top:   -20px;
+  }
+  .businessnav {
+    margin-top:   -8px;
+    margin-right: -250px;
+  }
+  .login {
+    margin-top:   -8px;
+    margin-right: -540px;
   }
   .main-nav a:hover {
-  color: #718daa;
+  color:rgb(64, 208, 224);
   }
   .header {
-  padding-top: 0em;
-  padding-bottom: 0em;
+  /* padding-top: 0em;
+  padding-bottom: -35em; */
+  height: 100px;
   border: 1px solid #a2a2a2;
-  background-color: #f4f4f4;
+  background-color: #525151;
   -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
@@ -67,35 +120,15 @@
   #logo{
   max-width: 10%;
   max-height: 10%;
-  margin-left: -55%;
+  margin-top: -40px;
+  margin-left: -70%;
   }
+/* end navbar css */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Description CSS */
+.description {
+  /* display: inline-block; */
+  /* width: 50%;
+  padding: 20px; */
+  line-height: 36px;
 }

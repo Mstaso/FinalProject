@@ -1,31 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home'
 import Navbar from './components/Navbar'
+import SignUp from './components/SignUp'
 import CourseContainer from './containers/CourseContainer';
 import BusinessContainer from './containers/BusinessContainer';
+import UserContainer from './containers/UserContainer';
 
 class App extends React.Component {
 
-  state = {
-    course: {},
-    courses: [],
-    businesses: [],
-    users: [],
-  }
-  
-  componentDidMount(){
-    this.fetchCourses()
-    this.fetchBusinesses()
-  }
-
-  fetchCourses = () => {
-    const url = "http://localhost:3000/api/v1/courses"
-    fetch(url)
-    .then(resp => resp.json())
-    .then(data => this.setState({courses: data}))
-  }
   fetchBusinesses = () => {
     const url = "http://localhost:3000/api/v1/businesses"
     fetch(url)
@@ -33,18 +17,16 @@ class App extends React.Component {
     .then(data => this.setState({businesses: data}))
   }
 
-  appClickHandler = (courseObj) => {
-    this.setState({ course: courseObj})
-  }
-
   render() {
     return (
       <div className="App">
         <Navbar />
         <Switch>
-        <Route path="/home" render={() => <Home courses={this.state.courses} appClickHandler={this.appClickHandler} businesses={this.state.businesses}/>} />
-        <Route path="/courses" render={() => <CourseContainer courses={this.state.courses} appClickHandler={this.appClickHandler}/>} />
-        <Route path="/businesses" render={() => <BusinessContainer businesses={this.state.businesses}/>} />
+        <Route path="/signup" render={() => <SignUp />} />
+        <Route path="/home" render={() => <Home />} />
+        <Route path="/courses" render={() => <CourseContainer/>} />
+        <Route path="/businesses" render={() => <BusinessContainer />} />
+        <Route path="/users" render={() => <UserContainer />} />
         </Switch>
       </div>
     );
