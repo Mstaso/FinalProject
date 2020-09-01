@@ -10,10 +10,6 @@ import { getUsers } from '../redux/actions'
 
 class User extends React.Component {
 
-    componentDidMount(){
-        this.props.fetchMatches()
-    }
-
     fetchNewUserCourses = () => {
         this.props.fetchUsercourses()
         // this.filterCourses()
@@ -127,7 +123,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
         fetchUsercourses: ()=> dispatch(getUsercourses()),
-        fetchMatches: ()=> dispatch(getMatches()),
         fetchUsers: ()=> dispatch(getUsers())
         }
     }
