@@ -27,6 +27,27 @@ export const getUsers = () => {
 }
 
 
+export const userSignUp = (userObj) => ({type: "userSignUp", payload: userObj})
+
+
+// usercourse actions
+export const getUsercourses = () => {
+    return function (dispatch) {
+        fetch("http://localhost:3000/api/v1/user_courses")
+        .then(resp => resp.json())
+        .then(data => dispatch({ type: "fetched usercourses", payload: data}))
+    }  
+}
+
+// match actions
+export const getMatches = () => {
+    return function (dispatch) {
+        fetch("http://localhost:3000/api/v1/matches")
+        .then(resp => resp.json())
+        .then(data => dispatch({ type: "fetched matches", payload: data}))
+    }  
+}
+
 
 // export const userSignUp = (userObj) => {
 //     console.log(userObj)

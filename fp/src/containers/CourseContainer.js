@@ -55,6 +55,7 @@ class CourseContainer extends React.Component {
                         </>
                     )
                 }} />
+
             </Switch>       
             </>
             

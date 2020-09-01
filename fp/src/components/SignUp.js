@@ -16,7 +16,25 @@ class SignUp extends React.Component{
         e.preventDefault()
         //double check 
         // this.props.postUser(this.state)
+        this.fetchRequest(this.state)
+        
     }
+
+    fetchRequest = (userObj) => {
+        console.log(userObj)
+        const url = "http://localhost:3000/api/v1/users"
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                 'accepts': 'application/json',
+              },
+            body: JSON.stringify({ user: userObj})
+        })
+        .then(response => response.json())
+        .then(data => this.props.postUser(data))
+    }
+   
 
     render(){
         return(
@@ -29,8 +47,8 @@ class SignUp extends React.Component{
     }
 }
 
-//   const mapDispatchToProps = (dispatch) => {
-//     return { postUser: (userObj) => dispatch(userSignUp(userObj)) }
-//   } 
+  const mapDispatchToProps = (dispatch) => {
+    return { postUser: (userObj) => dispatch(userSignUp(userObj)) }
+  } 
   
-  export default connect(null, null)(SignUp);
+  export default connect(null, mapDispatchToProps)(SignUp);
