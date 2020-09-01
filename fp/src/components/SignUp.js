@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { userSignUp } from '../redux/actions'
+import { withRouter } from 'react-router-dom'
 
 class SignUp extends React.Component{
     state = {
@@ -17,7 +18,7 @@ class SignUp extends React.Component{
         //double check 
         // this.props.postUser(this.state)
         this.fetchRequest(this.state)
-        
+        this.props.history.push("/home");
     }
 
     fetchRequest = (userObj) => {
@@ -51,4 +52,4 @@ class SignUp extends React.Component{
     return { postUser: (userObj) => dispatch(userSignUp(userObj)) }
   } 
   
-  export default connect(null, mapDispatchToProps)(SignUp);
+  export default withRouter(connect(null, mapDispatchToProps)(SignUp));

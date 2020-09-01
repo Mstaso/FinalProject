@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom'
 import Business from './Business'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
+import { addUC } from '../redux/actions'
 
 
 class Course extends React.Component {
@@ -29,7 +30,7 @@ class Course extends React.Component {
 
     completeCourse = (e) => {
         // console.log(this.props.usercourse.id, this.props.loggedInUser, this.props.businesses)
-
+        e.target.innerText = "Course Complete"
         let userCourseToComplete = this.props.usercourses.find(usercourse => usercourse.course_id == this.props.takencourse.id && usercourse.user_id == this.props.loggedInUser.id)
         fetch(`http://localhost:3000/api/v1/user_courses/${userCourseToComplete.id}`, {
             method: 'PATCH',
@@ -43,11 +44,11 @@ class Course extends React.Component {
         })
         .then(response => response.json())
         // .then(data => this.props.fetchUsercourses())
-        .then(this.props.fetchNewUserCourses())
-        if (e.target.innerText == "Course In Progress"){
-            e.target.innerText = "Course Complete"
-        }
-        
+        .then(data => {
+            this.props.patchUC(data)
+            this.props.newUserHandler()
+        })
+
         // console.log(this.props.usercourses)
         // checks if completed course is in list of businesses courses
         // let checkCourses = this.props.businesses.map(business => business.courses.find(course => course.id == this.props.usercourse.id))
@@ -89,7 +90,8 @@ class Course extends React.Component {
             <div>
             <h1>{this.props.foundCourse.name}</h1>
             <img src={this.props.foundCourse.image} alt={this.props.foundCourse.name} width="300" height="300"></img>
-            <h3>Category: {this.props.foundCourse.category}</h3>
+            <h3>Type: {this.props.foundCourse.category}</h3>
+            <p className='description'>{this.props.foundCourse.description}</p>
             <button onClick={this.enroll}> Enroll </button>
             </div>
         )
@@ -108,7 +110,10 @@ const mapStateToProps = (state) => {
     }
 const mapDispatchToProps = (dispatch) => {
     return { 
-        fetchUsercourses: ()=> dispatch(getUsercourses())}
+        fetchUsercourses: ()=> dispatch(getUsercourses()),
+        patchUC: (ucObj) => dispatch(addUC(ucObj))
+    }
+        
     }     
 
 

@@ -12,8 +12,11 @@ class CourseContainer extends React.Component {
     }
     
     render(){
-        let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
+
+        // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
+        let courses = this.props.courses.filter(course => course.name.toLowerCase().includes(this.props.searchValue.toLowerCase())).map(course => <Course key={course.id} course={course}/>)
         
+        // .map(course => <Course key={course.id} course={course}/>)
         return (
             <>
             {this.props.courses.length === 0 ? <h1>Loading</h1>: 
@@ -67,7 +70,10 @@ class CourseContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {courses: state.courses}
+    return {
+        courses: state.courses,
+        searchValue: state.searchValue
+    }
     }
   const mapDispatchToProps = (dispatch) => {
     return { fetchCourses: ()=> dispatch(getCourses())}

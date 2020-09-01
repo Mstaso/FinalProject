@@ -39,6 +39,9 @@ export const getUsercourses = () => {
     }  
 }
 
+export const addUC = (ucObj) => ({type: "addUC", payload: ucObj})
+
+
 // match actions
 export const getMatches = () => {
     return function (dispatch) {
@@ -48,6 +51,8 @@ export const getMatches = () => {
     }  
 }
 
+// Search Actions
+export const searchAction = (searchValue) => ({type: "search", payload: searchValue})
 
 // export const userSignUp = (userObj) => {
 //     console.log(userObj)

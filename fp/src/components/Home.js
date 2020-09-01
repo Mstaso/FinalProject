@@ -6,8 +6,10 @@ class Home extends React.Component {
 
     render(){
         return(
-            <div>     
+            <div> 
+                <h2>Top Courses</h2>    
                 <CourseContainer courses={this.props.courses}/>
+                <h2>New Businesses</h2>   
                 <BusinessContainer businesses={this.props.businesses}/>
             </div>     
         )

@@ -7,7 +7,8 @@ const defaultState = {
     users: [],
     usercourses: [],
     matches: [],
-    loggedInUser: {}
+    loggedInUser: {},
+    searchValue: ""
 }
 
 function courseReducer(currentState = defaultState.courses, action){
@@ -50,6 +51,8 @@ function userCourseReducer(currentState = defaultState.usercourses, action){
     switch (action.type) {
         case "fetched usercourses" :
             return action.payload
+        case "addUC" :
+            return [...currentState, action.payload]    
         default :
         return currentState
     }
@@ -64,13 +67,23 @@ function matchReducer(currentState = defaultState.matches, action){
     }
 }
 
+function searchReducer(currentState = defaultState.searchValue, action){
+    switch (action.type) {
+        case  "search" :
+            return action.payload
+        default :   
+            return currentState  
+    }
+}    
+
 const rootReducer = combineReducers({
     courses: courseReducer,
     businesses: businessReducer,
     users: userReducer,
     loggedInUser: loggedInUserReducer,
     usercourses: userCourseReducer,
-    matches: matchReducer
+    matches: matchReducer,
+    searchValue: searchReducer
 })
 
 export default rootReducer
