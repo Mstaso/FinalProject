@@ -1,12 +1,27 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Business from './Business'
+import Comment from './Comment'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
 import { addUC } from '../redux/actions'
 
 
 class Course extends React.Component {
+
+
+
+    state = {
+        content: ''
+    }
+    changeHandler = (e) => {
+        this.setState({content:e.target.value})
+    }
+
+   commentHandler = (e) => {
+       e.preventDefault()
+        this.commentCreater(this.state.content)
+   } 
 
     componentDidMount(){
         this.props.fetchUsercourses()
@@ -26,6 +41,26 @@ class Course extends React.Component {
         })
         .then(response => response.json())
         .then(data => console.log(data))
+    }
+
+    commentCreater = (content) => {
+        console.log(content)
+        fetch('http://localhost:3000/api/v1/comments',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                 'accepts': 'application/json',
+              },
+            body: JSON.stringify({ comment: {
+                content: content,
+                user_id: this.props.loggedInUser.id,
+                course_id: this.props.foundCourse.id
+            }})
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     completeCourse = (e) => {
@@ -66,6 +101,8 @@ class Course extends React.Component {
     render(){
         // let businesses = []
         // this.props.foundCourse : courses = this.props.foundCourse.businesses.map(business => <B)
+        let comments = []
+        this.props.foundCourse ? comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>) : comments = []
         return (
             this.props.takencourse ? 
                 <div>
@@ -93,6 +130,17 @@ class Course extends React.Component {
             <h3>Type: {this.props.foundCourse.category}</h3>
             <p className='description'>{this.props.foundCourse.description}</p>
             <button onClick={this.enroll}> Enroll </button>
+            <form id="cmnt" onSubmit={this.commentHandler}>
+                <fieldset id="commentFieldset">
+                <div class="form_grp">
+                <textarea id="userCmnt" placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.changeHandler}></textarea>        
+                </div>
+                <div class="form_grp">
+                <button type="submit">Add Comment</button>
+                </div>
+                </fieldset>
+            </form>
+            {comments}
             </div>
         )
     }
