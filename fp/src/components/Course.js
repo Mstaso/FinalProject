@@ -1,6 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Business from './Business'
+import User from './User'
 import Comment from './Comment'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
@@ -20,12 +21,13 @@ class Course extends React.Component {
 
    commentHandler = (e) => {
        e.preventDefault()
-        this.commentCreater(this.state.content)
+       let foundcourse_id = e.target.id
+        this.props.commentCreater(this.state.content, foundcourse_id)
    } 
 
-    componentDidMount(){
-        this.props.fetchUsercourses()
-    }
+    // componentDidMount(){
+    //     // this.props.fetchUsercourses()
+    // }
     enroll = () => {
         fetch("http://localhost:3000/api/v1/user_courses", {
             method: 'POST',
@@ -36,32 +38,16 @@ class Course extends React.Component {
             body: JSON.stringify({ usercourse: {
                 user_id: this.props.loggedInUser.id,
                 course_id: this.props.foundCourse.id,
-                complete: false
+                complete: false,
+                name: this.props.foundCourse.name 
             }})
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => 
+            {console.log(data) 
+            this.props.patchUC(data)})
     }
-
-    commentCreater = (content) => {
-        console.log(content)
-        fetch('http://localhost:3000/api/v1/comments',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                 'accepts': 'application/json',
-              },
-            body: JSON.stringify({ comment: {
-                content: content,
-                user_id: this.props.loggedInUser.id,
-                course_id: this.props.foundCourse.id
-            }})
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
-    }
+    
 
     completeCourse = (e) => {
         // console.log(this.props.usercourse.id, this.props.loggedInUser, this.props.businesses)
@@ -99,10 +85,12 @@ class Course extends React.Component {
     //     return completedUserCoursesArray
     // }
     render(){
-        // let businesses = []
-        // this.props.foundCourse : courses = this.props.foundCourse.businesses.map(business => <B)
+        let courseBusinesses = []
+        this.props.foundCourse ? courseBusinesses = this.props.foundCourse.businesses.map(business => <Business business={business} key={business.id}/>) : courseBusinesses = []
         let comments = []
         this.props.foundCourse ? comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>) : comments = []
+        let users = []
+        this.props.foundCourse ? users = this.props.foundCourse.users.map(user => <User user={user} key={user.id}/>) : users = []
         return (
             this.props.takencourse ? 
                 <div>
@@ -130,7 +118,7 @@ class Course extends React.Component {
             <h3>Type: {this.props.foundCourse.category}</h3>
             <p className='description'>{this.props.foundCourse.description}</p>
             <button onClick={this.enroll}> Enroll </button>
-            <form id="cmnt" onSubmit={this.commentHandler}>
+            <form id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
                 <fieldset id="commentFieldset">
                 <div class="form_grp">
                 <textarea id="userCmnt" placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.changeHandler}></textarea>        
@@ -141,6 +129,14 @@ class Course extends React.Component {
                 </fieldset>
             </form>
             {comments}
+            <h5>Businesses that use this course</h5>
+            <ul>
+            <li>{courseBusinesses}</li>  
+            </ul>
+            <h5>Users who have taken this course</h5>
+            <ul>
+            <li>{users}</li>  
+            </ul>
             </div>
         )
     }

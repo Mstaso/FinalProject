@@ -33,7 +33,7 @@ class SignUp extends React.Component{
             body: JSON.stringify({ user: userObj})
         })
         .then(response => response.json())
-        .then(data => this.props.postUser(data))
+        .then(data => {this.props.postUser(data)})
     }
    
 

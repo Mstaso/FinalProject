@@ -10,9 +10,27 @@ class CourseContainer extends React.Component {
     componentDidMount(){
         this.props.fetchCourses()
     }
+
+    commentCreater = (content, foundcourse_id) => {
+        fetch('http://localhost:3000/api/v1/comments',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                 'accepts': 'application/json',
+              },
+            body: JSON.stringify({ comment: {
+                content: content,
+                user_id: this.props.loggedInUser.id,
+                course_id: foundcourse_id
+            }})
+        })
+        .then(response => response.json())
+        .then(data => {
+            this.props.fetchCourses()
+        })
+    }
     
     render(){
-
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
         let courses = this.props.courses.filter(course => course.name.toLowerCase().includes(this.props.searchValue.toLowerCase())).map(course => <Course key={course.id} course={course}/>)
         
@@ -26,7 +44,7 @@ class CourseContainer extends React.Component {
                 <Route path='/courses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundCourse = this.props.courses.find((course)=> course.id === id)
-                    return <Course foundCourse={foundCourse} />
+                    return <Course commentCreater={this.commentCreater} foundCourse={foundCourse} />
                 }}/>
                 <Route path="/courses" render={() => {
 
@@ -72,6 +90,7 @@ class CourseContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         courses: state.courses,
+        loggedInUser: state.loggedInUser,
         searchValue: state.searchValue
     }
     }

@@ -5,9 +5,16 @@ import User from '../components/User'
 import {Route, Switch} from 'react-router-dom'
 
 
+
 class UserContainer extends React.Component {
 
+    
     componentDidMount(){
+        this.props.fetchUsers()
+    }
+
+    userCourseCompleter = () => {
+        console.log("in userCourseCompleter")
         this.props.fetchUsers()
     }
 
@@ -23,7 +30,7 @@ class UserContainer extends React.Component {
                 <Route path='/users/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
-                    return <User foundUser={foundUser} />
+                    return <User userCourseCompleter={this.userCourseCompleter} foundUser={foundUser} />
                 }}/>
                 <Route path="/users" render={() => {
 
