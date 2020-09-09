@@ -132,3 +132,390 @@ margin-left: 180px;
   padding: 20px; */
   line-height: 36px;
 }
+
+/* Individual User, Business and Course CSS */
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400|Lato:400,300|Coda|Open+Sans);
+
+/* 
+* Art by @jofpin 
+* 2014
+*/
+body {
+  background: white;
+  font-family: "Open sans", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+.content-profile-page {
+  margin: 1em auto;
+  width: 44.23em;
+}
+
+.card {
+  background: #fff;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: .1em solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 1em; 
+}
+
+.profile-user-page .img-user-profile {
+	margin: 0 auto;
+  text-align: center; 
+  display: inline;
+}
+.profile-user-page .img-user-profile .profile-bgHome {
+	border-bottom: .2em solid #f5f5f5;
+  width: 44.23em;
+  height: 16em;
+  }
+.profile-user-page .img-user-profile .avatar {
+	margin: 0 auto;
+  background: #fff;
+  width: 7em;
+  height: 7em;
+  padding: 0.25em;
+  border-radius: .4em;
+  margin-top: -10em;
+  box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
+}
+.profile-user-page button {
+  margin-left: 250px;
+  margin-top: -3em;
+	position: absolute;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 7em; 
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  outline: none;
+  border-radius: 0 .6em .6em 0;
+  padding: .45em;
+}
+
+.profile-user-page button:hover {
+  background: #51a7e0;
+  transition: background .2s ease-in-out;
+  border: 1px solid #2487c9;
+}
+.profile-user-page .user-profile-data, .profile-user-page .description-profile {
+  text-align: center;
+  padding: 0 1.5em; 
+}
+.profile-user-page .user-profile-data h1 {
+  font-family: "Lato", sans-serif;
+  margin-top: 0.35em;
+  line-height: 30px;
+  color: #292f33;
+  margin-bottom: 0; 
+}
+.profile-user-page .user-profile-data p {
+	font-family: "Lato", sans-serif;
+  color: #8899a6; 
+  font-size: 1.1em;
+  line-height: 50px;
+  margin-top: 0;
+  margin-bottom: 0.5em; 
+}
+.profile-user-page .description-profile {
+  color: #75787b;
+  line-height: 20px;
+  font-size: 0.98em; 
+}
+.profile-user-page .data-user {
+	font-family: "Quicksand", sans-serif;
+  margin-bottom: 0;
+  cursor: pointer;
+  padding: 0;
+  list-style: none;
+  display: table;
+  width: 100.15%; 
+}
+.profile-user-page .data-user li {
+  margin: 0;
+  padding: 0;
+  width: 33.33334%;
+  display: table-cell;
+  text-align: center;
+  border-left: 0.1em solid transparent; 
+}
+.profile-user-page .data-user li:first-child {
+  border-left: 0; 
+}
+.profile-user-page .data-user li:first-child a {
+  border-bottom-left-radius: 0.3rem; 
+  }
+.profile-user-page .data-user li:last-child a {
+  border-bottom-right-radius: 0.3rem; 
+}
+.profile-user-page .data-user li a, .profile-user-page .data-user li strong {
+  display: block; 
+}
+.profile-user-page .data-user li a {
+  background-color: #f7f7f7;
+  border-top: 1px solid rgba(242,242,242,0.5);
+  border-bottom: .2em solid #f7f7f7;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4),0 1px 1px rgba(255,255,255,0.4);
+  padding: .93em 0;
+  color: #46494c; 
+}
+.profile-user-page .data-user li a strong, .profile-user-page .data-user li a span {
+  font-weight: 600;
+  line-height: 1; 
+}
+.profile-user-page .data-user li a strong {
+  font-size: 2em; 
+}
+.profile-user-page .data-user li a span {
+  color: #717a7e; 
+}
+.profile-user-page .data-user li a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: .2em solid #3498db;
+  color: #3498db; 
+}
+.profile-user-page .data-user li a:hover span {
+  color: #3498db; 
+}
+
+footer h4 {
+  display: block;
+  text-align: center;
+  clear: both;
+  font-family: "Coda", sans-serif;
+  color: #566965;
+  line-height: 6;
+  font-size: 1em;
+}
+footer h4 a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+/* Business Index CSS */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+.snip1336 {
+  display: inline-block;
+  font-family: 'Roboto', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 190px;
+  max-width: 215px;
+  width: 100%;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: #141414;
+}
+.snip1336 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1336 img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.snip1336 figcaption {
+  width: 100%;
+  background-color: #141414;
+  padding: 25px;
+  position: relative;
+}
+.snip1336 figcaption:before {
+  position: absolute;
+  content: '';
+  bottom: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 55px 0 0 400px;
+  border-color: transparent transparent transparent #141414;
+}
+.snip1336 figcaption a {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.snip1336 figcaption a:hover {
+  opacity: 1;
+}
+.snip1336 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 25px;
+  z-index: 1;
+  max-width: 90px;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.snip1336 .follow {
+  margin-right: 4%;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+.snip1336 h2 {
+  margin: 0 0 5px;
+  font-weight: 300;
+  color:  rgb(255, 255, 255);
+}
+.snip1336 h2 span {
+  display: block;
+  font-size: 0.5em;
+  color: rgb(64, 208, 224);
+}
+.snip1336 p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  color: rgb(64, 208, 224)
+}
+
+#columns {
+  column-width: 200px;
+  column-gap: 20px;
+  width: 70%;
+  margin-left: 315px;
+}
+
+.snip1336courses img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+
+/* Course index CSS */
+
+#columnscourses {
+  column-width: 200px;
+  column-gap: 20px;
+  width: 70%;
+  margin-left: 200px;
+}
+
+#columnshome {
+  
+}
+
+.snip1336two {
+  display: inline-block;
+  font-family: 'Roboto', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 190px;
+  max-width: 215px;
+  width: 100%;
+  color: #ffffff;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: #141414;
+}
+.snip1336two * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1336two img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.snip1336two figcaption {
+  width: 100%;
+  background-color: #141414;
+  padding: 25px;
+  position: relative;
+}
+.snip1336two figcaption:before {
+  position: absolute;
+  content: '';
+  bottom: 85%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 55px 0 0 400px;
+  border-color: transparent transparent transparent #141414;
+}
+.snip1336two figcaption a {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.snip1336two figcaption a:hover {
+  opacity: 1;
+}
+.snip1336two .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 84%;
+  left: 25px;
+  z-index: 1;
+  max-width: 90px;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.snip1336two .follow {
+  margin-right: 4%;
+  border-color: #2980b9;
+  color: #2980b9;
+}
+.snip1336two h2 {
+  margin: 0 0 5px;
+  font-weight: 300;
+  color:  rgb(255, 255, 255);
+}
+.snip1336two h2 span {
+  display: block;
+  font-size: 0.5em;
+  color: rgb(64, 208, 224);
+}
+.snip1336two p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  color: rgb(64, 208, 224)
+}
+
+.snip1336coursestwo img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}

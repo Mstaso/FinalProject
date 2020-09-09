@@ -32,13 +32,15 @@ class UserCourse extends React.Component {
         <NavLink to={`/courses/${this.props.usercourse.course_id}`}>
         <h4>{this.props.usercourse.name}</h4>
         </NavLink>
-        <button onClick={this.completeUserCourse}>Complete Course</button>
+        <button class="profile-user-page" onClick={this.completeUserCourse}>Complete</button>
+        <br></br>
         </div>
 
         :
         <div>
         <NavLink to={`/courses/${this.props.usercourse.course_id}`}>
         <h4>{this.props.usercourse.name}</h4>
+        <br></br>
         </NavLink>
         </div>
 

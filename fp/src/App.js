@@ -4,18 +4,20 @@ import './App.css';
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
+import Login from './components/Login'
+import UserTemplateContainer from './containers/UserTemplateContainer'
 import CourseContainer from './containers/CourseContainer';
 import BusinessContainer from './containers/BusinessContainer';
 import UserContainer from './containers/UserContainer';
+import { connect } from 'react-redux'
+import { getCourses } from './redux/actions'
 
 class App extends React.Component {
 
-  fetchBusinesses = () => {
-    const url = "http://localhost:3000/api/v1/businesses"
-    fetch(url)
-    .then(resp => resp.json())
-    .then(data => this.setState({businesses: data}))
-  }
+
+componentDidMount(){
+  this.props.fetchCourses()
+}
 
   render() {
     return (
@@ -23,9 +25,11 @@ class App extends React.Component {
         <Navbar />
         <Switch>
         <Route path="/signup" render={() => <SignUp />} />
+        <Route path="/login" render={() => <Login />} />
         <Route path="/home" render={() => <Home />} />
         <Route path="/courses" render={() => <CourseContainer/>} />
         <Route path="/businesses" render={() => <BusinessContainer />} />
+        <Route path="/template" render={() => <UserTemplateContainer courses={this.props.courses} />} />
         <Route path="/users" render={() => <UserContainer />} />
         </Switch>
       </div>
@@ -33,5 +37,12 @@ class App extends React.Component {
   }
   
 }
+const mapStateToProps = (state) => {
+  return {courses: state.courses}
+  }
+const mapDispatchToProps = (dispatch) => {
+  return { fetchCourses: ()=> dispatch(getCourses())}
+} 
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

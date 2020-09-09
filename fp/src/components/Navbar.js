@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import Search from './Search'
 
 const link = {
@@ -14,10 +14,11 @@ const link = {
   const logo = require('../logo.png')  
 
 class Navbar extends React.Component {
+
     render() {
       return (
         <div className="header">
-          <h1 class="logo"><img id="logo" src={logo}/> </h1>
+          <h1 class="logo"><a href="#"><NavLink to="/home"><img id="logo" src={logo}/></NavLink></a></h1>
           <Search/>
           <ul className="main-nav" >
           <li className="coursesnav"> <a href="#"><NavLink to="/courses" exact>Courses</NavLink></a></li>
@@ -28,4 +29,4 @@ class Navbar extends React.Component {
       )
     }
 }
-export default Navbar;  
+export default withRouter(Navbar);  

@@ -26,6 +26,7 @@ class CourseContainer extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             this.props.fetchCourses()
         })
     }
@@ -52,9 +53,9 @@ class CourseContainer extends React.Component {
                         <>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
-                                <>
+                                <div id="columnscourses">
                                 {courses}
-                                </>
+                                </div>
                             }
                         
                         
@@ -67,9 +68,9 @@ class CourseContainer extends React.Component {
                         <>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
-                                <>
-                                {courses.splice(0,9)}
-                                </>
+                                <div id="columnscourses">
+                                {courses.splice(0,12)}
+                                </div>
                             }
                         
                         

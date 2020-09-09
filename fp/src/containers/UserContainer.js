@@ -20,7 +20,7 @@ class UserContainer extends React.Component {
 
     render(){
         let users = this.props.users.map(user => <User key={user.id} user={user}/>)
-
+    
         return (
             <>
             {this.props.users.length === 0 ? <h1>Loading</h1>: 

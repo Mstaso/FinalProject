@@ -6,12 +6,16 @@ class Home extends React.Component {
 
     render(){
         return(
-            <div> 
-                <h2>Top Courses</h2>    
-                <CourseContainer courses={this.props.courses}/>
-                <h2>New Businesses</h2>   
+            <div >
+            <h2>New Businesses</h2>
+            <div id="columns" > 
                 <BusinessContainer businesses={this.props.businesses}/>
-            </div>     
+            </div> 
+            <h2>Top Courses</h2>    
+            <div id="columnshome">   
+                <CourseContainer courses={this.props.courses}/>
+            </div>    
+            </div> 
         )
     }
 }

@@ -10,6 +10,10 @@ class BusinessContainer extends React.Component {
         this.props.fetchBusinesses()
     }
 
+    businessFetcher = () => {
+        this.props.fetchBusinesses()
+    }
+
     render(){
         let businesses = this.props.businesses.map(business => <Business key={business.id} business={business}/>)
         return (
@@ -21,7 +25,7 @@ class BusinessContainer extends React.Component {
                 <Route path='/businesses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundBusiness = this.props.businesses.find((business)=> business.id === id)
-                    return <Business foundBusiness={foundBusiness}/>
+                    return <Business businessFetcher={this.businessFetcher} foundBusiness={foundBusiness}/>
                 }}/>
                 <Route path="/businesses" render={() => {
 
@@ -29,9 +33,9 @@ class BusinessContainer extends React.Component {
                         <>
                             {
                                 this.props.businesses.length === 0 ? <h1>Loading</h1> :
-                                <>
+                                <div id="columns">
                                 {businesses}
-                                </>
+                                </div>
                             }
                         
                         
