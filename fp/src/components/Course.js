@@ -6,6 +6,7 @@ import Comment from './Comment'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
 import { addUC } from '../redux/actions'
+import { userSignUp } from '../redux/actions'
 
 
 class Course extends React.Component {
@@ -79,6 +80,8 @@ class Course extends React.Component {
         .then(data => 
             {console.log(data) 
             this.props.patchUC(data)})
+            this.props.userAdder()
+            
     }
     
 
@@ -100,7 +103,6 @@ class Course extends React.Component {
         // .then(data => this.props.fetchUsercourses())
         .then(data => {
             this.props.patchUC(data)
-            this.props.newUserHandler()
         })
 
         // console.log(this.props.usercourses)
@@ -146,11 +148,6 @@ class Course extends React.Component {
                         </figcaption>
                         </figure>
                 </div> 
-                {/* <div>
-                <br></br>
-                <h3>{this.props.course.name}</h3>
-                <img src={this.props.course.image} alt={this.props.course.name}width="150" height="150"></img>
-                 </div> */}
             </NavLink> 
             
             :
@@ -204,45 +201,13 @@ class Course extends React.Component {
                     </div>
                     </div>
                         
-                {/* <footer>
-                <h4>Design by <a href="https://twitter.com/jofpin" target="_blank" title="José Pino">@jofpin</a></h4>
-                </footer> */}
             <div/>    
             <div/>
             </div>
-            // <div>
-            // <h1>{this.props.foundCourse.name}</h1>
-            // <img src={this.props.foundCourse.image} alt={this.props.foundCourse.name} width="300" height="300"></img>
-            // <h3>Type: {this.props.foundCourse.category}</h3>
-            // <button onClick={this.enroll}> Enroll </button>
-            // <p className='description'>{this.props.foundCourse.description}</p>
-            // <form id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
-            //     <fieldset id="commentFieldset">
-            //     <div class="form_grp">
-            //     <textarea id="userCmnt" placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.changeHandler}></textarea>        
-            //     </div>
-            //     <div class="form_grp">
-            //     <button type="submit">Add Comment</button>
-            //     </div>
-            //     </fieldset>
-            // </form>
-            // <div>{comments}</div>
-            // <h5>Businesses that use this course</h5>
-            // <ul>
-            // <li>{courseBusinesses}</li>  
-            // </ul>
-            // <h5>Users who have taken this course</h5>
-            // <ul>
-            // <li>{users}</li>  
-            // </ul>
-            // </div>
         )
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return { postUser: (userObj) => dispatch(userSignUp(userObj)) }
-//   } 
 const mapStateToProps = (state) => {
     return {
         loggedInUser: state.loggedInUser,
@@ -253,7 +218,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
         fetchUsercourses: ()=> dispatch(getUsercourses()),
-        patchUC: (ucObj) => dispatch(addUC(ucObj))
+        patchUC: (ucObj) => dispatch(addUC(ucObj)),
+        postUser: (userObj) => dispatch(userSignUp(userObj))
     }
         
     }     

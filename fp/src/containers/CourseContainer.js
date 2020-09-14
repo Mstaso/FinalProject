@@ -30,6 +30,11 @@ class CourseContainer extends React.Component {
             this.props.fetchCourses()
         })
     }
+
+    userAdder = () => {
+        console.log("lets go")
+        this.props.fetchCourses()
+    }
     
     render(){
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
@@ -45,12 +50,18 @@ class CourseContainer extends React.Component {
                 <Route path='/courses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundCourse = this.props.courses.find((course)=> course.id === id)
-                    return <Course commentCreater={this.commentCreater} foundCourse={foundCourse} />
+                    return <Course commentCreater={this.commentCreater} foundCourse={foundCourse} userAdder={this.userAdder} />
                 }}/>
                 <Route path="/courses" render={() => {
 
                     return (
                         <>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>  
+                        <br></br>
+                        <br></br>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
                                 <div id="columnscourses">

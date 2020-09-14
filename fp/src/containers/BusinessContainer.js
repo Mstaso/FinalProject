@@ -31,7 +31,14 @@ class BusinessContainer extends React.Component {
 
                     return (
                         <>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>  
+                        <br></br>
+                        <br></br>
                             {
+                                
                                 this.props.businesses.length === 0 ? <h1>Loading</h1> :
                                 <div id="columns">
                                 {businesses}

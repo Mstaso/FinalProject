@@ -47,6 +47,22 @@ class UserContainer extends React.Component {
                         </>
                     )
                 }} />
+                <Route path="/home" render={() => {
+
+                    return (
+                        <div class="user-float">
+                            <h3>User Connections</h3>
+                            {
+                                this.props.users.length === 0 ? <h1>Loading</h1> :
+                                <>
+                                {users}
+                                </>
+                            }
+                        
+                        
+                        </div>
+                    )
+                }} />
             </Switch>       
             </>
             

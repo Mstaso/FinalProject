@@ -136,7 +136,9 @@ class Business extends React.Component {
                     {this.state.courseisHidden ? <h1></h1> : <div>
                     <h2>Courses</h2>
                     <br></br>
+                    {/* <div id="columnscourses"> */}
                     {courses}
+                    {/* </div> */}
                     </div>   }
                     {this.state.matchisHiddin ? <h1></h1> : <div> 
                         <h2>User Matches</h2>

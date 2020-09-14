@@ -40,8 +40,47 @@ margin-left: 180px;
 
 }
 
+/* User Float Container CSS */
+.user-float {
+  width: 260px;
+  height: 350px;
+  float:right;
+  margin-top: 75px;
+  margin-left: 10px;
+  margin-right: 100px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: rgb(187, 189, 192);
+  background-color: whitesmoke;
+}
 
+.profsmall{
+  max-width: 12%;
+  max-height: 20%;
+  border-radius: 75px;
+  margin-right: 200px;
+  margin-top: -30px;
+}
+.userfloatname{
+  margin-right: -30px;
+  margin-bottom: -0px;
+  font-size: 16px;
+  color: #2487c9;
+}
 
+.divider{
+  width: 1400px;
+  position: relative;
+  min-height: 100px;
+  background-color: #34495e;
+}
+
+.divider h2{
+  position: absolute;
+  bottom: 25px;
+  right: 650px;
+  color: white
+}
 /* Navbar Css */
 * {
   box-sizing: border-box;
@@ -51,6 +90,7 @@ margin-left: 180px;
   line-height: .5;
   margin: 0;
   min-height: 100vh;
+  
   }
   ul {
   margin: 0;
@@ -88,17 +128,21 @@ margin-left: 180px;
   font-size: .9em;
   }
 
-  
   .coursesnav {
     margin-top:   -20px;
+    margin-right: 75px;
   }
   .businessnav {
     margin-top:   -8px;
-    margin-right: -250px;
+    margin-right: -165px;
+  }
+  .profilenav {
+    margin-top:   -8px;
+    margin-right: -400px;
   }
   .login {
     margin-top:   -8px;
-    margin-right: -540px;
+    margin-right: -650px;
   }
   .main-nav a:hover {
   color:rgb(64, 208, 224);
@@ -106,7 +150,7 @@ margin-left: 180px;
   .header {
   /* padding-top: 0em;
   padding-bottom: -35em; */
-  height: 100px;
+  height: 90px;
   border: 1px solid #a2a2a2;
   background-color: #525151;
   -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
@@ -123,6 +167,7 @@ margin-left: 180px;
   margin-top: -40px;
   margin-left: -70%;
   }
+
 /* end navbar css */
 
 /* Description CSS */
@@ -140,10 +185,14 @@ margin-left: 180px;
 * Art by @jofpin 
 * 2014
 */
+
+
 body {
   background: white;
   font-family: "Open sans", sans-serif;
+ 
 }
+
 a {
   text-decoration: none;
   color: #3498db;
@@ -304,9 +353,11 @@ footer h4 a {
   position: relative;
   overflow: hidden;
   margin: 10px;
-  min-width: 190px;
-  max-width: 215px;
-  width: 100%;
+  width: 200px;
+  height: 200px;
+  /* min-width: 190px;
+  max-width: 215px; */
+  /* width: 100%; */
   color: #ffffff;
   text-align: left;
   line-height: 1.4em;
@@ -362,7 +413,7 @@ footer h4 a {
 .snip1336 .profile {
   border-radius: 50%;
   position: absolute;
-  bottom: 100%;
+  bottom: 90%;
   left: 25px;
   z-index: 1;
   max-width: 90px;
@@ -393,10 +444,10 @@ footer h4 a {
 }
 
 #columns {
-  column-width: 200px;
+  column-width: 205px;
   column-gap: 20px;
-  width: 70%;
-  margin-left: 315px;
+  width: 55%;
+  margin-left: 100px;
 }
 
 .snip1336courses img {
@@ -415,19 +466,17 @@ footer h4 a {
   margin-left: 200px;
 }
 
-#columnshome {
-  
-}
-
 .snip1336two {
   display: inline-block;
   font-family: 'Roboto', Arial, sans-serif;
   position: relative;
   overflow: hidden;
   margin: 10px;
-  min-width: 190px;
+  width: 200px;
+  height: 200px;
+  /* min-width: 190px;
   max-width: 215px;
-  width: 100%;
+  width: 100%; */
   color: #ffffff;
   text-align: left;
   line-height: 1.4em;
@@ -519,3 +568,38 @@ footer h4 a {
   vertical-align: top;
   opacity: 0.85;
 }
+
+/* Login CSS */
+.loader span {
+  width: 128px;
+  height: 128px;
+    /* margin: -280px 40px 54px  -34px; */
+  
+}
+
+.background-login {
+  /* OG https://cdn.pixabay.com/photo/2020/09/06/17/52/island-5549660_960_720.jpg */
+  /* https://cdn.pixabay.com/photo/2020/09/03/15/37/waterscape-5541692_1280.jpg */
+  background-image: url("https://cdn.pixabay.com/photo/2020/09/03/15/37/waterscape-5541692_1280.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.loginButton {
+  margin-left: -45px;
+  margin-top: 1em;
+	position: absolute;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 7em; 
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  outline: none;
+  border-radius: 0 .6em .6em 0;
+  padding: .45em;
+}
+

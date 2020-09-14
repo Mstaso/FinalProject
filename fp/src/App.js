@@ -15,9 +15,9 @@ import { getCourses } from './redux/actions'
 class App extends React.Component {
 
 
-componentDidMount(){
-  this.props.fetchCourses()
-}
+// componentDidMount(){
+//   this.props.fetchCourses()
+// }
 
   render() {
     return (
@@ -29,7 +29,7 @@ componentDidMount(){
         <Route path="/home" render={() => <Home />} />
         <Route path="/courses" render={() => <CourseContainer/>} />
         <Route path="/businesses" render={() => <BusinessContainer />} />
-        <Route path="/template" render={() => <UserTemplateContainer courses={this.props.courses} />} />
+        {/* <Route path="/template" render={() => <UserTemplateContainer courses={this.props.courses} />} /> */}
         <Route path="/users" render={() => <UserContainer />} />
         </Switch>
       </div>
@@ -37,12 +37,13 @@ componentDidMount(){
   }
   
 }
-const mapStateToProps = (state) => {
-  return {courses: state.courses}
-  }
-const mapDispatchToProps = (dispatch) => {
-  return { fetchCourses: ()=> dispatch(getCourses())}
-} 
+// const mapStateToProps = (state) => {
+//   return {courses: state.courses}
+//   }
+// const mapDispatchToProps = (dispatch) => {
+//   return { fetchCourses: ()=> dispatch(getCourses())}
+// } 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
 

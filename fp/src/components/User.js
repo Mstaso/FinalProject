@@ -118,7 +118,9 @@ class User extends React.Component {
             <NavLink to={`/users/${this.props.user.id}`}>
                 <div>
                 <br></br>
-                <h3>{this.props.user.username}</h3>
+                <h3 class="userfloatname">{this.props.user.username}</h3>
+                <img class="profsmall" src={this.props.user.profile_image} alt={this.props.user.username}/>
+                <br></br>
                  </div>
             </NavLink> 
             
