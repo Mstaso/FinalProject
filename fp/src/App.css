@@ -68,19 +68,6 @@ margin-left: 180px;
   color: #2487c9;
 }
 
-.divider{
-  width: 1400px;
-  position: relative;
-  min-height: 100px;
-  background-color: #34495e;
-}
-
-.divider h2{
-  position: absolute;
-  bottom: 25px;
-  right: 650px;
-  color: white
-}
 /* Navbar Css */
 * {
   box-sizing: border-box;
@@ -344,13 +331,39 @@ footer h4 a {
   color: #3498db;
 }
 
+/* Home Banner CSS */
+
+.banner-div{
+  background-color: whitesmoke;
+  height: 290px;
+  width: 1280px;
+  
+}
+#banner {
+  width: 100%;
+  height: 100%;
+}
 /* Business Index CSS */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+
+.divider{
+  width: 1400px;
+  position: relative;
+  height: 40px;
+  background-color: #34495e;
+}
+
+.divider h2{
+  position: absolute;
+  bottom: -5px;
+  right: 650px;
+  color: white
+}
 
 #columns {
   column-width: 180px;
   column-gap: 6px;
- 
+  margin-left: -5px;
   width: 100%;
   /* column-width: 205px;
   column-gap: 20px;
@@ -390,19 +403,22 @@ footer h4 a {
 .business-card h2 {
   display: block;
   font-size: 1.2em;
-  line-height: 4.5;
+ 
   color: rgb(2, 2, 2);
-  margin-right: -55px;
-  margin-top: -85px;
-}
-
-.business-card p {
-  font-size: 0.8em;
-  opacity: 0.8;
-  color: rgb(64, 208, 224);
   margin-right: -55px;
   margin-top: -40px;
 }
+
+.business-card p {
+
+  font-size: 0.7em;
+  opacity: 0.8;
+  color: rgb(72, 72, 72);
+  margin-right: -60px;
+  /* line-height: 4.5; */
+  margin-top: 0px;
+}
+
 
 
 /* width: 260px;

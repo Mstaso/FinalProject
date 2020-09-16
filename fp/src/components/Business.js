@@ -103,8 +103,14 @@ class Business extends React.Component {
                 
                     <img src={this.props.business.logo} alt="profile-sample4" class="bus-logo"/>
                     <h2>{this.props.business.name}</h2>
-                    <p>{this.props.business.industry}</p>
-               
+                    <p>
+                        {this.props.business.industry}
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    Courses: {this.props.business.courses.length}
+                    </p>
+                    
                 </figure>
             </div>
             </NavLink>
@@ -119,8 +125,9 @@ class Business extends React.Component {
                         
                         <div class="user-profile-data">
                             <h1>{this.props.foundBusiness.name}</h1>
+                            <p>{this.props.foundBusiness.industry}</p>
                         </div> 
-                        <br></br>
+                      
                             <button onClick={this.matcher}> Match</button>
                         <br></br>
         <div class="description-profile"> <p>{this.props.foundBusiness.description}</p></div>
