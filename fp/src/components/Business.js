@@ -99,7 +99,7 @@ class Business extends React.Component {
             <NavLink to={`/businesses/${this.props.business.id}`} >
            <div>
             <figure class="business-card">
-                <img src={this.props.business.cover_photo} alt="sample87" class="bus-cover"/>
+                {/* <img src={this.props.business.cover_photo} alt="sample87" class="bus-cover"/> */}
                 
                     <img src={this.props.business.logo} alt="profile-sample4" class="bus-logo"/>
                     <h2>{this.props.business.name}</h2>
@@ -108,7 +108,7 @@ class Business extends React.Component {
                     <br></br>
                     <br></br>
                     <br></br>
-                    Courses: {this.props.business.courses.length}
+                    {/* Courses: {this.props.business.courses.length} */}
                     </p>
                     
                 </figure>
