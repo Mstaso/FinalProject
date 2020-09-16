@@ -186,7 +186,6 @@ margin-left: 180px;
 * 2014
 */
 
-
 body {
   background: white;
   font-family: "Open sans", sans-serif;
@@ -347,17 +346,87 @@ footer h4 a {
 
 /* Business Index CSS */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
-.snip1336 {
+
+#columns {
+  column-width: 180px;
+  column-gap: 6px;
+ 
+  width: 100%;
+  /* column-width: 205px;
+  column-gap: 20px;
+  margin-left: 50px;
+  width: 800px;
+  height: 150px;  
+  border-style: solid;
+  border-radius: 20px;
+  border-color: rgb(187, 189, 192); */
+} 
+
+.business-card {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  background-color: whitesmoke;
+}
+
+.bus-cover {
+  margin-top: 10px;
+  width: 180px;
+  height: 100px;
+  vertical-align: top;
+  opacity: 0.85;
+  border-radius: 5px;
+  
+}
+.bus-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 125px;
+  border-radius: 20px;
+  margin-top: 10px;
+  border-color: darkgray;
+}
+.business-card h2 {
+  display: block;
+  font-size: 1.2em;
+  line-height: 4.5;
+  color: rgb(2, 2, 2);
+  margin-right: -55px;
+  margin-top: -85px;
+}
+
+.business-card p {
+  font-size: 0.8em;
+  opacity: 0.8;
+  color: rgb(64, 208, 224);
+  margin-right: -55px;
+  margin-top: -40px;
+}
+
+
+/* width: 260px;
+height: 350px;
+float:right;
+margin-top: 75px;
+margin-left: 10px;
+margin-right: 100px;
+border-style: solid;
+border-radius: 20px;
+border-color: rgb(187, 189, 192);
+background-color: whitesmoke; */
+
+ /* .snip1336 {
   display: inline-block;
   font-family: 'Roboto', Arial, sans-serif;
   position: relative;
   overflow: hidden;
   margin: 10px;
   width: 200px;
-  height: 200px;
-  /* min-width: 190px;
-  max-width: 215px; */
-  /* width: 100%; */
+  height: 200px; 
+  min-width: 190px;
+  max-width: 215px; 
+  width: 100%;
   color: #ffffff;
   text-align: left;
   line-height: 1.4em;
@@ -455,7 +524,7 @@ footer h4 a {
   max-height: 100%;
   vertical-align: top;
   opacity: 0.85;
-}
+} */
 
 /* Course index CSS */
 
@@ -474,9 +543,6 @@ footer h4 a {
   margin: 10px;
   width: 200px;
   height: 200px;
-  /* min-width: 190px;
-  max-width: 215px;
-  width: 100%; */
   color: #ffffff;
   text-align: left;
   line-height: 1.4em;
