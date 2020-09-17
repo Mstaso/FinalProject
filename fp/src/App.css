@@ -343,7 +343,7 @@ footer h4 a {
  height: 100%; 
 }
 .banner-info {
-margin-top: -150px;
+margin-top: -190px;
 }
 
 .banner-info button {
@@ -369,6 +369,32 @@ margin-top: -150px;
   margin-left: 50px;
   background-color: lightblue;
 }
+
+.home-courses h3 {
+ margin-right: -1010px;
+}
+.home-courses p {
+  position: relative;
+  right: -675px;
+  width: 500px;
+  line-height: 1.75;
+  text-align: left;
+ }
+ .home-courses button {
+  position: relative;
+  right: -475px;
+  line-height: 1.75;
+  text-align: left;
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  outline: none;
+  border-radius: 0 .6em .6em 0;
+  padding: .45em;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+ }
 
 .homebanner1 {
   width: 500px;

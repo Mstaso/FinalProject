@@ -18,9 +18,16 @@ class Home extends React.Component {
                 <h3>Match With Your Next Employer</h3> 
                 <br></br>
                 <p>Find and land job openings by taking courses that businesses find integral</p>
+                <br></br>
                 <button>Sign Up</button>
                </div>
                 </div> 
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -31,10 +38,17 @@ class Home extends React.Component {
             </div>
             <br></br>
             <br></br>
+            <br></br>
+            <br></br>
             <div id="columns" > 
                 <BusinessContainer />
             </div>
             <div class="home-courses">
+            <h3>Computer Science</h3> 
+            <br></br>
+            <p>Those studying computer science may end up taking a similarly broad range of career pathways. Many CS majors focus on building skills in software programming, coding, and web development, all of which are highly sought after by a wide variety of companies. However, others may focus on more specialized topics such as algorithmic problem solving, machine learning and artificial intelligence, cybersecurity, and even robotics!</p>
+            <br></br>
+            <button>View Courses</button>
             </div>
             <img class="homebanner1" src={homebanner1}></img>
             <br></br>
