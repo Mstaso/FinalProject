@@ -371,7 +371,7 @@ margin-top: -190px;
 }
 
 .home-courses h3 {
- margin-right: -1010px;
+ margin-right: -1080px;
 }
 .home-courses p {
   position: relative;
@@ -399,9 +399,52 @@ margin-top: -190px;
 .homebanner1 {
   width: 500px;
   height: 250px;
-  margin-left: -500px;
+  margin-left: -550px;
   border-radius: 10px;
   margin-top: -200px;
+}
+
+.home-courses-2 {
+  margin-top: 120px;
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
+  margin-left: 720px;
+  background-color: rgba(100, 173, 170, 0.644)
+}
+
+.home-courses-2 h3 {
+  margin-left: -1600px;
+}
+.home-courses-2 p {
+  position: relative;
+  text-align: left;
+  left: -625px;
+  width: 500px;
+  line-height: 1.75;
+}
+
+.home-courses-2 img {
+  width: 500px;
+  height: 250px;
+  margin-left: -225px;
+  border-radius: 10px;
+  margin-top: -300px;
+}
+
+.home-courses-2 button {
+  position: relative;
+  right: 690px;
+  line-height: 1.75;
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  outline: none;
+  border-radius: 0 .6em .6em 0;
+  padding: .45em;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
 }
 /* Business Index CSS */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
@@ -623,7 +666,7 @@ background-color: whitesmoke; */
   color: #ffffff;
   text-align: left;
   line-height: 1.4em;
-  background-color: #141414;
+  /* background-color: #141414; */
 }
 .snip1336two * {
   -webkit-box-sizing: border-box;
@@ -639,7 +682,7 @@ background-color: whitesmoke; */
 }
 .snip1336two figcaption {
   width: 100%;
-  background-color: #141414;
+  background-color: whitesmoke;
   padding: 25px;
   position: relative;
 }
@@ -652,7 +695,7 @@ background-color: whitesmoke; */
   height: 0;
   border-style: solid;
   border-width: 55px 0 0 400px;
-  border-color: transparent transparent transparent #141414;
+  border-color: transparent transparent transparent whitesmoke;
 }
 .snip1336two figcaption a {
   padding: 5px;
@@ -690,19 +733,15 @@ background-color: whitesmoke; */
 .snip1336two h2 {
   margin: 0 0 5px;
   font-weight: 300;
-  color:  rgb(255, 255, 255);
+  color:  rgb(0, 0, 0);
 }
-.snip1336two h2 span {
-  display: block;
-  font-size: 0.5em;
-  color: rgb(64, 208, 224);
-}
+
 .snip1336two p {
   margin: 0 0 10px;
   font-size: 0.8em;
   letter-spacing: 1px;
   opacity: 0.8;
-  color: rgb(64, 208, 224)
+  color: rgb(72, 78, 79)
 }
 
 .snip1336coursestwo img {
@@ -716,6 +755,7 @@ background-color: whitesmoke; */
 .loader span {
   width: 128px;
   height: 128px;
+  border-radius: 10px;
     /* margin: -280px 40px 54px  -34px; */
   
 }
@@ -728,6 +768,7 @@ background-color: whitesmoke; */
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  
 }
 
 .loginButton {
@@ -744,5 +785,11 @@ background-color: whitesmoke; */
   outline: none;
   border-radius: 0 .6em .6em 0;
   padding: .45em;
+}
+
+.information-container input {
+  border-radius: 20px;
+  border-style: hidden;
+  width: 200px;
 }
 
