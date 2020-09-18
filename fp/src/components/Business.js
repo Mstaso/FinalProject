@@ -47,14 +47,14 @@ class Business extends React.Component {
     }
     matcher = () => {
         let LoggedinUserCompletedUCs = this.props.usercourses.filter(usercourse => usercourse.user_id == this.props.loggedInUser.id && usercourse.complete == true)
-        console.log(LoggedinUserCompletedUCs)
+        // console.log(LoggedinUserCompletedUCs)
         let businessCourseIds = []
         this.props.foundBusiness.courses.map(course => businessCourseIds.push(course.id))
-        console.log(businessCourseIds)
+        // console.log(businessCourseIds)
         let matchedCourses = LoggedinUserCompletedUCs.filter(usercourse => businessCourseIds.includes(usercourse.course_id))
-        console.log(matchedCourses)
+        // console.log(matchedCourses)
         let percentageMatch = matchedCourses.length / businessCourseIds.length
-        console.log(parseFloat(percentageMatch * 100)+"%")
+        // console.log(parseFloat(percentageMatch * 100)+"%")
         if (percentageMatch !== 0){
             let matchObj = {
                 user_id: this.props.loggedInUser.id,
@@ -67,31 +67,6 @@ class Business extends React.Component {
         }
 
     }
-    // createMatch = (percentageMatch) => {
-    //     console.log(this.props, percentageMatch)
-    //         fetch('http://localhost:3000/api/v1/matches', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //              'accepts': 'application/json',
-    //           },
-    //         body: JSON.stringify({ match: {
-    //             user_id: this.props.loggedInUser.id,
-    //             business_id: this.props.foundBusiness.id,
-    //             user_name: this.props.loggedInUser.username,
-    //             business_name: this.props.foundBusiness.name,
-    //             match_percentage: percentageMatch * 100
-    //         }})
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         this.props.businessFetcher()
-    //     })
-         
-        
-         
-    // }
 
     renderMatches = () => {
         let usermatches = []
