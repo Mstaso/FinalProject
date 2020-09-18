@@ -42,7 +42,6 @@ export const getUsercourses = () => {
 export const addUC = (ucObj) => ({type: "addUC", payload: ucObj})
 
 export const createUserCourse = (ucObj) => {
-    console.log(ucObj)
     return (dispatch) => fetch("http://localhost:3000/api/v1/user_courses", {
         method: 'POST',
         headers: {
@@ -84,3 +83,24 @@ export const searchAction = (searchValue) => ({type: "search", payload: searchVa
 //        dispatch({ type: "userSignUp"})
 //     }  
 // }
+
+
+// Comments Actions
+
+export const postComment = (commentObj) => {
+   return (dispatch) => fetch('http://localhost:3000/api/v1/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+             'accepts': 'application/json',
+          },
+        body: JSON.stringify({ comment: commentObj})
+    })
+    .then(response => response.json())
+    .then(data => {
+       if (data.status !== 401) {
+        dispatch(getCourses())
+       }
+    })
+}
+

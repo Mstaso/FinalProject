@@ -8,6 +8,7 @@ import { getUsercourses } from '../redux/actions'
 import { createUserCourse } from '../redux/actions'
 import { addUC } from '../redux/actions'
 import { userSignUp } from '../redux/actions'
+import { postComment } from '../redux/actions'
 
 
 class Course extends React.Component {
@@ -56,8 +57,13 @@ class Course extends React.Component {
 
    commentHandler = (e) => {
        e.preventDefault()
-       let foundcourse_id = e.target.id
-        this.props.commentCreater(this.state.content, foundcourse_id)
+       let commentObj = {
+        content: this.state.content,
+        user_id: this.props.loggedInUser.id,
+        course_id: this.props.foundCourse.id
+       }
+        this.props.commentCreater(commentObj)
+        this.setState({content: ''})
    } 
 
     // componentDidMount(){
@@ -211,7 +217,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchUsercourses: ()=> dispatch(getUsercourses()),
         patchUC: (ucObj) => dispatch(addUC(ucObj)),
         postUser: (userObj) => dispatch(userSignUp(userObj)),
-        handleUserCourse: (ucObj) => dispatch(createUserCourse(ucObj))
+        handleUserCourse: (ucObj) => dispatch(createUserCourse(ucObj)),
+        commentCreater: (commentObj) => dispatch(postComment(commentObj))
     }
         
     }     
