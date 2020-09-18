@@ -5,6 +5,7 @@ import User from './User'
 import Comment from './Comment'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
+import { createUserCourse } from '../redux/actions'
 import { addUC } from '../redux/actions'
 import { userSignUp } from '../redux/actions'
 
@@ -63,24 +64,14 @@ class Course extends React.Component {
     //     // this.props.fetchUsercourses()
     // }
     enroll = () => {
-        fetch("http://localhost:3000/api/v1/user_courses", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                 'accepts': 'application/json',
-              },
-            body: JSON.stringify({ usercourse: {
-                user_id: this.props.loggedInUser.id,
-                course_id: this.props.foundCourse.id,
-                complete: false,
-                name: this.props.foundCourse.name 
-            }})
-        })
-        .then(response => response.json())
-        .then(data => 
-            {console.log(data) 
-            this.props.patchUC(data)})
-            this.props.userAdder()
+        console.log(this.props)
+        let ucObj = {
+            user_id: this.props.loggedInUser.id,
+            course_id: this.props.foundCourse.id,
+            complete: false,
+            name: this.props.foundCourse.name 
+        }
+        this.props.handleUserCourse(ucObj)
             
     }
     
@@ -219,7 +210,8 @@ const mapDispatchToProps = (dispatch) => {
     return { 
         fetchUsercourses: ()=> dispatch(getUsercourses()),
         patchUC: (ucObj) => dispatch(addUC(ucObj)),
-        postUser: (userObj) => dispatch(userSignUp(userObj))
+        postUser: (userObj) => dispatch(userSignUp(userObj)),
+        handleUserCourse: (ucObj) => dispatch(createUserCourse(ucObj))
     }
         
     }     

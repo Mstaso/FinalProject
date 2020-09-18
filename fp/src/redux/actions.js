@@ -41,6 +41,23 @@ export const getUsercourses = () => {
 
 export const addUC = (ucObj) => ({type: "addUC", payload: ucObj})
 
+export const createUserCourse = (ucObj) => {
+    console.log(ucObj)
+    return (dispatch) => fetch("http://localhost:3000/api/v1/user_courses", {
+        method: 'POST',
+        headers: {
+            'accepts': 'application/json',
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({usercourse: ucObj})
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        if (data.status !== 401) {
+            dispatch(getCourses())
+        }
+    })
+}
 
 // match actions
 export const getMatches = () => {

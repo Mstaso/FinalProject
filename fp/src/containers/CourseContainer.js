@@ -31,10 +31,6 @@ class CourseContainer extends React.Component {
         })
     }
 
-    userAdder = () => {
-        console.log("lets go")
-        this.props.fetchCourses()
-    }
     
     render(){
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)

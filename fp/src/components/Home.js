@@ -19,7 +19,9 @@ class Home extends React.Component {
                <div className="banner-info">
                 <h3>Match With Your Next Employer</h3> 
                 <br></br>
-                <p>Find and land job openings by taking courses that businesses find integral</p>
+                <p>
+                    Find and land a new job by taking courses relevant to up and coming businesses
+                </p>
                 <br></br>
                 <button>Sign Up</button>
                </div>
@@ -33,8 +35,20 @@ class Home extends React.Component {
                 <br></br>
                 <br></br>
                 <br></br>
+                <br></br>  
+     
             <div class="divider">
             <h3>Featured Businesses</h3>
+            <br></br>  
+            <br></br> 
+            <br></br>
+            <br></br>
+            <br></br>  
+            <br></br> 
+            <br></br>
+            <br></br>
+            <br></br>  
+            <br></br> 
             <br></br>
             <br></br>
             </div>

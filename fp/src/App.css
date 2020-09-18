@@ -365,6 +365,8 @@ margin-top: -190px;
 .home-courses {
   width: 500px;
   height: 250px;
+  position: relative;
+  margin-top: -50px;
   border-radius: 10px;
   margin-left: 50px;
   background-color: lightblue;
@@ -397,6 +399,7 @@ margin-top: -190px;
  }
 
 .homebanner1 {
+  position: relative;
   width: 500px;
   height: 250px;
   margin-left: -550px;
