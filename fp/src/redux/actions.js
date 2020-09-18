@@ -58,6 +58,26 @@ export const createUserCourse = (ucObj) => {
     })
 }
 
+export const userCoursePatcher = (ucId) => {
+    return (dispatch) => fetch(`http://localhost:3000/api/v1/user_courses/${ucId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                 'accepts': 'application/json',
+              },
+            body: JSON.stringify({ usercourse: {
+                complete: true
+            }})
+        })
+        .then(response => response.json())
+        // .then(data => this.props.fetchUsercourses())
+        .then(data => {
+            if (data.status !==401) {
+                dispatch(addUC(data))    
+            }
+        })
+}
+
 // match actions
 export const getMatches = () => {
     return function (dispatch) {

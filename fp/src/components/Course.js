@@ -9,6 +9,8 @@ import { createUserCourse } from '../redux/actions'
 import { addUC } from '../redux/actions'
 import { userSignUp } from '../redux/actions'
 import { postComment } from '../redux/actions'
+import { userCoursePatcher } from '../redux/actions'
+
 
 
 class Course extends React.Component {
@@ -83,30 +85,8 @@ class Course extends React.Component {
     
 
     completeCourse = (e) => {
-        // console.log(this.props.usercourse.id, this.props.loggedInUser, this.props.businesses)
-        e.target.innerText = "Course Complete"
         let userCourseToComplete = this.props.usercourses.find(usercourse => usercourse.course_id == this.props.takencourse.id && usercourse.user_id == this.props.loggedInUser.id)
-        fetch(`http://localhost:3000/api/v1/user_courses/${userCourseToComplete.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                 'accepts': 'application/json',
-              },
-            body: JSON.stringify({ usercourse: {
-                complete: true
-            }})
-        })
-        .then(response => response.json())
-        // .then(data => this.props.fetchUsercourses())
-        .then(data => {
-            this.props.patchUC(data)
-        })
-
-        // console.log(this.props.usercourses)
-        // checks if completed course is in list of businesses courses
-        // let checkCourses = this.props.businesses.map(business => business.courses.find(course => course.id == this.props.usercourse.id))
-        // let verifiedCourse = checkCourses.find(checkcourse => checkcourse !== undefined)   
-        // console.log(verifiedCourse)
+        this.props.userCoursePatcher(userCourseToComplete.id)
     }
 
     // filterCourses = () => {
@@ -218,7 +198,8 @@ const mapDispatchToProps = (dispatch) => {
         patchUC: (ucObj) => dispatch(addUC(ucObj)),
         postUser: (userObj) => dispatch(userSignUp(userObj)),
         handleUserCourse: (ucObj) => dispatch(createUserCourse(ucObj)),
-        commentCreater: (commentObj) => dispatch(postComment(commentObj))
+        commentCreater: (commentObj) => dispatch(postComment(commentObj)),
+        userCoursePatcher: (ucId) => dispatch(userCoursePatcher(ucId))
     }
         
     }     
