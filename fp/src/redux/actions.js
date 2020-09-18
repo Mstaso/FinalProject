@@ -87,6 +87,25 @@ export const getMatches = () => {
     }  
 }
 
+export const matchPost = (matchObj) => {
+      return (dispatch) => fetch('http://localhost:3000/api/v1/matches', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+             'accepts': 'application/json',
+          },
+        body: JSON.stringify({ match: matchObj })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status !== 401) {
+         dispatch(getBusinesses())
+        }
+     })
+     
+    
+     
+}
 // Search Actions
 export const searchAction = (searchValue) => ({type: "search", payload: searchValue})
 

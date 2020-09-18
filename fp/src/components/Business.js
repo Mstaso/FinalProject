@@ -5,6 +5,7 @@ import Match from './Match'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
 import { getUsers } from '../redux/actions'
+import { matchPost } from '../redux/actions'
 
 class Business extends React.Component {
 
@@ -55,35 +56,42 @@ class Business extends React.Component {
         let percentageMatch = matchedCourses.length / businessCourseIds.length
         console.log(parseFloat(percentageMatch * 100)+"%")
         if (percentageMatch !== 0){
-            this.createMatch(percentageMatch)
-        }
-
-    }
-    createMatch = (percentageMatch) => {
-        console.log(this.props, percentageMatch)
-            fetch('http://localhost:3000/api/v1/matches', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                 'accepts': 'application/json',
-              },
-            body: JSON.stringify({ match: {
+            let matchObj = {
                 user_id: this.props.loggedInUser.id,
                 business_id: this.props.foundBusiness.id,
                 user_name: this.props.loggedInUser.username,
                 business_name: this.props.foundBusiness.name,
                 match_percentage: percentageMatch * 100
-            }})
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            this.props.businessFetcher()
-        })
+            }
+            this.props.createMatch(matchObj)
+        }
+
+    }
+    // createMatch = (percentageMatch) => {
+    //     console.log(this.props, percentageMatch)
+    //         fetch('http://localhost:3000/api/v1/matches', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //              'accepts': 'application/json',
+    //           },
+    //         body: JSON.stringify({ match: {
+    //             user_id: this.props.loggedInUser.id,
+    //             business_id: this.props.foundBusiness.id,
+    //             user_name: this.props.loggedInUser.username,
+    //             business_name: this.props.foundBusiness.name,
+    //             match_percentage: percentageMatch * 100
+    //         }})
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(data)
+    //         this.props.businessFetcher()
+    //     })
          
         
          
-    }
+    // }
 
     renderMatches = () => {
         let usermatches = []
@@ -187,7 +195,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
         fetchUsercourses: ()=> dispatch(getUsercourses()),
-        fetchUsers: ()=> dispatch(getUsers())
+        fetchUsers: ()=> dispatch(getUsers()),
+        createMatch: (matchObj) => dispatch(matchPost(matchObj))
         }
     }
 
