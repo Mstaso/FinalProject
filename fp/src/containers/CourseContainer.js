@@ -3,10 +3,14 @@ import Course from '../components/Course'
 import {Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCourses } from '../redux/actions'
+import FilterSetting from '../components/FilterSetting'
 
 
 class CourseContainer extends React.Component {
 
+    state = {
+        category: ''
+    }
     componentDidMount(){
         this.props.fetchCourses()
     }
@@ -31,12 +35,39 @@ class CourseContainer extends React.Component {
         })
     }
 
+    returnCourses = (newcategory) => {
+        console.log(newcategory)
+        let courses = this.props.courses.filter(course => 
+            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+       if (newcategory){
+           console.log(newcategory)
+        this.setState({category: newcategory})
+         let filteredCourses = courses.filter(course => course.category === this.state.category).map(course => <Course course={course} key={course.id}/>)
+         console.log(filteredCourses)
+         return filteredCourses       
+       } else {
+        console.log(courses)
+       return courses.map(course => <Course course={course} key={course.id}/>)
+       }
+    }
+
     
     render(){
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
-        let courses = this.props.courses.filter(course => course.name.toLowerCase().includes(this.props.searchValue.toLowerCase())).map(course => <Course key={course.id} course={course}/>)
-        
+        let coursesToDisplay = []
+        let courses = this.props.courses.filter(course => 
+            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+        console.log(this.state.category)
+        this.state.category == '' ? 
+        coursesToDisplay = courses.map(course => 
+            <Course key={course.id} course={course}/>)   
+            :
+        coursesToDisplay = courses.filter(course =>
+            course.category === this.state.category).map(course => 
+            <Course key={course.id} course={course}/>)      
+
         // .map(course => <Course key={course.id} course={course}/>)
+        let homeCourses = this.props.courses.splice(0,12).map(course => <Course key={course.id} course={course}/>)
         return (
             <>
             {this.props.courses.length === 0 ? <h1>Loading</h1>: 
@@ -58,10 +89,15 @@ class CourseContainer extends React.Component {
                         <br></br>  
                         <br></br>
                         <br></br>
+                        <FilterSetting returnCourses={this.returnCourses} />
+                        <br></br>
+                        <br></br>  
+                        <br></br>
+                        <br></br>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
                                 <div id="columnscourses">
-                                {courses}
+                                {coursesToDisplay}
                                 </div>
                             }
                         
@@ -76,7 +112,7 @@ class CourseContainer extends React.Component {
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
                                 <div id="columnscourses">
-                                {courses.splice(0,12)}
+                                {homeCourses}
                                 </div>
                             }
                         

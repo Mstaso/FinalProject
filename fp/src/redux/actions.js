@@ -8,6 +8,15 @@ export const getCourses = () => {
     }  
 }
 
+export const singleCourse = (uc) => {
+    console.log(uc)
+    return function (dispatch) {
+        fetch(`http://localhost:3000/api/v1/courses/${uc.course_id}`)
+        .then(resp => resp.json())
+        .then(data => dispatch({ type: "fetched courses", payload: data}))
+    }  
+}
+
 // business actions
 export const getBusinesses = () => {
     return function (dispatch) {
@@ -53,7 +62,7 @@ export const createUserCourse = (ucObj) => {
     .then(resp => resp.json())
     .then(data => {
         if (data.status !== 401) {
-            dispatch(getCourses())
+            dispatch(singleCourse(data))
         }
     })
 }
