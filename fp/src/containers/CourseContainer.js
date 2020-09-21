@@ -40,7 +40,7 @@ class CourseContainer extends React.Component {
         let courses = this.props.courses.filter(course => 
             course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
        if (newcategory){
-           console.log(newcategory)
+        console.log(newcategory)
         this.setState({category: newcategory})
          let filteredCourses = courses.filter(course => course.category === this.state.category).map(course => <Course course={course} key={course.id}/>)
          console.log(filteredCourses)
