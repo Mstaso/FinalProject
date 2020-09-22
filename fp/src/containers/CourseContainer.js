@@ -3,6 +3,7 @@ import Course from '../components/Course'
 import {Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCourses } from '../redux/actions'
+import { setCourses } from '../redux/actions'
 import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
@@ -10,46 +11,50 @@ import ReactPaginate from 'react-paginate'
 class CourseContainer extends React.Component {
 
     state = {
-        category: '',
+        category: 'all',
         offset: 0,
-        courses: [],
+        coursesOnDisplay: [],
         perPage: 10,
         currentPage: 0,
-        pageCount: 100
     }
 
     componentDidMount(){
-        this.props.fetchCourses()
-        this.receivedCoursestwo() 
+        // this.props.fetchCourses()
+        this.receivedCourses() 
     }
 
-    // receivedCourses() {
-    //     fetch("http://localhost:3000/api/v1/courses")
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
-    //         const postData = slice.map(course => 
-                
-    //             <Course course={course} key={course.id}/>)
-    //             this.setState({
-    //                 pageCount: Math.ceil(this.props.courses.length / this.state.perPage),
-    //                 courses: postData
-    //             })
-
-    //     })
+    receivedCourses() {
+        if (this.props.courses.length >= 10){
+            this.displayCourses(this.props.courses)
+        } else {
+            fetch("http://localhost:3000/api/v1/courses")
+            .then(resp => resp.json())
+            .then(data => { 
+                this.props.setCourses(data)
+                this.displayCourses(data)
+            })
+        }
          
-    // }
-    receivedCoursestwo() {
-       
-            const slice = this.props.courses.slice(this.state.offset, this.state.offset + this.state.perPage)
-            const postData = slice.map(course => 
-                
+    }
+    displayCourses(data) {
+        console.log(this.state.category)
+        let newcategory = []
+
+        if (this.state.category === 'all'){
+            newcategory = data
+        } else {
+            newcategory = data.filter(course =>
+                course.category === this.state.category)
+        }
+            let slice = newcategory.slice(this.state.offset, this.state.offset + this.state.perPage)
+            let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
                     
                     this.setState({
-                    pageCount: Math.ceil(1000 / this.state.perPage),
-                    courses: postData
+                    pageCount: Math.ceil(newcategory.length / this.state.perPage),
+                    coursesOnDisplay: postData
                 })
+        
         
     }
 
@@ -62,51 +67,35 @@ class CourseContainer extends React.Component {
             currentPage: selectedPage,
             offset: offset
         }, () => {
-            this.receivedCoursestwo()
+            this.displayCourses(this.props.courses)
         });
 
     };
 
-
-
-    // commentCreater = (content, foundcourse_id) => {
-    //     fetch('http://localhost:3000/api/v1/comments',{
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //              'accepts': 'application/json',
-    //           },
-    //         body: JSON.stringify({ comment: {
-    //             content: content,
-    //             user_id: this.props.loggedInUser.id,
-    //             course_id: foundcourse_id
-    //         }})
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         this.props.fetchCourses()
-    //     })
-    // }
-
     returnCourses = (newcategory) => {
-        console.log(newcategory)
-        let courses = this.props.courses.filter(course => 
-            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
-       if (newcategory){
-        console.log(newcategory)
-        this.setState({category: newcategory})
-         let filteredCourses = courses.filter(course => course.category === this.state.category).map(course => <Course course={course} key={course.id}/>)
-         console.log(filteredCourses)
-         return filteredCourses       
-       } else {
-        console.log(courses)
-       return courses.map(course => <Course course={course} key={course.id}/>)
-       }
+        this.setState({category: newcategory}, ()=>{
+            this.displayCourses(this.props.courses)
+        })
+        // let filteredCourses = this.props.courses.filter(course => course.category === newcategory)
+        
+    //     console.log(newcategory)
+    //     let courses = this.props.courses.filter(course => 
+    //         course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+    //    if (newcategory){
+    //     console.log(newcategory)
+    //     this.setState({category: newcategory})
+    //      let filteredCourses = courses.filter(course => course.category === this.state.category).map(course => <Course course={course} key={course.id}/>)
+    //      console.log(filteredCourses)
+    //      return filteredCourses       
+    //    } else {
+    //     console.log(courses)
+    //    return courses.map(course => <Course course={course} key={course.id}/>)
+    //    }
     }
 
     
     render(){
+        console.log(this.state.coursesOnDisplay)
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
         // let coursesToDisplay = []
         // let courses = this.props.courses.filter(course => 
@@ -129,7 +118,6 @@ class CourseContainer extends React.Component {
             <Switch>
                 <Route path='/courses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
-                    console.log(id, this.props.courses)
                     let foundCourse = this.props.courses.find((course)=> course.id === id)
                     console.log(foundCourse)
                     return <Course commentCreater={this.commentCreater} foundCourse={foundCourse} userAdder={this.userAdder} />
@@ -150,9 +138,9 @@ class CourseContainer extends React.Component {
                         <br></br>
                         <br></br>
                             {
-                                // this.props.courses.length === 0 ? <h1>Loading</h1> :
+                                this.state.coursesOnDisplay.length !== 10 ? <h1>Loading</h1> :
                                 <div id="columnscourses">
-                                {this.state.courses}
+                                {this.state.coursesOnDisplay}
                                 </div>
                             }
                 <ReactPaginate
@@ -160,7 +148,7 @@ class CourseContainer extends React.Component {
                     nextLabel={"next"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
-                    pageCount={this.state.postData}
+                    pageCount={this.state.pageCount}
                     marginPagesDisplayed={2}
                     pageRangeDisplayed={5}
                     onPageChange={this.handlePageClick}
@@ -176,9 +164,9 @@ class CourseContainer extends React.Component {
                     return (
                         <>
                             {
-                                this.props.courses.length === 0 ? <h1>Loading</h1> :
+                                this.state.coursesOnDisplay.length !== 10 ? <h1>Loading</h1> :
                                 <div id="columnscourses">
-                                {this.state.courses}
+                                {this.state.coursesOnDisplay}
                                 </div>
                             }
                         
@@ -205,7 +193,8 @@ const mapStateToProps = (state) => {
     }
     }
   const mapDispatchToProps = (dispatch) => {
-    return { fetchCourses: ()=> dispatch(getCourses())}
+    return { fetchCourses: ()=> dispatch(getCourses()),
+             setCourses: (data)=>dispatch(setCourses(data))}
   } 
   
   export default connect(mapStateToProps, mapDispatchToProps)(CourseContainer);

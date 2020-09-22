@@ -17,6 +17,8 @@ export const singleCourse = (uc) => {
     }  
 }
 
+export const setCourses = (data) => ({type: "fetched courses", payload: data})
+
 // business actions
 export const getBusinesses = () => {
     return function (dispatch) {
