@@ -115,15 +115,19 @@ class Course extends React.Component {
             :
             this.props.course ? 
             <NavLink to={`/courses/${this.props.course.id}`}>
-                <div>
-                    <figure class="snip1336two">
-                        <img src={this.props.course.cover_photo} alt="sample87" />
-                        <figcaption>
-                            <h2>{this.props.course.category}<span></span></h2>
-                            
-                        <p>{this.props.course.name}</p>
-                        </figcaption>
-                        </figure>
+                <div class="course-index">
+                    
+                        <img class="course-cover" src={this.props.course.cover_photo}  />
+                        <img class="course-image" src={this.props.course.image} />  
+
+                            <h3>{this.props.course.name}</h3>
+                          
+                        {/* <h2>{this.props.course.subcategory}</h2>     */}
+                        <p> Category: {this.props.course.category}</p>
+                        <p> Sub:{this.props.course.subcategory}</p>
+                        
+                        
+                     <hr></hr>
                 </div> 
             </NavLink> 
             

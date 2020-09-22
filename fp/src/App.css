@@ -73,7 +73,7 @@ margin-left: 180px;
   box-sizing: border-box;
   }
   body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Open sans", sans-serif;
   line-height: .5;
   margin: 0;
   min-height: 100vh;
@@ -103,7 +103,6 @@ margin-left: 180px;
   .logo a,
   .main-nav a {
   padding: 10px 15px;
-  text-transform: uppercase;
   text-align: center;
   display: inline;
   min-width: 800px;
@@ -126,6 +125,7 @@ margin-left: 180px;
   .profilenav {
     margin-top:   -8px;
     margin-right: -400px;
+    color:rgb(244, 247, 248);
   }
   .login {
     margin-top:   -8px;
@@ -651,6 +651,55 @@ background-color: whitesmoke; */
 
 /* Course index CSS */
 
+.course-index {
+  width: 800px;
+  height: 200px;
+}
+
+.course-index h3 {
+  left: 400px;
+  text-align: left;
+  font-weight: bold;
+  font-size: medium;
+  bottom: 110px;
+  position: relative;
+}
+.course-index p {
+  left: 400px;
+  text-align: left;
+  font-size: small;
+  bottom: 110px;
+  position: relative;
+}
+
+.course-cover {
+  position: relative;
+  right: 150px;
+  width: 180px;
+  height: 100px;
+}
+
+.course-image {
+  width: 100px;
+  height: 100px;
+  border-style: solid;
+  border-color: whitesmoke;
+  right: 220px;
+  bottom: -50px;
+  position: relative;
+}
+
+.course-index hr {
+  position: relative;
+  left: 110px;
+  width: 800px;
+  bottom: -20px;
+  color: whitesmoke;
+}
+
+
+
+/* 
 #columnscourses {
   column-width: 200px;
   column-gap: 20px;
@@ -669,7 +718,6 @@ background-color: whitesmoke; */
   color: #ffffff;
   text-align: left;
   line-height: 1.4em;
-  /* background-color: #141414; */
 }
 .snip1336two * {
   -webkit-box-sizing: border-box;
@@ -752,7 +800,7 @@ background-color: whitesmoke; */
   max-height: 100%;
   vertical-align: top;
   opacity: 0.85;
-}
+} */
 
 /* Login CSS */
 .loader span {
