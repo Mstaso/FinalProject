@@ -2,13 +2,25 @@ import React from 'react'
 
 class FilterSetting extends React.Component {
 
-    changeHandler = (e) => {
+    categoryHandler = (e) => {
         this.props.returnCourses(e.target.value)
+        // this.props.displaySubFilter()
     }
 
+    subcategoryHandler = (e) => {
+        this.props.returnSubcategories(e.target.value)
+    }
+
+
+
     render(){
+        let optionsToRender = []
+    this.props.newArray.length >= 3 ? optionsToRender = this.props.newArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
         return(
-            <form onChange={this.changeHandler}>           
+            <div class="filter">     
+            <br></br>  
+            <br></br>
+            <form class="choosecategory" onChange={this.categoryHandler}>           
                 <select name="category"> 
                 <option value="all">All Categories</option>
                 <option value="business">Business</option>
@@ -24,8 +36,25 @@ class FilterSetting extends React.Component {
                 <option value="language-learning">Language-Learning</option>
                 </select>
             </form>
+         
+            <br></br>
+            <form class="subcategory" onChange={this.subcategoryHandler}>
+                <select name="subcategory">
+                <option value="all">All</option>
+                {optionsToRender}
+                </select>
+            </form>
+        
+        
+            
+        
+        
+           
+            </div>
+
         )
     }
 }
 
 export default FilterSetting;
+

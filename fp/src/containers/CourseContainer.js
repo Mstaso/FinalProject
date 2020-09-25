@@ -8,10 +8,13 @@ import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
 
+let newArray = []
+
 class CourseContainer extends React.Component {
 
     state = {
         category: 'all',
+        subcategory: 'all',
         offset: 0,
         coursesOnDisplay: [],
         perPage: 10,
@@ -37,14 +40,21 @@ class CourseContainer extends React.Component {
          
     }
     displayCourses(data) {
-        console.log(this.state.category)
+        console.log(this.props.searchValue)
+        let coursesThroughSearch =  data.filter(course => 
+            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+
         let newcategory = []
 
         if (this.state.category === 'all'){
-            newcategory = data
+            newcategory = coursesThroughSearch
         } else {
-            newcategory = data.filter(course =>
+            this.state.subcategory === 'all' ?
+            newcategory = coursesThroughSearch.filter(course =>
                 course.category === this.state.category)
+                :
+            newcategory = coursesThroughSearch.filter(course =>
+                course.subcategory === this.state.subcategory)   
         }
             let slice = newcategory.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
@@ -52,12 +62,33 @@ class CourseContainer extends React.Component {
                     
                     this.setState({
                     pageCount: Math.ceil(newcategory.length / this.state.perPage),
-                    coursesOnDisplay: postData
+                    coursesOnDisplay: postData,
+                    subcategory: 'all'
                 })
         
         
     }
 
+
+    displaySubFilter = () => {
+        console.log("been hit", this.state.category)
+        let newCourses = this.props.courses.filter(course => course.category === this.state.category)
+        newArray = []
+        newCourses.map(newcourse => this.findSingularSub(newcourse))
+
+    }
+
+    findSingularSub = (newcourse) => {
+        console.log(newArray)
+        if(newArray.includes(newcourse.subcategory)){
+            console.log("already in array")    
+        } else {
+            newArray.push(newcourse.subcategory)
+        }
+      
+    } 
+    
+    
 
     handlePageClick = (e) => {
         const selectedPage = e.selected;
@@ -73,25 +104,23 @@ class CourseContainer extends React.Component {
     };
 
     returnCourses = (newcategory) => {
-        this.setState({category: newcategory}, ()=>{
+        this.setState({
+            category: newcategory
+        }, ()=>{
+            this.displayCourses(this.props.courses)
+            this.displaySubFilter()
+        })
+        
+    }
+
+    returnSubcategories = (newSubcategory) => {
+        this.setState({
+            subcategory: newSubcategory
+        }, ()=>{
             this.displayCourses(this.props.courses)
         })
-        // let filteredCourses = this.props.courses.filter(course => course.category === newcategory)
-        
-    //     console.log(newcategory)
-    //     let courses = this.props.courses.filter(course => 
-    //         course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
-    //    if (newcategory){
-    //     console.log(newcategory)
-    //     this.setState({category: newcategory})
-    //      let filteredCourses = courses.filter(course => course.category === this.state.category).map(course => <Course course={course} key={course.id}/>)
-    //      console.log(filteredCourses)
-    //      return filteredCourses       
-    //    } else {
-    //     console.log(courses)
-    //    return courses.map(course => <Course course={course} key={course.id}/>)
-    //    }
     }
+
 
     
     render(){
@@ -125,20 +154,16 @@ class CourseContainer extends React.Component {
                 <Route path="/courses" render={() => {
 
                     return (
-                        <>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>  
-                        <br></br>
-                        <br></br>
-                        <FilterSetting returnCourses={this.returnCourses} />
+                        <>  
+                        <FilterSetting returnCourses={this.returnCourses} returnSubcategories={this.returnSubcategories} newArray={newArray} displaySubFilter={this.displaySubFilter} category={this.state.category}/>
+                        
+                  
                         <br></br>
                         <br></br>  
                         <br></br>
                         <br></br>
                             {
-                                this.state.coursesOnDisplay.length !== 10 ? <h1>Loading</h1> :
+                                this.props.courses.length == 0 ? <h1>Loading</h1> :
                                 <div id="columnscourses">
                                 {this.state.coursesOnDisplay}
                                 </div>

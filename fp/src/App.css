@@ -654,6 +654,7 @@ background-color: whitesmoke; */
 .course-index {
   width: 800px;
   height: 200px;
+  position: relative;
 }
 
 .course-index h3 {
@@ -692,10 +693,53 @@ background-color: whitesmoke; */
 .course-index hr {
   position: relative;
   left: 110px;
-  width: 800px;
-  bottom: -20px;
+  width: 1000px;
+  bottom: 30px;
   color: whitesmoke;
 }
+
+.course-index button {
+  position: relative;
+  left: 600px;
+  bottom: 100px;
+  line-height: 1.75;
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  outline: none;
+  border-radius: 0 .6em .6em 0;
+  padding: .45em;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Filter CSS */
+
+
+.filter {
+  width: 1300px;
+  height: 75px;
+  bottom: 10px;
+  background-color: whitesmoke;
+
+}
+
+
+.choosecategory select {
+  border-radius: 10px;
+  right: 450px;
+  bottom: -20px;
+  text-align: center;
+}
+
+
+
+
+.subcategory select {
+  border-radius: 10px;
+}
+
 
 
 
