@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getCourses } from '../redux/actions'
 import { setCourses } from '../redux/actions'
+import { setCategory } from '../redux/actions'
 import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
@@ -39,19 +40,19 @@ class CourseContainer extends React.Component {
         }
          
     }
-    displayCourses(data) {
+    displayCourses(data, categoryChange) {
         console.log(this.props.searchValue)
         let coursesThroughSearch =  data.filter(course => 
             course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
 
         let newcategory = []
 
-        if (this.state.category === 'all'){
+        if (this.props.category === 'all'){
             newcategory = coursesThroughSearch
         } else {
             this.state.subcategory === 'all' ?
             newcategory = coursesThroughSearch.filter(course =>
-                course.category === this.state.category)
+                course.category === categoryChange)
                 :
             newcategory = coursesThroughSearch.filter(course =>
                 course.subcategory === this.state.subcategory)   
@@ -70,9 +71,8 @@ class CourseContainer extends React.Component {
     }
 
 
-    displaySubFilter = () => {
-        console.log("been hit", this.state.category)
-        let newCourses = this.props.courses.filter(course => course.category === this.state.category)
+    displaySubFilter = (newcategory) => {
+        let newCourses = this.props.courses.filter(course => course.category === newcategory)
         newArray = []
         newCourses.map(newcourse => this.findSingularSub(newcourse))
 
@@ -104,12 +104,20 @@ class CourseContainer extends React.Component {
     };
 
     returnCourses = (newcategory) => {
-        this.setState({
-            category: newcategory
-        }, ()=>{
-            this.displayCourses(this.props.courses)
-            this.displaySubFilter()
-        })
+        this.props.setCategory(newcategory) 
+        this.displayCourses(this.props.courses, newcategory)
+        this.displaySubFilter(newcategory)
+            
+
+
+        // this.displayCourses(this.props.courses)
+        //     this.displaySubFilter()
+        // this.setState({
+        //     category: newcategory
+        // }, ()=>{
+            // this.displayCourses(this.props.courses)
+            // this.displaySubFilter()
+        // })
         
     }
 
@@ -124,7 +132,7 @@ class CourseContainer extends React.Component {
 
     
     render(){
-        console.log(this.state.coursesOnDisplay)
+        console.log(this.props.category, "category")
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
         // let coursesToDisplay = []
         // let courses = this.props.courses.filter(course => 
@@ -214,15 +222,10 @@ const mapStateToProps = (state) => {
     return {
         courses: state.courses,
         loggedInUser: state.loggedInUser,
-        searchValue: state.searchValue
+        searchValue: state.searchValue,
+        category: state.category
     }
     }
-
-const mapStateToProps = (state) => {
-        return {
-            category: state.category
-        }
-    }   
 
   const mapDispatchToProps = (dispatch) => {
     return { fetchCourses: ()=> dispatch(getCourses()),
