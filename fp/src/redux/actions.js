@@ -90,13 +90,6 @@ export const userCoursePatcher = (ucId) => {
 }
 
 // match actions
-export const getMatches = () => {
-    return function (dispatch) {
-        fetch("http://localhost:3000/api/v1/matches")
-        .then(resp => resp.json())
-        .then(data => dispatch({ type: "fetched matches", payload: data}))
-    }  
-}
 
 export const matchPost = (matchObj) => {
       return (dispatch) => fetch('http://localhost:3000/api/v1/matches', {
