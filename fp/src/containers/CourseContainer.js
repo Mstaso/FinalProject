@@ -217,9 +217,20 @@ const mapStateToProps = (state) => {
         searchValue: state.searchValue
     }
     }
+
+const mapStateToProps = (state) => {
+        return {
+            category: state.category
+        }
+    }   
+
   const mapDispatchToProps = (dispatch) => {
     return { fetchCourses: ()=> dispatch(getCourses()),
-             setCourses: (data)=>dispatch(setCourses(data))}
+             setCourses: (data)=>dispatch(setCourses(data)),
+             setCategory: (category) => dispatch(setCategory(category))
+            }
   } 
+
+  
   
   export default connect(mapStateToProps, mapDispatchToProps)(CourseContainer);

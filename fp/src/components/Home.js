@@ -2,6 +2,8 @@ import React from 'react'
 import CourseContainer from '../containers/CourseContainer'
 import BusinessContainer from '../containers/BusinessContainer'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setCategory } from '../redux/actions'
 
 const banner = require('../banner.jpg')
 
@@ -115,5 +117,8 @@ class Home extends React.Component {
         )
     }
 }
+const mapDispatchToProps = (dispatch) => {
+    return { setCategory: (category) => dispatch(setCategory(category)) }
+  } 
 
-export default withRouter(Home);
+export default withRouter(connect(null, mapDispatchToProps)(Home));

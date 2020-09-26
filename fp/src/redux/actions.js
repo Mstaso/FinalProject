@@ -147,3 +147,6 @@ export const postComment = (commentObj) => {
     })
 }
 
+// Category Actions
+export const setCategory = (category) => ({type: "set category", payload: category})
+

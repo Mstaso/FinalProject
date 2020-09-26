@@ -7,12 +7,21 @@ const defaultState = {
     users: [],
     usercourses: [],
     loggedInUser: {},
-    searchValue: ""
+    searchValue: "", 
+    category: "all"
 }
 
 function courseReducer(currentState = defaultState.courses, action){
     switch (action.type) {
         case  "fetched courses" :
+            return action.payload
+        default :   
+            return currentState  
+    }
+}
+function categoryReducer(currentState = defaultState.courses, action){
+    switch (action.type) {
+        case  "set category" :
             return action.payload
         default :   
             return currentState  
@@ -72,7 +81,8 @@ const rootReducer = combineReducers({
     users: userReducer,
     loggedInUser: loggedInUserReducer,
     usercourses: userCourseReducer,
-    searchValue: searchReducer
+    searchValue: searchReducer,
+    category: categoryReducer
 })
 
 export default rootReducer
