@@ -13,9 +13,9 @@ class Search extends React.Component {
         e.preventDefault()
         this.props.searchNow(this.state.searchValue)
         this.props.history.push("/courses");
-        this.setState({
-            searchValue: ""
-        })
+        // this.setState({
+        //     searchValue: ""
+        // })
     } 
 
     changeHandler = (e) => {

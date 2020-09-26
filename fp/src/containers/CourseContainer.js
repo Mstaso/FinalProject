@@ -149,7 +149,7 @@ class CourseContainer extends React.Component {
                     let id = parseInt(match.params.id)
                     let foundCourse = this.props.courses.find((course)=> course.id === id)
                     console.log(foundCourse)
-                    return <Course commentCreater={this.commentCreater} foundCourse={foundCourse} userAdder={this.userAdder} />
+                    return <Course foundCourse={foundCourse} userAdder={this.userAdder} />
                 }}/>
                 <Route path="/courses" render={() => {
 

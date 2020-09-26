@@ -1,6 +1,7 @@
 import React from 'react'
 import CourseContainer from '../containers/CourseContainer'
 import BusinessContainer from '../containers/BusinessContainer'
+import { withRouter } from 'react-router-dom'
 
 const banner = require('../banner.jpg')
 
@@ -10,6 +11,10 @@ const homebanner2 = require('../homebanner2.jpg')
 
 class Home extends React.Component {
 
+
+    clickHandler = () => {
+        this.props.history.push("/signup");
+    }
 
     render(){
         return(
@@ -23,7 +28,7 @@ class Home extends React.Component {
                     Find and land a new job by taking courses relevant to up and coming businesses
                 </p>
                 <br></br>
-                <button>Sign Up</button>
+                <button onClick={this.clickHandler}>Sign Up</button>
                </div>
                 </div> 
                 <br></br>
@@ -111,4 +116,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default withRouter(Home);

@@ -18,7 +18,6 @@ class SignUp extends React.Component{
         //double check 
         // this.props.postUser(this.state)
         this.fetchRequest(this.state)
-        this.props.history.push("/home");
     }
 
     fetchRequest = (userObj) => {
@@ -33,17 +32,52 @@ class SignUp extends React.Component{
             body: JSON.stringify({ user: userObj})
         })
         .then(response => response.json())
-        .then(data => {this.props.postUser(data)})
+        .then(data => {this.props.postUser(data)}, 
+                this.props.history.push("/home")
+        )
     }
    
 
     render(){
         return(
-            <form onSubmit={this.submitHandler}>
-                <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
-                <input type="text" name="password_digest" placeholder="Password" value={this.state.password_digest} onChange={this.changeHandler} />
-                <input type="submit" value="Sign Up" />
-            </form>
+<body className="background-login">
+                
+<div class="container-logo">
+    <div>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+        </div>
+        </div>
+        <div class="form-container">
+        <br></br>
+        <br></br>
+        <h1 style={{ color: 'white' }}class="title">Course Matcher</h1>
+        <br></br>
+        <br></br>
+        <form onSubmit={this.submitHandler}>
+            <div class="information-container">
+            <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
+            </div>
+            <br></br>
+            <br></br>
+            <div class="information-container"> 
+            <input type="text" name="password_digest" placeholder="Password" value={this.state.password_digest} onChange={this.changeHandler} />
+            </div>
+            <br></br>
+            <br></br>
+            <input class="loginButton" type="submit" value="Sign Up"/>
+        </form>
+    </div>
+</body>
         )
     }
 }
