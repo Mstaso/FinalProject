@@ -25,11 +25,15 @@ class CourseContainer extends React.Component {
     componentDidMount(){
         // this.props.fetchCourses()
         this.receivedCourses() 
+        console.log(this.props.category, "from CDM")
     }
 
     receivedCourses() {
         if (this.props.courses.length >= 10){
-            this.displayCourses(this.props.courses)
+            // let data = []
+            // this.props.category === "all" ?  data = this.props.courses : data = this.props.courses.filter(course => course.category === this.props.category)
+            // this.displayCourses(data)
+            this.props.category === "all" ? this.displayCourses(this.props.courses) : this.returnCourses(this.props.category)
         } else {
             fetch("http://localhost:3000/api/v1/courses")
             .then(resp => resp.json())
@@ -40,29 +44,29 @@ class CourseContainer extends React.Component {
         }
          
     }
-    displayCourses(data, categoryChange) {
-        console.log(this.props.searchValue)
-        let coursesThroughSearch =  data.filter(course => 
-            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+    displayCourses(data) {
+        // console.log(this.props.searchValue)
+        // let coursesThroughSearch =  data.filter(course => 
+        //     course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
 
-        let newcategory = []
+        // let newcategory = []
 
-        if (this.props.category === 'all'){
-            newcategory = coursesThroughSearch
-        } else {
-            this.state.subcategory === 'all' ?
-            newcategory = coursesThroughSearch.filter(course =>
-                course.category === categoryChange)
-                :
-            newcategory = coursesThroughSearch.filter(course =>
-                course.subcategory === this.state.subcategory)   
-        }
-            let slice = newcategory.slice(this.state.offset, this.state.offset + this.state.perPage)
+        // if (this.props.category === 'all'){
+        //     newcategory = coursesThroughSearch
+        // } else {
+        //     this.state.subcategory === 'all' ?
+        //     newcategory = coursesThroughSearch.filter(course =>
+        //         course.category === categoryChange)
+        //         :
+        //     newcategory = coursesThroughSearch.filter(course =>
+        //         course.subcategory === this.state.subcategory)   
+        // }
+            let slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
                     
                     this.setState({
-                    pageCount: Math.ceil(newcategory.length / this.state.perPage),
+                    pageCount: Math.ceil(data.length / this.state.perPage),
                     coursesOnDisplay: postData,
                     subcategory: 'all'
                 })
@@ -104,8 +108,12 @@ class CourseContainer extends React.Component {
     };
 
     returnCourses = (newcategory) => {
-        this.props.setCategory(newcategory) 
-        this.displayCourses(this.props.courses, newcategory)
+        if(newcategory != this.props.category){
+            this.props.setCategory(newcategory) 
+        }
+        let data = []
+        newcategory === "all" ? data = this.props.courses : data = this.props.courses.filter(course => course.category === newcategory)
+        this.displayCourses(data)
         this.displaySubFilter(newcategory)
             
 
@@ -122,11 +130,16 @@ class CourseContainer extends React.Component {
     }
 
     returnSubcategories = (newSubcategory) => {
-        this.setState({
-            subcategory: newSubcategory
-        }, ()=>{
-            this.displayCourses(this.props.courses)
-        })
+        let data = []
+        newSubcategory === "all" ? this.props.category === "all" ? data = this.props.courses : data = this.props.courses.filter(course => course.category === this.props.category)
+        :
+        data = this.props.courses.filter(course => course.subcategory === newSubcategory)
+        this.displayCourses(data)
+        // this.setState({
+        //     subcategory: newSubcategory
+        // }, ()=>{
+        //     this.displayCourses(this.props.courses)
+        // })
     }
 
 

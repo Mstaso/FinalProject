@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class FilterSetting extends React.Component {
 
@@ -11,13 +12,22 @@ class FilterSetting extends React.Component {
         this.props.returnSubcategories(e.target.value)
     }
 
-
+    // style= {{"text-transform: capitalize;"}}
 
     render(){
+        let title = "All Categories"
         let optionsToRender = []
     this.props.newArray.length >= 3 ? optionsToRender = this.props.newArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
         return(
-            <div class="filter">     
+            <div class="filter">
+                <h2>
+                    {this.props.category.length > 3 ?
+                    title = this.props.category
+                    :
+                    title = "All Categories"
+                    }
+                  
+                </h2>
             <br></br>  
             <br></br>
             <form class="choosecategory" onChange={this.categoryHandler}>           
@@ -56,5 +66,12 @@ class FilterSetting extends React.Component {
     }
 }
 
-export default FilterSetting;
+// export default FilterSetting;
 
+const mapStateToProps = (state) => {
+    return {
+        category: state.category
+    }
+}
+
+export default connect(mapStateToProps, null)(FilterSetting);

@@ -720,24 +720,32 @@ background-color: whitesmoke; */
 .filter {
   width: 1300px;
   height: 75px;
-  bottom: 10px;
+  bottom: 20px;
   background-color: whitesmoke;
-
+  position: relative;
 }
 
 
 .choosecategory select {
   border-radius: 10px;
-  right: 450px;
-  bottom: -20px;
+  bottom: 35px;
   text-align: center;
+  position: relative;
 }
 
 .subcategory select {
   border-radius: 10px;
+  bottom: 35px;
+  position: relative;
 }
 
-
+.filter h2 {
+  text-transform: capitalize;
+  text-align: left;
+  left: 115px;
+  bottom: -30px;
+  position: relative;
+}
 
 
 /* 
