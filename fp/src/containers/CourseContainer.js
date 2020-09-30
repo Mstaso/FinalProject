@@ -33,7 +33,7 @@ class CourseContainer extends React.Component {
             // let data = []
             // this.props.category === "all" ?  data = this.props.courses : data = this.props.courses.filter(course => course.category === this.props.category)
             // this.displayCourses(data)
-            this.props.category === "all" ? this.displayCourses(this.props.courses) : this.returnCourses(this.props.category)
+            this.props.category.length > 1 ? this.returnCourses(this.props.category) : this.displayCourses(this.props.courses)
         } else {
             fetch("http://localhost:3000/api/v1/courses")
             .then(resp => resp.json())
@@ -46,8 +46,8 @@ class CourseContainer extends React.Component {
     }
     displayCourses(data) {
         // console.log(this.props.searchValue)
-        // let coursesThroughSearch =  data.filter(course => 
-        //     course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+        let coursesThroughSearch =  data.filter(course => 
+            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
 
         // let newcategory = []
 
@@ -61,16 +61,15 @@ class CourseContainer extends React.Component {
         //     newcategory = coursesThroughSearch.filter(course =>
         //         course.subcategory === this.state.subcategory)   
         // }
-            let slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+            let slice = coursesThroughSearch.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
                     
                     this.setState({
-                    pageCount: Math.ceil(data.length / this.state.perPage),
+                    pageCount: Math.ceil(coursesThroughSearch.length / this.state.perPage),
                     coursesOnDisplay: postData,
                     subcategory: 'all'
                 })
-        
         
     }
 
@@ -83,9 +82,7 @@ class CourseContainer extends React.Component {
     }
 
     findSingularSub = (newcourse) => {
-        console.log(newArray)
         if(newArray.includes(newcourse.subcategory)){
-            console.log("already in array")    
         } else {
             newArray.push(newcourse.subcategory)
         }
@@ -145,7 +142,6 @@ class CourseContainer extends React.Component {
 
     
     render(){
-        console.log(this.props.category, "category")
         // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
         // let coursesToDisplay = []
         // let courses = this.props.courses.filter(course => 

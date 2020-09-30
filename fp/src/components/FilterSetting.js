@@ -12,8 +12,6 @@ class FilterSetting extends React.Component {
         this.props.returnSubcategories(e.target.value)
     }
 
-    // style= {{"text-transform: capitalize;"}}
-
     render(){
         let title = "All Categories"
         let optionsToRender = []
