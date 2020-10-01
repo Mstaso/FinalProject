@@ -30,7 +30,11 @@ class Login extends React.Component {
             body: JSON.stringify({user: this.state})
         })
             .then(resp => resp.json())
-            .then(data => console.log(data))
+            .then(data => {
+                localStorage.setItem("token", data.jwt)
+                this.props.postUser(data.user)
+                this.props.history.push("/home")
+            })
 
 
         // let userToLogin = this.props.users.find(user => user.username === this.state.username)
