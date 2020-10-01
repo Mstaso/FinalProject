@@ -20,16 +20,51 @@ class Login extends React.Component {
 
     loginHandler = (e) => {
         e.preventDefault()
-        let userToLogin = this.props.users.find(user => user.username === this.state.username)
-        if (userToLogin) { 
-            this.props.postUser(userToLogin)
-            this.props.history.push("/home");
-        } else {
-            alert('There are no users with that password or username')
-        }
+        console.log(this.state)
+        fetch("http://localhost:3000/api/v1/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                 'accepts': 'application/json',
+              },
+            body: JSON.stringify({user: this.state})
+        })
+            .then(resp => resp.json())
+            .then(data => console.log(data))
+
+
+        // let userToLogin = this.props.users.find(user => user.username === this.state.username)
+        // if (userToLogin) { 
+        //     this.props.postUser(userToLogin)
+        //     this.props.history.push("/home");
+        // } else {
+        //     alert('There are no users with that password or username')
+        // }
         
 
     }
+
+    fetchRequest = (userObj) => {
+        // let request = {"auth": {"username": userObj.username, "password_digest": userObj.password_digest}}
+
+        console.log(userObj)
+        const url = "http://localhost:3000/api/v1/users"
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                 'accepts': 'application/json',
+              },
+            body: JSON.stringify({user: userObj})
+        })
+        .then(response => response.json())
+        .then(data => {console.log(data)}
+            
+            // {this.props.postUser(data)}, 
+            //     this.props.history.push("/home")
+        )
+    }
+
 
     render () {
         return(      
