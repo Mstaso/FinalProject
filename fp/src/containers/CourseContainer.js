@@ -23,9 +23,8 @@ class CourseContainer extends React.Component {
     }
 
     componentDidMount(){
-        // this.props.fetchCourses()
         this.receivedCourses() 
-        console.log(this.props.category, "from CDM")
+
     }
 
     receivedCourses() {
@@ -158,7 +157,6 @@ class CourseContainer extends React.Component {
         // let homeCourses = this.props.courses.splice(0,12).map(course => <Course key={course.id} course={course}/>)
         return (
             <>
-            {/* {this.props.courses.length === 0 ? <h1>Loading</h1>:  */}
             
             <>
             <Switch>

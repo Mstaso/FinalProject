@@ -18,7 +18,6 @@ const link = {
 class Navbar extends React.Component {
 
   logOutHandler = (e) => {
-    // e.target.text = "Login / Signup"
     localStorage.removeItem("token")
     this.props.postUser("")
   }
@@ -32,10 +31,10 @@ class Navbar extends React.Component {
           <li className="coursesnav"> <a href="#"><NavLink to="/courses" exact>Courses</NavLink></a></li>
           <li className="businessnav"><a href="#"><NavLink to="/businesses" exact>Businesses</NavLink></a></li>
 
-          {this.props.loggedInUser.id != undefined ? <li className="profilenav"><a href="#"><NavLink to={`/users/${this.props.loggedInUser.id}`} exact>Profile</NavLink></a></li> :
+          {this.props.loggedInUser ? <li className="profilenav"><a href="#"><NavLink to={`/users/${this.props.loggedInUser.id}`} exact>Profile</NavLink></a></li> :
           <li className="profilenav"><a href="#"><NavLink to="/login" exact>Profile</NavLink></a></li>}
 
-          {this.props.loggedInUser.id != undefined ? <li onClick={this.logOutHandler} className="login"><a href="#"><NavLink to="/login" exact>Logout</NavLink></a></li> :
+          {this.props.loggedInUser ? <li onClick={this.logOutHandler} className="login"><a href="#"><NavLink to="/login" exact>Logout</NavLink></a></li> :
           <li className="login"><a href="#"><NavLink to="/login" exact>Login / Signup</NavLink></a></li>
           }
          

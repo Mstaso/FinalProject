@@ -12,12 +12,7 @@ class Search extends React.Component {
     submitHandler = (e) => {
         e.preventDefault()
         this.props.searchNow(this.state.searchValue)
-        console.log(this.props.history, "1")
         this.props.history.push("/courses");
-        console.log(this.props.history, "2")
-        // this.setState({
-        //     searchValue: ""
-        // })
     } 
 
     changeHandler = (e) => {
@@ -36,14 +31,8 @@ class Search extends React.Component {
     }
 }
 
-
-
-const mapStateToProps = (state) => {
-    return {courses: state.searchValue}
-    }
-
 const mapDispatchToProps = (dispatch) => {
     return { searchNow: (searchValue) => dispatch(searchAction(searchValue)) }
   } 
   
-  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
+  export default withRouter(connect(null, mapDispatchToProps)(Search));
