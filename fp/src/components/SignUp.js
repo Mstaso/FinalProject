@@ -59,12 +59,16 @@ class SignUp extends React.Component{
     //             this.props.history.push("/home")
     //     )
     // }
-   
+   clickHandler = () => {
+    this.props.history.push("/login")
+   }
 
     render(){
         return(
 <body className="background-login">
-                
+<div onClick={this.clickHandler}class="switch">
+                    <p>Already have an account?</p>
+                </div>
 <div class="container-logo">
     <div>
     <div class="loader">

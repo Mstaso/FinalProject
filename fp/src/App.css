@@ -184,7 +184,8 @@ a {
   color: #3498db;
 }
 .content-profile-page {
-  margin: 1em auto;
+  position: relative;
+  left: 100px;
   width: 44.23em;
 }
 
@@ -868,6 +869,8 @@ background-color: whitesmoke; */
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  bottom: 20px;
+  position: relative;
   
 }
 
@@ -885,6 +888,15 @@ background-color: whitesmoke; */
   outline: none;
   border-radius: 0 .6em .6em 0;
   padding: .45em;
+}
+
+.switch {
+  width: 500px;
+  bottom: -250px;
+  position: relative;
+  font-weight: bold;
+  color: #fff;
+  right: -395px;
 }
 
 .information-container input {
