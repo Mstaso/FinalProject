@@ -125,7 +125,7 @@ class Course extends React.Component {
                         {/* <h2>{this.props.course.subcategory}</h2>     */}
                         <p> {this.props.course.category} | {this.props.course.subcategory} | {this.props.course.workload} </p>
                         
-                        <button> View Course </button>
+                        <button class="view-course"> View Course </button>
                         
                      <hr></hr>
                 </div> 

@@ -165,6 +165,9 @@ margin-left: 180px;
   line-height: 36px;
 }
 
+
+
+
 /* Individual User, Business and Course CSS */
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400|Lato:400,300|Coda|Open+Sans);
 
@@ -185,8 +188,7 @@ a {
 }
 .content-profile-page {
   position: relative;
-  left: 100px;
-  width: 44.23em;
+  /* width: 44.23em; */
 }
 
 .card {
@@ -203,23 +205,29 @@ a {
   display: inline;
 }
 .profile-user-page .img-user-profile .profile-bgHome {
-	border-bottom: .2em solid #f5f5f5;
-  width: 44.23em;
-  height: 16em;
+  border-bottom: .2em solid #f5f5f5;
+  right: 135px;
+  position: relative;
+  width: 50.23em;
+  height: 14em;
+  text-align: center;
   }
 .profile-user-page .img-user-profile .avatar {
 	margin: 0 auto;
   background: #fff;
-  width: 7em;
-  height: 7em;
+  width: 8.5em;
+  height: 8.5em;
+  bottom: -60px;
+  right: 200px;
+  position: relative;
   padding: 0.25em;
   border-radius: .4em;
   margin-top: -10em;
   box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
 }
 .profile-user-page button {
-  margin-left: 250px;
-  margin-top: -3em;
+  margin-left: -605px;
+  margin-top: -2em;
 	position: absolute;
   font-size: 13px;
   font-weight: bold;
@@ -244,7 +252,8 @@ a {
 }
 .profile-user-page .user-profile-data h1 {
   font-family: "Lato", sans-serif;
-  margin-top: 0.35em;
+  margin-top: 1em;
+  text-align: left;
   line-height: 30px;
   color: #292f33;
   margin-bottom: 0; 
@@ -253,14 +262,16 @@ a {
 	font-family: "Lato", sans-serif;
   color: #8899a6; 
   font-size: 1.1em;
+  text-align: left;
   line-height: 50px;
   margin-top: 0;
-  margin-bottom: 0.5em; 
+  margin-bottom: 2em; 
 }
 .profile-user-page .description-profile {
   color: #75787b;
   line-height: 20px;
   font-size: 0.98em; 
+  text-align: left;
 }
 .profile-user-page .data-user {
 	font-family: "Quicksand", sans-serif;
@@ -331,6 +342,7 @@ footer h4 a {
   text-decoration: none;
   color: #3498db;
 }
+
 
 /* Home Banner CSS */
 
@@ -701,7 +713,8 @@ background-color: whitesmoke; */
 
 .course-index button {
   position: relative;
-  left: 600px;
+  left: 700px;
+  width: 100px;
   bottom: 100px;
   line-height: 1.75;
   background: #3498db;
