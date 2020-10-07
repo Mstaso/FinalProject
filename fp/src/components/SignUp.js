@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { userSignUp } from '../redux/actions'
+import { getUsers } from '../redux/actions'
 import { withRouter } from 'react-router-dom'
 
 class SignUp extends React.Component{
@@ -35,6 +36,8 @@ class SignUp extends React.Component{
         .then(response => response.json())
         .then(data => {
             this.props.postUser(data.user)
+            localStorage.setItem("token", data.jwt)
+            this.props.fetchUsers()
             this.props.history.push("/home")
         }
             
@@ -110,7 +113,8 @@ class SignUp extends React.Component{
 }
 
   const mapDispatchToProps = (dispatch) => {
-    return { postUser: (userObj) => dispatch(userSignUp(userObj)) }
+    return { postUser: (userObj) => dispatch(userSignUp(userObj)),
+             fetchUsers: ()=> dispatch(getUsers)}
   } 
   
   export default withRouter(connect(null, mapDispatchToProps)(SignUp));

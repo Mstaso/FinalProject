@@ -40,7 +40,6 @@ export const getUsers = () => {
 
 export const userSignUp = (userObj) => ({type: "userSignUp", payload: userObj})
 
-
 // usercourse actions
 export const getUsercourses = () => {
     return function (dispatch) {

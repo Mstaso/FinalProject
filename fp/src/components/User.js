@@ -51,52 +51,6 @@ class User extends React.Component {
         })
     }  
 
-    // newUserHandler = () => {
-    //     let usersCompletedUserCourses = this.props.usercourses.filter(usercourse => usercourse.complete == true && usercourse.user_id == this.props.loggedInUser.id)
-    //     this.match(usersCompletedUserCourses)
-    // }
-
-
-    // match = (usersCompletedUserCourses) => {
-    //     console.log(usersCompletedUserCourses, "from match")
-       
-    //    let courseToFind = this.props.courses.filter(course =>{ 
-    //        return usersCompletedUserCourses.filter((usercourse) => {
-    //            if (usercourse.course_id == course.id) {
-    //                this.findBusinessIdsthroughcourse(course)
-    //            }
-    //        })
-    //     })
-    // }
-
-    // findBusinessIdsthroughcourse = (course) => {
-    //     course.businesses.map(business => this.createMatch(business.id))
-    // }
-    // createMatch = (business_id) => {
-    //     if (this.props.foundUser.businesses.find(business => business.id == business_id)){
-    //         console.log("match already created")
-    //     } else {
-    //         fetch('http://localhost:3000/api/v1/matches', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //              'accepts': 'application/json',
-    //           },
-    //         body: JSON.stringify({ match: {
-    //             user_id: this.props.foundUser.id,
-    //             business_id: business_id,
-    //             status: true
-    //         }})
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         this.props.fetchUsers()
-    //     })
-    //      }
-        
-         
-    // }
-
     coursesInProgressForUser = () => {
         let userCoursesInProgress = this.props.foundUser.user_courses.filter(usercourse => usercourse.complete == false)
         return userCoursesInProgress.map(usercourse => <UserCourse usercourse={usercourse} userCourseCompleter={this.props.userCourseCompleter} key={usercourse.id}/>) 
@@ -108,7 +62,7 @@ class User extends React.Component {
     }
 
     render(){
-        console.log(this.props.user)
+        console.log(this.props)
         // let userCourses = []
         // // this.props.foundUser ?  userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse key={usercourse.id} takenUserCourse={usercourse} newUserHandler={this.newUserHandler}/>) :  userCourses = []
         // this.props.foundUser ? userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse UserCourseInProgress={usercourse} key={usercourse.course_id}/>) : userCourses = []
@@ -179,8 +133,6 @@ class User extends React.Component {
 const mapStateToProps = (state) => {
     return {
         loggedInUser: state.loggedInUser,
-        businesses: state.businesses,
-        courses: state.courses, 
         usercourses: state.usercourses,
         users: state.users
     }

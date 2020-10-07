@@ -158,10 +158,11 @@ class Course extends React.Component {
                         <li onClick={this.userToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.users.length}</strong><span>Users</span></a></li>
                         <li onClick={this.commentToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.comments.length}</strong><span>Comments</span></a></li>
                     </ul>
-                    {this.state.businessisHiddin ? <h1></h1> : <div class="description-profile"> 
+                    {this.state.businessisHiddin ? <h1></h1> : 
+                    <div > 
                         <h2>Businesses</h2>
                         {courseBusinesses}
-                         </div> }
+                    </div> }
                     {this.state.userisHidden ? <h1></h1> : <div> 
                         <h2>Users</h2>
                         {users}

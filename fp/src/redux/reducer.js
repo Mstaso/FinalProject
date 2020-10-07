@@ -49,7 +49,7 @@ function userReducer(currentState = defaultState.users, action){
 function loggedInUserReducer(currentState = defaultState.loggedInUser, action){
     switch (action.type) {
         case  "userSignUp" :
-            return action.payload
+            return action.payload     
         default :   
             return currentState  
     }

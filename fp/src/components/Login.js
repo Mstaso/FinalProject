@@ -48,27 +48,6 @@ class Login extends React.Component {
 
     }
 
-    fetchRequest = (userObj) => {
-        // let request = {"auth": {"username": userObj.username, "password_digest": userObj.password_digest}}
-
-        console.log(userObj)
-        const url = "http://localhost:3000/api/v1/users"
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                 'accepts': 'application/json',
-              },
-            body: JSON.stringify({user: userObj})
-        })
-        .then(response => response.json())
-        .then(data => {console.log(data)}
-            
-            // {this.props.postUser(data)}, 
-            //     this.props.history.push("/home")
-        )
-    }
-
     clickHandler = () => {
         this.props.history.push("/signup")
     }
