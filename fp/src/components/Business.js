@@ -113,13 +113,18 @@ class Business extends React.Component {
                       
                             <button onClick={this.matcher}> Match</button>
                         <br></br>
-        <div class="description-profile"> <p>{this.props.foundBusiness.description}</p></div>
+            <div class="description-profile"> 
+            <p>{this.props.foundBusiness.description}</p>
+            </div>
                     <ul class="data-user">
                         <li onClick={this.courseToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.courses.length}</strong><span>Courses</span></a></li>
                         <li onClick={this.matchToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.matches.length}</strong><span>User Matches</span></a></li>
                         <li onClick={this.jobToggleHidden.bind(this)}><a><strong>1</strong><span>Job Description</span></a></li>
                     </ul>
                     {this.state.jobisHiddin ? <h1></h1> : <div class="description-profile"> 
+                    <br></br>
+                    <br></br>
+                    <br></br>
                         <h2>Job Description</h2>
                         {this.props.foundBusiness.job}
                          </div> }     

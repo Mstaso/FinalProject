@@ -140,17 +140,19 @@ class Course extends React.Component {
                         <img class="avatar" src={this.props.foundCourse.image} alt={this.props.foundCourse.image}/>
                         </div>
                         <div class="user-profile-data">
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <button onClick={this.enroll}>Enroll</button>
-                            <h1>{this.props.foundCourse.name}</h1>
                             <br></br>
+                            <br></br>
+                            <br></br>
+                            <h1>{this.props.foundCourse.name}</h1>
+                            <p>{this.props.foundCourse.category}</p>                           
+                            <button onClick={this.enroll}>Enroll</button>
                         </div> 
                         
-        <div class="description-profile"> <p>{this.props.foundCourse.description}</p></div>
-        <br></br>
+                    <div class="description-profile"> 
+                    <br></br>
+                    <p>{this.props.foundCourse.description}</p>
+                    </div>
+                    <br></br>
                     <ul class="data-user">
                         <li onClick={this.businessToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.businesses.length}</strong><span>Businesses</span></a></li>
                         <li onClick={this.userToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.users.length}</strong><span>Users</span></a></li>
