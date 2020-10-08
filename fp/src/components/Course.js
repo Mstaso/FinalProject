@@ -21,7 +21,8 @@ class Course extends React.Component {
           businessisHiddin: true,
           userisHidden: true,
           commentisHiddin: true,
-          content: ''
+          content: '',
+          users: []
         }
       }
 
@@ -79,8 +80,9 @@ class Course extends React.Component {
             complete: false,
             name: this.props.foundCourse.name 
         }
+        console.log(ucObj)
         this.props.handleUserCourse(ucObj)
-            
+        this.users(this.props.loggedInUser)    
     }
     
 
@@ -96,11 +98,27 @@ class Course extends React.Component {
     //     console.log(completedUserCoursesArray)
     //     return completedUserCoursesArray
     // }
+
+    users = (newUser) => {
+        let users = this.props.foundCourse.users
+        if (newUser){
+            users.push(newUser)
+        }
+      let usersToDisplay = users.map(user => <User user={user} key={user.id}/>)
+        this.setState({
+            users: usersToDisplay,
+            businessisHiddin: true,
+            commentisHiddin: true
+        })
+        this.setState({ userisHidden: false})
+    }
+
     render(){
         let courseBusinesses = []
         this.props.foundCourse ? courseBusinesses = this.props.foundCourse.businesses.map(business => <Business business={business} key={business.id}/>) : courseBusinesses = []
         let comments = []
         this.props.foundCourse ? comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>) : comments = []
+        // this.props.foundCourse ? this.users() : comments = []
         let users = []
         this.props.foundCourse ? users = this.props.foundCourse.users.map(user => <User user={user} key={user.id}/>) : users = []
         return (

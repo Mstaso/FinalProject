@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { getCourses } from '../redux/actions'
 import { setCourses } from '../redux/actions'
 import { setCategory } from '../redux/actions'
+import { singleCourse } from '../redux/actions'
 import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
@@ -14,7 +15,6 @@ let newArray = []
 class CourseContainer extends React.Component {
 
     state = {
-        category: 'all',
         subcategory: 'all',
         offset: 0,
         coursesOnDisplay: [],
@@ -162,14 +162,23 @@ class CourseContainer extends React.Component {
             <Switch>
                 <Route path='/courses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
-                    let foundCourse = this.props.courses.find((course)=> course.id === id)
-                    return <Course foundCourse={foundCourse} userAdder={this.userAdder} />
+                    if(this.props.courses.length > 0){
+                    let foundCourse = this.props.courses.find((course) => course.id === id)
+                    console.log(foundCourse)
+                    return <Course foundCourse={foundCourse} />
+                    } else {
+                        fetch(`http://localhost:3000/api/v1/courses${id}`)
+                        .then(resp => resp.json())
+                        .then(data => { 
+                            return <Course foundCourse={data}/>
+                         })
+                    }
                 }}/>
                 <Route path="/courses" render={() => {
 
                     return (
                         <>  
-                        <FilterSetting returnCourses={this.returnCourses} returnSubcategories={this.returnSubcategories} newArray={newArray} displaySubFilter={this.displaySubFilter} category={this.state.category}/>
+                        <FilterSetting returnCourses={this.returnCourses} returnSubcategories={this.returnSubcategories} newArray={newArray} displaySubFilter={this.displaySubFilter}/>
                         
                   
                         <br></br>
@@ -236,7 +245,8 @@ const mapStateToProps = (state) => {
   const mapDispatchToProps = (dispatch) => {
     return { fetchCourses: ()=> dispatch(getCourses()),
              setCourses: (data)=>dispatch(setCourses(data)),
-             setCategory: (category) => dispatch(setCategory(category))
+             setCategory: (category) => dispatch(setCategory(category)),
+             fetchOneCourse: (id)=> dispatch(singleCourse(id))
             }
   } 
 

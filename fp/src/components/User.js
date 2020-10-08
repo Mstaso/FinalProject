@@ -67,14 +67,13 @@ class User extends React.Component {
         // // this.props.foundUser ?  userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse key={usercourse.id} takenUserCourse={usercourse} newUserHandler={this.newUserHandler}/>) :  userCourses = []
         // this.props.foundUser ? userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse UserCourseInProgress={usercourse} key={usercourse.course_id}/>) : userCourses = []
         let businesses = []
-        this.props.user === undefined ? businesses = [] : businesses = this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>)
+        this.props.foundUser !== undefined ? businesses = this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>) : businesses = [] 
         return (
             this.props.user ? 
             <NavLink to={`/users/${this.props.user.id}`}>
                 <div>
                 <br></br>
                 <h3 class="userfloatname">{this.props.user.username}</h3>
-                <img class="profsmall" src={this.props.user.profile_image} alt={this.props.user.username}/>
                 <br></br>
                  </div>
             </NavLink> 
