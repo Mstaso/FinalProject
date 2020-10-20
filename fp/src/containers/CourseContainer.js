@@ -44,22 +44,8 @@ class CourseContainer extends React.Component {
          
     }
     displayCourses(data) {
-        // console.log(this.props.searchValue)
         let coursesThroughSearch =  data.filter(course => 
             course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
-
-        // let newcategory = []
-
-        // if (this.props.category === 'all'){
-        //     newcategory = coursesThroughSearch
-        // } else {
-        //     this.state.subcategory === 'all' ?
-        //     newcategory = coursesThroughSearch.filter(course =>
-        //         course.category === categoryChange)
-        //         :
-        //     newcategory = coursesThroughSearch.filter(course =>
-        //         course.subcategory === this.state.subcategory)   
-        // }
             let slice = coursesThroughSearch.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
@@ -91,6 +77,7 @@ class CourseContainer extends React.Component {
     
 
     handlePageClick = (e) => {
+        console.log("clicked", this.props.category)
         const selectedPage = e.selected;
         const offset = selectedPage * this.state.perPage;
 
@@ -98,7 +85,20 @@ class CourseContainer extends React.Component {
             currentPage: selectedPage,
             offset: offset
         }, () => {
-            this.displayCourses(this.props.courses)
+            if (this.props.category === "all"){
+                console.log(this.props.category)
+                this.displayCourses(this.props.courses)
+            } else {
+                if (this.state.subcategory !== "all"){
+                    let data = this.props.courses.filter(course => course.subcategory == this.state.subcategory)
+                    console.log(data, this.state.subcategory)
+                    this.displayCourses(data)
+                } else {
+                    let data = this.props.courses.filter(course => course.category == this.props.category)
+                    console.log(this.props.category)
+                    this.displayCourses(data)
+                }
+            }
         });
 
     };
