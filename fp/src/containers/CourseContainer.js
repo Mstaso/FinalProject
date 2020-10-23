@@ -50,7 +50,7 @@ class CourseContainer extends React.Component {
                     this.setState({
                     pageCount: Math.ceil(coursesThroughSearch.length / this.state.perPage),
                     coursesOnDisplay: postData,
-                    subcategory: 'all'
+                    // subcategory: 'all'
                 })
         
     }
@@ -74,7 +74,6 @@ class CourseContainer extends React.Component {
     
 
     handlePageClick = (e) => {
-        console.log("clicked", this.props.category)
         const selectedPage = e.selected;
         const offset = selectedPage * this.state.perPage;
 
@@ -92,7 +91,8 @@ class CourseContainer extends React.Component {
             console.log(this.props.category)
             this.displayCourses(this.props.courses)
         } else {
-            if (this.state.subcategory !== "all"){
+            console.log("in else", this.state.subcategory)
+            if (this.state.subcategory != "all"){
                 let data = this.props.courses.filter(course => course.subcategory == this.state.subcategory)
                 console.log(data, this.state.subcategory)
                 this.displayCourses(data)
@@ -105,6 +105,9 @@ class CourseContainer extends React.Component {
     }
 
     returnCourses = (newcategory) => {
+        this.setState({
+            subcategory: "all"
+        })
         if(newcategory != this.props.category){
             this.props.setCategory(newcategory) 
         }
@@ -116,6 +119,7 @@ class CourseContainer extends React.Component {
     }
 
     returnSubcategories = (newSubcategory) => {
+        this.setState({subcategory: newSubcategory})
         let data = []
         newSubcategory === "all" ? this.props.category === "all" ? data = this.props.courses : data = this.props.courses.filter(course => course.category === this.props.category)
         :
