@@ -31,7 +31,13 @@ class SignUp extends React.Component{
                 'Content-Type': 'application/json',
                  'accepts': 'application/json',
               },
-            body: JSON.stringify({user: userObj})
+            body: JSON.stringify({user: {
+                username: this.state.username,
+                password: this.state.password,
+                cover_photo: "https://template.canva.com/EAD7TazGins/1/0/800w-gB1EEHnz0j8.jpg",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                profile_image: "https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png"
+            }})
         })
         .then(response => response.json())
         .then(data => {

@@ -4,7 +4,6 @@ import Course from './Course'
 import Match from './Match'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
-import { getUsers } from '../redux/actions'
 import { matchPost } from '../redux/actions'
 
 class Business extends React.Component {
@@ -64,6 +63,13 @@ class Business extends React.Component {
                 match_percentage: percentageMatch * 100
             }
             this.props.createMatch(matchObj)
+            this.setState({
+                courseisHidden: true,
+                jobisHiddin: true
+            })
+            this.setState({
+                matchisHiddin: false  
+            })
         }
 
     }
@@ -75,6 +81,7 @@ class Business extends React.Component {
     }
 
     render(){
+        console.log(this.props)
         let courses = []
         this.props.foundBusiness ?  courses = this.props.foundBusiness.courses.map(course => <Course course={course} key={course.id} />) :  courses = []
         return (
@@ -166,16 +173,12 @@ class Business extends React.Component {
 const mapStateToProps = (state) => {
     return {
         loggedInUser: state.loggedInUser,
-        businesses: state.businesses,
-        courses: state.courses, 
         usercourses: state.usercourses,
-        users: state.users
     }
     }
 const mapDispatchToProps = (dispatch) => {
     return { 
         fetchUsercourses: ()=> dispatch(getUsercourses()),
-        fetchUsers: ()=> dispatch(getUsers()),
         createMatch: (matchObj) => dispatch(matchPost(matchObj))
         }
     }
