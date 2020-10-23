@@ -24,14 +24,11 @@ class CourseContainer extends React.Component {
 
     componentDidMount(){
         this.receivedCourses() 
-
+        this.props.setCategory("all")
     }
 
     receivedCourses() {
         if (this.props.courses.length >= 10){
-            // let data = []
-            // this.props.category === "all" ?  data = this.props.courses : data = this.props.courses.filter(course => course.category === this.props.category)
-            // this.displayCourses(data)
             this.props.category.length > 1 ? this.returnCourses(this.props.category) : this.displayCourses(this.props.courses)
         } else {
             fetch("http://localhost:3000/api/v1/courses")
@@ -85,23 +82,27 @@ class CourseContainer extends React.Component {
             currentPage: selectedPage,
             offset: offset
         }, () => {
-            if (this.props.category === "all"){
-                console.log(this.props.category)
-                this.displayCourses(this.props.courses)
-            } else {
-                if (this.state.subcategory !== "all"){
-                    let data = this.props.courses.filter(course => course.subcategory == this.state.subcategory)
-                    console.log(data, this.state.subcategory)
-                    this.displayCourses(data)
-                } else {
-                    let data = this.props.courses.filter(course => course.category == this.props.category)
-                    console.log(this.props.category)
-                    this.displayCourses(data)
-                }
-            }
+            this.setCoursesAfterClick()
         });
 
     };
+
+    setCoursesAfterClick = () => {
+        if (this.props.category === "all"){
+            console.log(this.props.category)
+            this.displayCourses(this.props.courses)
+        } else {
+            if (this.state.subcategory !== "all"){
+                let data = this.props.courses.filter(course => course.subcategory == this.state.subcategory)
+                console.log(data, this.state.subcategory)
+                this.displayCourses(data)
+            } else {
+                let data = this.props.courses.filter(course => course.category == this.props.category)
+                console.log(this.props.category)
+                this.displayCourses(data)
+            }
+        }
+    }
 
     returnCourses = (newcategory) => {
         if(newcategory != this.props.category){
@@ -111,17 +112,6 @@ class CourseContainer extends React.Component {
         newcategory === "all" ? data = this.props.courses : data = this.props.courses.filter(course => course.category === newcategory)
         this.displayCourses(data)
         this.displaySubFilter(newcategory)
-            
-
-
-        // this.displayCourses(this.props.courses)
-        //     this.displaySubFilter()
-        // this.setState({
-        //     category: newcategory
-        // }, ()=>{
-            // this.displayCourses(this.props.courses)
-            // this.displaySubFilter()
-        // })
         
     }
 
@@ -131,30 +121,12 @@ class CourseContainer extends React.Component {
         :
         data = this.props.courses.filter(course => course.subcategory === newSubcategory)
         this.displayCourses(data)
-        // this.setState({
-        //     subcategory: newSubcategory
-        // }, ()=>{
-        //     this.displayCourses(this.props.courses)
-        // })
     }
 
 
     
     render(){
-        // let courses = this.props.courses.map(course => <Course key={course.id} course={course}/>)
-        // let coursesToDisplay = []
-        // let courses = this.props.courses.filter(course => 
-        //     course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
-        // this.state.category == '' ? 
-        // coursesToDisplay = courses.map(course => 
-        //     <Course key={course.id} course={course}/>)   
-        //     :
-        // coursesToDisplay = courses.filter(course =>
-        //     course.category === this.state.category).map(course => 
-        //     <Course key={course.id} course={course}/>)      
-
-        // // .map(course => <Course key={course.id} course={course}/>)
-        // let homeCourses = this.props.courses.splice(0,12).map(course => <Course key={course.id} course={course}/>)
+       
         return (
             <>
             

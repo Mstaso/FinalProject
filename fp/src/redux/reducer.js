@@ -62,7 +62,7 @@ function userCourseReducer(currentState = defaultState.usercourses, action){
         case "addUC" :
             return [...currentState, action.payload]    
         default :
-        return currentState
+            return currentState
     }
 }
 

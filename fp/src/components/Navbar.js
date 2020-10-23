@@ -14,7 +14,6 @@ class Navbar extends React.Component {
     this.props.postUser(null)
   }
     render() {
-      console.log(this.props.loggedInUser)
       return (
         <div className="header">
           <h1 class="logo"><a href="#"><NavLink to="/home"><img id="logo" src={logo}/></NavLink></a></h1>
