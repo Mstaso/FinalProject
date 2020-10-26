@@ -547,10 +547,11 @@ margin-top: -190px;
 }
 
 #Other-Businesses {
-height: 300px;
+height: 455px;
 position: relative;
 margin-left: 1000px;
-margin-top: 120px;
+top: 20px;
+/* margin-top: 20px; */
 /* margin-bottom: -320px; */
 width: 250px;
 background-color: white;
@@ -560,6 +561,10 @@ border-style: solid;
 border-color: whitesmoke
 }
 
+#main-business {
+  /* position: relative; */
+  margin-top: -460px;
+}
 
 
 /* width: 260px;

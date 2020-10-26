@@ -12,7 +12,7 @@ class BusinessContainer extends React.Component {
 
     displayOtherBusinesses(foundBusiness) {
         let otherBusinesses = this.props.businesses.filter(business => business.id !== foundBusiness.id)
-        let mappedOtherBusinesses = otherBusinesses.splice(0,4).map(business => <Business key={business.id} business={business}/>)
+        let mappedOtherBusinesses = otherBusinesses.map(business => <Business key={business.id} business={business}/>)
         return mappedOtherBusinesses
     }
 
@@ -34,7 +34,9 @@ class BusinessContainer extends React.Component {
                             <h3>Related Businesses</h3>
                         {this.displayOtherBusinesses(foundBusiness)}
                         </div>
+                        <div id="main-business">
                         <Business foundBusiness={foundBusiness}/>
+                        </div>
                         </div>
                         )
                 }}/>

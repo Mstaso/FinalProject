@@ -23,7 +23,6 @@ class SignUp extends React.Component{
     fetchRequest = (userObj) => {
         // let request = {"auth": {"username": userObj.username, "password_digest": userObj.password_digest}}
 
-        console.log(userObj)
         const url = "http://localhost:3000/api/v1/users"
         fetch(url, {
             method: 'POST',
@@ -41,6 +40,7 @@ class SignUp extends React.Component{
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             this.props.postUser(data.user)
             localStorage.setItem("token", data.jwt)
             this.props.fetchUsers()
