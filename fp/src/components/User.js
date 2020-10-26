@@ -73,7 +73,10 @@ class User extends React.Component {
             <NavLink to={`/users/${this.props.user.id}`}>
                 <div>
                 <br></br>
+                <br></br>
                 <h3 class="userfloatname">{this.props.user.username}</h3>
+                <img class="profsmall" src={this.props.user.profile_image} alt={this.props.user.username} style={{height: "50px", width: "50px"}}/>
+                <br></br>
                 <br></br>
                  </div>
             </NavLink> 
@@ -90,8 +93,21 @@ class User extends React.Component {
                         <div class="user-profile-data">
                             <h1>{this.props.foundUser.username}</h1>
                             <p>{this.props.foundUser.github}</p>
+               
                         </div> 
+                        <br></br>
+                        <br></br>
+                        <br></br>
         <div class="description-profile">  <a href={this.props.foundUser.email} title={this.props.foundUser.email}><strong>{this.props.foundUser.email}</strong></a> | {this.props.foundUser.description}</div>
+                        <br></br>
+                        <br></br>
+                        <br></br>    
+                        <br></br>
+                        <br></br>
+                        <br></br> 
+                        <br></br>
+                        <br></br>
+                       
                     <ul class="data-user">
                         <li name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a><strong>{this.coursesInProgressForUser().length}</strong><span>Courses in Progress</span></a></li>
                         <li name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a><strong>{this.completedCoursesForUser().length}</strong><span>Completed Courses</span></a></li>

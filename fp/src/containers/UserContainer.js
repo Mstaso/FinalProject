@@ -18,6 +18,11 @@ class UserContainer extends React.Component {
         this.props.fetchUsers()
     }
 
+    otherUsers = (foundUser) => {
+       let otherUsers = this.props.users.filter(user => user.id !== foundUser.id)
+       let mappedOtherUsers = otherUsers.splice(0,5).map(user => <User user={user} key={user.id}/>)
+       return mappedOtherUsers
+    }
     render(){
         let users = this.props.users.map(user => <User key={user.id} user={user}/>)
     
@@ -32,7 +37,18 @@ class UserContainer extends React.Component {
                     console.log(id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
                     console.log(foundUser)
-                    return <User userCourseCompleter={this.userCourseCompleter} foundUser={foundUser} />
+                    return (
+                        <div>
+                        <div class="other-users">
+                        <h3>Other Users</h3>
+                        {this.otherUsers(foundUser)}
+                        </div>
+                        <div class="main-user">
+                        <User userCourseCompleter={this.userCourseCompleter} foundUser={foundUser} />
+                        </div>
+                        </div>
+
+                    )
                 }}/>
                 <Route path="/users" render={() => {
 

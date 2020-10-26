@@ -71,6 +71,21 @@ class Home extends React.Component {
             <div id="columns" > 
                 <BusinessContainer />
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <div class="home-courses">
             <h3>Computer Science Courses</h3> 
             <br></br>
