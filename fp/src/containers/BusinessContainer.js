@@ -10,10 +10,10 @@ class BusinessContainer extends React.Component {
         this.props.fetchBusinesses()
     }
 
-    displayOtherBusinesses = (foundBusiness) => {
-       let filterBusinesses = this.props.businesses.filter(business => business.id !== foundBusiness.id)
-       return filterBusinesses.map(business => <Business key={business.id} business={business}/>)
-       
+    displayOtherBusinesses(foundBusiness) {
+        let otherBusinesses = this.props.businesses.filter(business => business.id !== foundBusiness.id)
+        let mappedOtherBusinesses = otherBusinesses.splice(0,4).map(business => <Business key={business.id} business={business}/>)
+        return mappedOtherBusinesses
     }
 
     render(){
@@ -27,8 +27,16 @@ class BusinessContainer extends React.Component {
                 <Route path='/businesses/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundBusiness = this.props.businesses.find((business)=> business.id === id)
-                    this.displayOtherBusinesses(foundBusiness)
-                    return <Business foundBusiness={foundBusiness}/>
+                    return (
+                        <div>
+                        
+                        <div id="Other-Businesses">
+                            <h3>Related Businesses</h3>
+                        {this.displayOtherBusinesses(foundBusiness)}
+                        </div>
+                        <Business foundBusiness={foundBusiness}/>
+                        </div>
+                        )
                 }}/>
                 <Route path="/businesses" render={() => {
 

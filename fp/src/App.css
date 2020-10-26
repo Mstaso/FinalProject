@@ -187,7 +187,8 @@ a {
   color: #3498db;
 }
 .content-profile-page {
-  position: relative;
+  /* position: relative; */
+  /* margin-top: -300px; */
   /* width: 44.23em; */
 }
 
@@ -504,15 +505,15 @@ margin-top: -190px;
 .business-card {
   margin: 10px;
   width: 200px;
-  height: 200px;
+  height: 70px;
   border-radius: 20px;
-  background-color: white;
+  background-color: white
 }
 
 .bus-cover {
   margin-top: 10px;
-  width: 180px;
-  height: 100px;
+  /* width: 180px;
+  height: 100px; */
   vertical-align: top;
   opacity: 0.85;
   border-radius: 5px;
@@ -543,6 +544,20 @@ margin-top: -190px;
   margin-right: -60px;
   /* line-height: 4.5; */
   margin-top: 0px;
+}
+
+#Other-Businesses {
+height: 300px;
+position: relative;
+margin-left: 1000px;
+margin-top: 120px;
+/* margin-bottom: -320px; */
+width: 250px;
+background-color: white;
+border-radius: 10px;
+/* line-height: 1.5; */
+border-style: solid;
+border-color: whitesmoke
 }
 
 

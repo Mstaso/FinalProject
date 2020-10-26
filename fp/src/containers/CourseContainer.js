@@ -92,12 +92,12 @@ class CourseContainer extends React.Component {
             this.displayCourses(this.props.courses)
         } else {
             console.log("in else", this.state.subcategory)
-            if (this.state.subcategory != "all"){
-                let data = this.props.courses.filter(course => course.subcategory == this.state.subcategory)
+            if (this.state.subcategory !== "all"){
+                let data = this.props.courses.filter(course => course.subcategory === this.state.subcategory)
                 console.log(data, this.state.subcategory)
                 this.displayCourses(data)
             } else {
-                let data = this.props.courses.filter(course => course.category == this.props.category)
+                let data = this.props.courses.filter(course => course.category === this.props.category)
                 console.log(this.props.category)
                 this.displayCourses(data)
             }
@@ -108,7 +108,7 @@ class CourseContainer extends React.Component {
         this.setState({
             subcategory: "all"
         })
-        if(newcategory != this.props.category){
+        if(newcategory !== this.props.category){
             this.props.setCategory(newcategory) 
         }
         let data = []
@@ -162,7 +162,7 @@ class CourseContainer extends React.Component {
                         <br></br>
                         <br></br>
                             {
-                                this.props.courses.length == 0 ? <h1>Loading</h1> :
+                                this.props.courses.length === 0 ? <h1>Loading</h1> :
                                 <div id="columnscourses">
                                 {this.state.coursesOnDisplay}
                                 </div>
