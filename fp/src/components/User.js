@@ -107,7 +107,7 @@ class User extends React.Component {
                         <br></br> 
                         <br></br>
                         <br></br>
-                       
+                        <br></br> 
                     <ul class="data-user">
                         <li name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a><strong>{this.coursesInProgressForUser().length}</strong><span>Courses in Progress</span></a></li>
                         <li name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a><strong>{this.completedCoursesForUser().length}</strong><span>Completed Courses</span></a></li>

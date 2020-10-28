@@ -127,7 +127,11 @@ class CourseContainer extends React.Component {
         this.displayCourses(data)
     }
 
-
+    otherCourses = (foundCourse) => {
+        let similarCourses = this.props.courses.filter(course => course.id !== foundCourse.id && course.category === foundCourse.category)
+        let mappedOtherCourses = similarCourses.splice(0,4).map(course => <Course key={course.id} otherCourse={course}/>)
+        return mappedOtherCourses
+    }
     
     render(){
        
@@ -140,8 +144,20 @@ class CourseContainer extends React.Component {
                     let id = parseInt(match.params.id)
                     if(this.props.courses.length > 0){
                     let foundCourse = this.props.courses.find((course) => course.id === id)
-                    console.log(foundCourse)
-                    return <Course foundCourse={foundCourse} />
+                    // console.log(foundCourse)
+                    return (
+                        <div>
+                            <div id="other-courses">
+                                <h3>Other {foundCourse.category[0].toUpperCase() + foundCourse.category.slice(1)} Courses</h3>
+                                <hr></hr>
+                            {this.otherCourses(foundCourse)}
+                            </div>
+                            <div id="main-course">
+                            <Course foundCourse={foundCourse} />  
+                            </div>
+                        </div>
+
+                    )
                     } else {
                         fetch(`http://localhost:3000/api/v1/courses${id}`)
                         .then(resp => resp.json())

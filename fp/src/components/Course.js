@@ -66,21 +66,36 @@ class Course extends React.Component {
         course_id: this.props.foundCourse.id
        }
         this.props.commentCreater(commentObj)
-        this.setState({content: ''})
+        // this.renderComments(commentObj)
+        this.renderComments(commentObj)
    } 
 
-    // componentDidMount(){
-    //     // this.props.fetchUsercourses()
-    // }
+   renderComments = (commentObj) => {
+       if (commentObj){
+        this.props.foundCourse.comments.push(commentObj)
+        this.setState({content: ''})
+       }
+       let comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>)
+       return comments
+   }
+//    renderComments = (commentObj) => {
+//        if (commentObj){
+//         this.setState({comments: [commentObj,...this.state.comments], content: ''})
+//        } else {
+//            let courseComments = []
+//            this.props.foundCourse.comments.forEach(comment => courseComments.push(comment))
+//            this.setState({comments: courseComments})
+//        }
+//        return this.state.comments.map(comment => <Comment key={comment.id} comment={comment}/>)
+//    }
+
     enroll = () => {
-        console.log(this.props)
         let ucObj = {
             user_id: this.props.loggedInUser.id,
             course_id: this.props.foundCourse.id,
             complete: false,
             name: this.props.foundCourse.name 
         }
-        console.log(ucObj)
         this.props.handleUserCourse(ucObj)
         this.users(this.props.loggedInUser)    
     }
@@ -91,13 +106,6 @@ class Course extends React.Component {
         this.props.userCoursePatcher(userCourseToComplete.id)
     }
 
-    // filterCourses = () => {
-    //     let usercoursesArray = this.props.usercourses.filter(userCourse => userCourse.user_id == this.props.loggedInUser.id)
-    //     console.log(usercoursesArray)
-    //     let completedUserCoursesArray = usercoursesArray.filter(usercourse => usercourse.complete == true)
-    //     console.log(completedUserCoursesArray)
-    //     return completedUserCoursesArray
-    // }
 
     users = (newUser) => {
         let users = this.props.foundCourse.users
@@ -116,19 +124,27 @@ class Course extends React.Component {
     render(){
         let courseBusinesses = []
         this.props.foundCourse ? courseBusinesses = this.props.foundCourse.businesses.map(business => <Business business={business} key={business.id}/>) : courseBusinesses = []
-        let comments = []
-        this.props.foundCourse ? comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>) : comments = []
+        // let comments = []
+        // this.props.foundCourse ? comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>) : comments = []
         // this.props.foundCourse ? this.users() : comments = []
         let users = []
         this.props.foundCourse ? users = this.props.foundCourse.users.map(user => <User user={user} key={user.id}/>) : users = []
         return (
-            this.props.takencourse ? 
-                <div class="user-course">
-                <br></br>
-                <h3>{this.props.takencourse.name}</h3>
-                <img src={this.props.takencourse.image} alt={this.props.takencourse.name}width="150" height="150"></img>     
-                <button onClick={this.completeCourse} > Course in Progress </button>
-                 </div>
+            this.props.otherCourse ?
+            <NavLink to={`/courses/${this.props.otherCourse.id}`}>
+            <div class="other-course">
+                <img src={this.props.otherCourse.image}></img>
+                <h4>{this.props.otherCourse.name}</h4>
+                {/* <p>{this.props.otherCourse.subcategory}</p> */}
+            </div>
+            </NavLink>
+            // this.props.takencourse ? 
+            //     <div class="user-course">
+            //     <br></br>
+            //     <h3>{this.props.takencourse.name}</h3>
+            //     <img src={this.props.takencourse.image} alt={this.props.takencourse.name}width="150" height="150"></img>     
+            //     <button onClick={this.completeCourse} > Course in Progress </button>
+            //      </div>
             
             :
             this.props.course ? 
@@ -189,15 +205,15 @@ class Course extends React.Component {
                         <form id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
                             <fieldset id="commentFieldset">
                             <div class="form_grp">
-                            <textarea id="userCmnt" placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.changeHandler}></textarea>        
+                            <textarea id="userCmnt"placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.changeHandler}></textarea>        
                             </div>
                             <div class="form_grp">
-                            <button type="submit">Add Comment</button>
+                            <button type="submit" id="comment-button">Add Comment</button>
                             </div>
                             </fieldset>
                         </form>
-                        <div class="description-profile">
-                        {comments}
+                        <div>
+                        {this.renderComments()}
                         </div>
                         </div>}            
                     </div>
