@@ -54,7 +54,7 @@ class Course extends React.Component {
         })
     }
 
-    changeHandler = (e) => {
+    commentChangeHandler = (e) => {
         this.setState({content:e.target.value})
     }
 
@@ -66,7 +66,6 @@ class Course extends React.Component {
         course_id: this.props.foundCourse.id
        }
         this.props.commentCreater(commentObj)
-        // this.renderComments(commentObj)
         this.renderComments(commentObj)
    } 
 
@@ -78,16 +77,6 @@ class Course extends React.Component {
        let comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>)
        return comments
    }
-//    renderComments = (commentObj) => {
-//        if (commentObj){
-//         this.setState({comments: [commentObj,...this.state.comments], content: ''})
-//        } else {
-//            let courseComments = []
-//            this.props.foundCourse.comments.forEach(comment => courseComments.push(comment))
-//            this.setState({comments: courseComments})
-//        }
-//        return this.state.comments.map(comment => <Comment key={comment.id} comment={comment}/>)
-//    }
 
     enroll = () => {
         let ucObj = {
@@ -205,7 +194,7 @@ class Course extends React.Component {
                         <form id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
                             <fieldset id="commentFieldset">
                             <div class="form_grp">
-                            <textarea id="userCmnt"placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.changeHandler}></textarea>        
+                            <textarea id="userCmnt"placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.commentChangeHandler}></textarea>        
                             </div>
                             <div class="form_grp">
                             <button type="submit" id="comment-button">Add Comment</button>

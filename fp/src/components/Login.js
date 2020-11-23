@@ -36,15 +36,6 @@ class Login extends React.Component {
                 this.props.postUser(data.user)
                 this.props.history.push("/home")
             })
-
-
-        // let userToLogin = this.props.users.find(user => user.username === this.state.username)
-        // if (userToLogin) { 
-        //     this.props.postUser(userToLogin)
-        //     this.props.history.push("/home");
-        // } else {
-        //     alert('There are no users with that password or username')
-        // }
         
 
     }
