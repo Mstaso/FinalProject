@@ -29,7 +29,7 @@ class CourseContainer extends React.Component {
 
     receivedCourses() {
         if (this.props.courses.length >= 10){
-            this.props.category.length > 1 ? this.returnCourses(this.props.category) : this.displayCourses(this.props.courses)
+            this.props.category.length > 1 ? this.filterMainCategory(this.props.category) : this.displayCourses(this.props.courses)
         } else {
             fetch("http://localhost:3000/api/v1/courses")
             .then(resp => resp.json())
@@ -104,7 +104,7 @@ class CourseContainer extends React.Component {
         }
     }
 
-    returnCourses = (newcategory) => {
+    filterMainCategory = (newcategory) => {
         this.setState({
             subcategory: "all"
         })
@@ -170,7 +170,7 @@ class CourseContainer extends React.Component {
 
                     return (
                         <>  
-                        <FilterSetting returnCourses={this.returnCourses} returnSubcategories={this.returnSubcategories} newArray={newArray} displaySubFilter={this.displaySubFilter}/>
+                        <FilterSetting filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} newArray={newArray} displaySubFilter={this.displaySubFilter}/>
                         
                   
                         <br></br>

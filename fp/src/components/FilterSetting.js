@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class FilterSetting extends React.Component {
 
     categoryHandler = (e) => {
-        this.props.returnCourses(e.target.value)
+        this.props.filterMainCategory(e.target.value)
         // this.props.displaySubFilter()
     }
 

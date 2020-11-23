@@ -124,16 +124,9 @@ class Course extends React.Component {
             <div class="other-course">
                 <img src={this.props.otherCourse.image}></img>
                 <h4>{this.props.otherCourse.name}</h4>
-                {/* <p>{this.props.otherCourse.subcategory}</p> */}
             </div>
             </NavLink>
-            // this.props.takencourse ? 
-            //     <div class="user-course">
-            //     <br></br>
-            //     <h3>{this.props.takencourse.name}</h3>
-            //     <img src={this.props.takencourse.image} alt={this.props.takencourse.name}width="150" height="150"></img>     
-            //     <button onClick={this.completeCourse} > Course in Progress </button>
-            //      </div>
+        
             
             :
             this.props.course ? 
