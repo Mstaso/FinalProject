@@ -10,8 +10,6 @@ import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
 
-let newArray = []
-
 class CourseContainer extends React.Component {
 
     state = {
@@ -20,6 +18,7 @@ class CourseContainer extends React.Component {
         coursesOnDisplay: [],
         perPage: 10,
         currentPage: 0,
+        subCategoryArray: []
     }
 
     componentDidMount(){
@@ -57,16 +56,19 @@ class CourseContainer extends React.Component {
 
 
     displaySubFilter = (newcategory) => {
+        console.log(this.props.category, newcategory)
         let newCourses = this.props.courses.filter(course => course.category === newcategory)
-        newArray = []
+        this.setState({subCategoryArray: []})
         newCourses.map(newcourse => this.findSingularSub(newcourse))
+        console.log(this.state.subCategoryArray, "check")
+        this.setState({subCategoryArray: this.state.subCategoryArray})
 
     }
 
     findSingularSub = (newcourse) => {
-        if(newArray.includes(newcourse.subcategory)){
+        if(this.state.subCategoryArray.includes(newcourse.subcategory)){
         } else {
-            newArray.push(newcourse.subcategory)
+            this.state.subCategoryArray.push(newcourse.subcategory)
         }
       
     } 
@@ -105,6 +107,7 @@ class CourseContainer extends React.Component {
     }
 
     filterMainCategory = (newcategory) => {
+        console.log(newcategory)
         this.setState({
             subcategory: "all"
         })
@@ -134,7 +137,7 @@ class CourseContainer extends React.Component {
     }
     
     render(){
-       
+       console.log(this.state.subCategoryArray)
         return (
             <>
             
@@ -170,7 +173,7 @@ class CourseContainer extends React.Component {
 
                     return (
                         <>  
-                        <FilterSetting filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} newArray={newArray} displaySubFilter={this.displaySubFilter}/>
+                        <FilterSetting filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
                         
                   
                         <br></br>

@@ -15,7 +15,7 @@ class FilterSetting extends React.Component {
     render(){
         let title = "All Categories"
         let optionsToRender = []
-    this.props.newArray.length >= 3 ? optionsToRender = this.props.newArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
+    this.props.subCategoryArray.length >= 3 ? optionsToRender = this.props.subCategoryArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
         return(
             <div class="filter">
                 <h2>
