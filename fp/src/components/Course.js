@@ -91,8 +91,10 @@ class Course extends React.Component {
     
 
     completeCourse = (e) => {
-        let userCourseToComplete = this.props.usercourses.find(usercourse => usercourse.course_id == this.props.takencourse.id && usercourse.user_id == this.props.loggedInUser.id)
-        this.props.userCoursePatcher(userCourseToComplete.id)
+        // console.log(this.props.usercourses)
+        // let userCourseToComplete = this.props.usercourses.find(usercourse => usercourse.course_id == this.props.course.id && usercourse.user_id == this.props.loggedInUser.id)
+        // this.props.userCoursePatcher(userCourseToComplete.id)
+        this.props.userCourseCompleter(this.props.course.id)
     }
 
 
@@ -130,22 +132,29 @@ class Course extends React.Component {
             
             :
             this.props.course ? 
-            <NavLink to={`/courses/${this.props.course.id}`}>
+            
                 <div class="course-index">
-                    
+                        <NavLink to={`/courses/${this.props.course.id}`}>
                         <img class="course-cover" src={this.props.course.cover_photo}  />
                         <img class="course-image" src={this.props.course.image} />  
 
                             <h3>{this.props.course.name}</h3>
                           
-                        {/* <h2>{this.props.course.subcategory}</h2>     */}
-                        <p> {this.props.course.category} | {this.props.course.subcategory} | {this.props.course.workload} </p>
                         
+                        <p> {this.props.course.category} | {this.props.course.subcategory} | {this.props.course.workload} </p>
+                            
+                        </NavLink> 
+                        {this.props.userCourseCompleter ?
+                        <button onClick={this.completeCourse} class="view-course"> Complete Course </button>
+                        :
+                        <NavLink to={`/courses/${this.props.course.id}`}>
                         <button class="view-course"> View Course </button>
+                        </NavLink> 
+                        }
                         
                      <hr></hr>
                 </div> 
-            </NavLink> 
+           
             
             :
             <div>

@@ -32,7 +32,11 @@ export const getUsers = () => {
     return function (dispatch) {
         fetch("http://localhost:3000/api/v1/users")
         .then(resp => resp.json())
-        .then(data => dispatch({ type: "fetched users", payload: data}))
+        .then(data => {
+            dispatch({ type: "fetched users", payload: data})
+            console.log(data)
+        })
+            
     }  
 }
 
@@ -82,7 +86,9 @@ export const userCoursePatcher = (ucId) => {
         // .then(data => this.props.fetchUsercourses())
         .then(data => {
             if (data.status !==401) {
-                dispatch(addUC(data))    
+                console.log(data)
+                // dispatch(addUC(data))
+                dispatch(getUsers())    
             }
         })
 }

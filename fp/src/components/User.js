@@ -1,10 +1,11 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Business from './Business'
-import UserCourse from './UserCourse'
+import Course from './Course'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
 import { getUsers } from '../redux/actions'
+import { userCoursePatcher } from '../redux/actions'
 
 
 class User extends React.Component {
@@ -12,9 +13,9 @@ class User extends React.Component {
     constructor () {
         super()
         this.state = {
-          CourseProgressisHidden: true,
+          CourseProgressisHidden: false,
           CompletedCoursesisHiddin: true,
-          businessMatchisHiddin: true
+          businessMatchisHiddin: true,
         }
       }
 
@@ -51,18 +52,44 @@ class User extends React.Component {
         })
     }  
 
+    userCourseCompleter = (id) => {
+        let userCourseToComplete = this.props.foundUser.user_courses.find(usercourse => usercourse.course_id === id)
+        console.log(userCourseToComplete)
+        this.props.userCoursePatcher(userCourseToComplete.id)
+        
+    }
+
     coursesInProgressForUser = () => {
-        let userCoursesInProgress = this.props.foundUser.user_courses.filter(usercourse => usercourse.complete == false)
-        return userCoursesInProgress.map(usercourse => <UserCourse usercourse={usercourse} userCourseCompleter={this.props.userCourseCompleter} key={usercourse.id}/>) 
+        const userCoursesInProgress = [];
+        for (let course of this.props.foundUser.courses){
+            for(let usercourse of this.props.foundUser.user_courses){
+                
+                if (!usercourse.complete && course.id === usercourse.course_id){
+                    userCoursesInProgress.push(course)
+                }
+            
+            }
+        }
+       
+        return userCoursesInProgress.map(course => <Course userCourseCompleter={this.userCourseCompleter} key={course.id} course={course} />)
+       
     }
 
     completedCoursesForUser = () => {
-        let completeduserCourses = this.props.foundUser.user_courses.filter(usercourse => usercourse.complete == true)
-        return completeduserCourses.map(usercourse => <UserCourse usercourse={usercourse} key={usercourse.id}/>)
+        // let completeduserCourses = this.props.foundUser.user_courses.filter(usercourse => usercourse.complete == true)
+        const completeduserCourses = [];
+        for (let course of this.props.foundUser.courses){
+            for (let usercourse of this.props.foundUser.user_courses){
+                if(usercourse.complete && usercourse.course_id === course.id){
+                    completeduserCourses.push(course);
+                }
+            }
+        }
+
+        return completeduserCourses.map(course => <Course course={course} key={course.id}/>)
     }
 
     render(){
-        console.log(this.props)
         // let userCourses = []
         // // this.props.foundUser ?  userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse key={usercourse.id} takenUserCourse={usercourse} newUserHandler={this.newUserHandler}/>) :  userCourses = []
         // this.props.foundUser ? userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse UserCourseInProgress={usercourse} key={usercourse.course_id}/>) : userCourses = []
@@ -98,7 +125,7 @@ class User extends React.Component {
                         <br></br>
                         <br></br>
                         <br></br>
-        <div class="description-profile">  <a href={this.props.foundUser.email} title={this.props.foundUser.email}><strong>{this.props.foundUser.email}</strong></a> | {this.props.foundUser.description}</div>
+                    <div class="description-profile">  <a href={this.props.foundUser.email} title={this.props.foundUser.email}><strong>{this.props.foundUser.email}</strong></a> | {this.props.foundUser.description}</div>
                         <br></br>
                         <br></br>
                         <br></br>    
@@ -155,7 +182,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
         fetchUsercourses: ()=> dispatch(getUsercourses()),
-        fetchUsers: ()=> dispatch(getUsers())
+        fetchUsers: ()=> dispatch(getUsers()),
+        userCoursePatcher: (ucId) => dispatch(userCoursePatcher(ucId))
         }
     }
         

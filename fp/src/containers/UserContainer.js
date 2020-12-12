@@ -13,10 +13,10 @@ class UserContainer extends React.Component {
         this.props.fetchUsers()
     }
 
-    userCourseCompleter = () => {
-        console.log("in userCourseCompleter")
-        this.props.fetchUsers()
-    }
+    // userCourseCompleter = () => {
+    //     console.log("in userCourseCompleter")
+    //     this.props.fetchUsers()
+    // }
 
     otherUsers = (foundUser) => {
        let otherUsers = this.props.users.filter(user => user.id !== foundUser.id)

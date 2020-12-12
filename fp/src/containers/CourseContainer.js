@@ -130,6 +130,7 @@ class CourseContainer extends React.Component {
         this.displayCourses(data)
     }
 
+    // displays similar courses to the one currently selected
     otherCourses = (foundCourse) => {
         let similarCourses = this.props.courses.filter(course => course.id !== foundCourse.id && course.category === foundCourse.category)
         let mappedOtherCourses = similarCourses.splice(0,4).map(course => <Course key={course.id} otherCourse={course}/>)
