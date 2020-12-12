@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Course from './Course'
-import Match from './Match'
+import User from './User'
 import { connect } from 'react-redux'
 import { getUsercourses } from '../redux/actions'
 import { matchPost } from '../redux/actions'
@@ -16,6 +16,10 @@ class Business extends React.Component {
           jobisHiddin: true
         }
       }
+
+    componentDidMount() {
+        this.props.fetchUsercourses()
+    }  
     
     courseToggleHidden (e) {
         this.setState({
@@ -45,15 +49,21 @@ class Business extends React.Component {
         })
     }
     matcher = () => {
-        let LoggedinUserCompletedUCs = this.props.usercourses.filter(usercourse => usercourse.user_id == this.props.loggedInUser.id && usercourse.complete == true)
-        // console.log(LoggedinUserCompletedUCs)
-        let businessCourseIds = []
-        this.props.foundBusiness.courses.map(course => businessCourseIds.push(course.id))
-        // console.log(businessCourseIds)
-        let matchedCourses = LoggedinUserCompletedUCs.filter(usercourse => businessCourseIds.includes(usercourse.course_id))
-        // console.log(matchedCourses)
-        let percentageMatch = matchedCourses.length / businessCourseIds.length
-        // console.log(parseFloat(percentageMatch * 100)+"%")
+        let matchedCourses = [];
+        console.log(this.props.usercourses, this.props.foundBusiness.courses)
+        for (let usercourse of this.props.usercourses) {
+                if(usercourse.user_id === this.props.loggedInUser.id && usercourse.complete){
+                    for(let course of this.props.foundBusiness.courses) {
+                        if (course.id === usercourse.course_id) {
+                            matchedCourses.push(course)
+                        }
+                    }
+                }
+            
+        }
+
+        let percentageMatch = matchedCourses.length / this.props.foundBusiness.courses.length
+
         if (percentageMatch !== 0){
             let matchObj = {
                 user_id: this.props.loggedInUser.id,
@@ -75,13 +85,13 @@ class Business extends React.Component {
     }
 
     renderMatches = () => {
-        let usermatches = []
-        this.props.foundBusiness.matches.length >= 1 ? usermatches = this.props.foundBusiness.matches.map(match => <Match match={match} key={match.id}/>) : usermatches = []
-        return usermatches
+        console.log(this.props.foundBusiness)
+        let users = []
+        this.props.foundBusiness.users.length >= 1 ? users = this.props.foundBusiness.users.map(user => <User user={user} key={user.id}/>) : users = []
+        return users
     }
 
     render(){
-        console.log(this.props)
         let courses = []
         this.props.foundBusiness ?  courses = this.props.foundBusiness.courses.map(course => <Course course={course} key={course.id} />) :  courses = []
         return (
@@ -125,7 +135,7 @@ class Business extends React.Component {
             </div>
                     <ul class="data-user">
                         <li onClick={this.courseToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.courses.length}</strong><span>Courses</span></a></li>
-                        <li onClick={this.matchToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.matches.length}</strong><span>User Matches</span></a></li>
+                        <li onClick={this.matchToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.users.length}</strong><span>User Matches</span></a></li>
                         <li onClick={this.jobToggleHidden.bind(this)}><a><strong>1</strong><span>Job Description</span></a></li>
                     </ul>
                     {this.state.jobisHiddin ? <h1></h1> : <div class="description-profile"> 

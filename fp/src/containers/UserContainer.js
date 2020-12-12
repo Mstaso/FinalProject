@@ -34,9 +34,7 @@ class UserContainer extends React.Component {
             <Switch>
                 <Route path='/users/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
-                    console.log(id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
-                    console.log(foundUser)
                     return (
                         <div>
                         <div class="other-users">

@@ -98,6 +98,7 @@ class Course extends React.Component {
     }
 
 
+    // responsible for displaying users enrolled in the course
     users = (newUser) => {
         let users = this.props.foundCourse.users
         if (newUser){

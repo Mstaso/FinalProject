@@ -34,7 +34,7 @@ export const getUsers = () => {
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: "fetched users", payload: data})
-            console.log(data)
+           
         })
             
     }  
@@ -65,6 +65,7 @@ export const createUserCourse = (ucObj) => {
     })
     .then(resp => resp.json())
     .then(data => {
+        console.log(data)
         // if (data.status !== 401) {
             
         // }

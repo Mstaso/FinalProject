@@ -56,11 +56,9 @@ class CourseContainer extends React.Component {
 
 
     displaySubFilter = (newcategory) => {
-        console.log(this.props.category, newcategory)
         let newCourses = this.props.courses.filter(course => course.category === newcategory)
         this.setState({subCategoryArray: []})
         newCourses.map(newcourse => this.findSingularSub(newcourse))
-        console.log(this.state.subCategoryArray, "check")
         this.setState({subCategoryArray: this.state.subCategoryArray})
 
     }
@@ -107,7 +105,6 @@ class CourseContainer extends React.Component {
     }
 
     filterMainCategory = (newcategory) => {
-        console.log(newcategory)
         this.setState({
             subcategory: "all"
         })
@@ -138,7 +135,7 @@ class CourseContainer extends React.Component {
     }
     
     render(){
-       console.log(this.state.subCategoryArray)
+
         return (
             <>
             
