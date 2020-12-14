@@ -69,19 +69,11 @@ class User extends React.Component {
                         userCoursesInProgress.push(course)
                     } else if (usercourse.complete && course.id === usercourse.course_id) {
                         completeduserCourses.push(course)
-                    }
-                
+                    }   
                 }
             }
-            
-        
         }
-        userCoursesInProgress.map(course => <Course userCourseCompleter={this.userCourseCompleter} key={course.id} course={course} />)
-        // let userCourses = []
-        // // this.props.foundUser ?  userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse key={usercourse.id} takenUserCourse={usercourse} newUserHandler={this.newUserHandler}/>) :  userCourses = []
-        // this.props.foundUser ? userCourses = this.props.foundUser.user_courses.map(usercourse => <UserCourse UserCourseInProgress={usercourse} key={usercourse.course_id}/>) : userCourses = []
-        let businesses = []
-        this.props.foundUser !== undefined ? businesses = this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>) : businesses = [] 
+      
         return (
             this.props.user ? 
             <NavLink to={`/users/${this.props.user.id}`}>
@@ -140,14 +132,11 @@ class User extends React.Component {
                     {this.state.businessMatchisHiddin ? <h1></h1> : <div>
                         <h2>Business Matches</h2>
                         <br></br>
-                        {businesses}
+                        {this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>)}
                     </div>   }
                     </div>
                     </div >
                         
-                {/* <footer>
-                <h4>Design by <a href="https://twitter.com/jofpin" target="_blank" title="José Pino">@jofpin</a></h4>
-            </footer> */}
             <div/>
             
             <div/>
