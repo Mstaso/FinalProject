@@ -65,7 +65,6 @@ export const createUserCourse = (ucObj) => {
     })
     .then(resp => resp.json())
     .then(data => {
-        console.log(data)
         // if (data.status !== 401) {
             
         // }
@@ -87,7 +86,7 @@ export const userCoursePatcher = (ucId) => {
         // .then(data => this.props.fetchUsercourses())
         .then(data => {
             if (data.status !==401) {
-                console.log(data)
+     
                 // dispatch(addUC(data))
                 dispatch(getUsers())    
             }
@@ -136,7 +135,6 @@ export const searchAction = (searchValue) => ({type: "search", payload: searchVa
 // Comments Actions
 
 export const postComment = (commentObj) => {
-    console.log("in action", commentObj)
    return (dispatch) => fetch('http://localhost:3000/api/v1/comments', {
         method: 'POST',
         headers: {

@@ -13,11 +13,6 @@ class UserContainer extends React.Component {
         this.props.fetchUsers()
     }
 
-    // userCourseCompleter = () => {
-    //     console.log("in userCourseCompleter")
-    //     this.props.fetchUsers()
-    // }
-
     otherUsers = (foundUser) => {
        let otherUsers = this.props.users.filter(user => user.id !== foundUser.id)
        let mappedOtherUsers = otherUsers.splice(0,5).map(user => <User user={user} key={user.id}/>)
@@ -32,10 +27,12 @@ class UserContainer extends React.Component {
             
             <>
             <Switch>
+                
                 <Route path='/users/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
-                    return (
+                    if(foundUser !== undefined) {
+                        return (
                         <div>
                         <div class="other-users">
                         <h3>Other Users</h3>
@@ -47,6 +44,13 @@ class UserContainer extends React.Component {
                         </div>
 
                     )
+                    } else {
+                        fetch(`http://localhost:3000/api/v1/users${id}`)
+                        .then(resp => resp.json())
+                        .then(data => { 
+                            return <User foundUser={data}/>
+                         })
+                    }
                 }}/>
                 <Route path="/users" render={() => {
 

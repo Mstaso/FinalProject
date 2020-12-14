@@ -79,6 +79,7 @@ class Course extends React.Component {
    }
 
     enroll = () => {
+        console.log(this.props.loggedInUser.id)
         let ucObj = {
             user_id: this.props.loggedInUser.id,
             course_id: this.props.foundCourse.id,
@@ -91,9 +92,6 @@ class Course extends React.Component {
     
 
     completeCourse = (e) => {
-        // console.log(this.props.usercourses)
-        // let userCourseToComplete = this.props.usercourses.find(usercourse => usercourse.course_id == this.props.course.id && usercourse.user_id == this.props.loggedInUser.id)
-        // this.props.userCoursePatcher(userCourseToComplete.id)
         this.props.userCourseCompleter(this.props.course.id)
     }
 
@@ -116,9 +114,6 @@ class Course extends React.Component {
     render(){
         let courseBusinesses = []
         this.props.foundCourse ? courseBusinesses = this.props.foundCourse.businesses.map(business => <Business business={business} key={business.id}/>) : courseBusinesses = []
-        // let comments = []
-        // this.props.foundCourse ? comments = this.props.foundCourse.comments.map(comment => <Comment commentCreater={this.commentCreater} comment={comment} key={comment.id}/>) : comments = []
-        // this.props.foundCourse ? this.users() : comments = []
         let users = []
         this.props.foundCourse ? users = this.props.foundCourse.users.map(user => <User user={user} key={user.id}/>) : users = []
         return (

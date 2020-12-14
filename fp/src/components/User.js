@@ -19,8 +19,7 @@ class User extends React.Component {
         }
       }
 
-    courseProgressToggleHidden (e) {
-        console.log("been clicked")
+    courseProgressToggleHidden () {
         this.setState({
             CompletedCoursesisHiddin: true,
             businessMatchisHiddin: true
@@ -30,8 +29,7 @@ class User extends React.Component {
         })
     }
     
-    completedCourseToggleHidden (e) {
-        console.log("been clicked")
+    completedCourseToggleHidden () {
         this.setState({
             CourseProgressisHidden: true,
             businessMatchisHiddin: true
@@ -41,8 +39,7 @@ class User extends React.Component {
         })
     }  
 
-    businessMatchToggleHidden (e) {
-        console.log("been clicked")
+    businessMatchToggleHidden () {
         this.setState({
             CourseProgressisHidden: true,
             CompletedCoursesisHiddin: true,
@@ -54,8 +51,10 @@ class User extends React.Component {
 
     userCourseCompleter = (id) => {
         let userCourseToComplete = this.props.foundUser.user_courses.find(usercourse => usercourse.course_id === id)
-        console.log(userCourseToComplete)
         this.props.userCoursePatcher(userCourseToComplete.id)
+        userCourseToComplete.complete = true
+        console.log(userCourseToComplete)
+        this.props.loggedInUser.user_courses.push(userCourseToComplete)
         
     }
 

@@ -5,7 +5,6 @@ class FilterSetting extends React.Component {
 
     categoryHandler = (e) => {
         this.props.filterMainCategory(e.target.value)
-        // this.props.displaySubFilter()
     }
 
     subcategoryHandler = (e) => {

@@ -28,7 +28,8 @@ componentDidMount(){
       headers: { Authorization: `Bearer ${token}`},
     })
     .then(resp => resp.json())
-    .then(data => {this.props.postUser(data.user)})
+    .then(data => {
+      this.props.postUser(data.user)})
   } 
 }
 

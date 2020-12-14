@@ -19,6 +19,7 @@ class Business extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsercourses()
+        // try and have loggedinuser initialized with usercourses so you dont have to fetch in cdm.
     }  
     
     courseToggleHidden (e) {
@@ -50,15 +51,13 @@ class Business extends React.Component {
     }
     matcher = () => {
         let matchedCourses = [];
-        console.log(this.props.usercourses, this.props.foundBusiness.courses)
-        for (let usercourse of this.props.usercourses) {
-                if(usercourse.user_id === this.props.loggedInUser.id && usercourse.complete){
-                    for(let course of this.props.foundBusiness.courses) {
-                        if (course.id === usercourse.course_id) {
-                            matchedCourses.push(course)
-                        }
-                    }
+        console.log(this.props.loggedInUser.user_courses)
+        for(let usercourse of this.props.loggedInUser.user_courses) {
+            for(let course of this.props.foundBusiness.courses){
+                if (usercourse.complete && usercourse.course_id === course.id){
+                    matchedCourses.push(course)
                 }
+            }
             
         }
 
@@ -84,23 +83,22 @@ class Business extends React.Component {
 
     }
 
-    renderMatches = () => {
-        console.log(this.props.foundBusiness)
+    renderUserMatches = () => {
         let users = []
         this.props.foundBusiness.users.length >= 1 ? users = this.props.foundBusiness.users.map(user => <User user={user} key={user.id}/>) : users = []
         return users
     }
 
+
     render(){
+        console.log(this.props.foundBusiness)
         let courses = []
         this.props.foundBusiness ?  courses = this.props.foundBusiness.courses.map(course => <Course course={course} key={course.id} />) :  courses = []
         return (
             this.props.business ? 
             <NavLink to={`/businesses/${this.props.business.id}`} >
            <div>
-            <figure class="business-card">
-                {/* <img src={this.props.business.cover_photo} alt="sample87" class="bus-cover"/> */}
-                
+            <figure class="business-card">         
                     <img src={this.props.business.logo} alt="profile-sample4" class="bus-logo"/>
                     <h2>{this.props.business.name}</h2>
                     <p>
@@ -108,7 +106,6 @@ class Business extends React.Component {
                     <br></br>
                     <br></br>
                     <br></br>
-                    {/* Courses: {this.props.business.courses.length} */}
                     </p>
                     
                 </figure>
@@ -154,28 +151,13 @@ class Business extends React.Component {
                     </div>   }
                     {this.state.matchisHiddin ? <h1></h1> : <div> 
                         <h2>User Matches</h2>
-                        {this.renderMatches()}
+                        {this.renderUserMatches()}
                          </div> }
                     </div>
                     </div>
-                        
-                {/* <footer>
-                <h4>Design by <a href="https://twitter.com/jofpin" target="_blank" title="José Pino">@jofpin</a></h4>
-                </footer> */}
             <div/>    
             <div/>
             </div>
-        //     <div>
-        //         <h1>{this.props.foundBusiness.name}</h1>
-        //         <img src={this.props.foundBusiness.logo} alt={this.props.foundBusiness.name} width="200" height="200"/>
-        //         <h2> Industry: {this.props.foundBusiness.industry}</h2>
-        //         <p className='description'>{this.props.foundBusiness.description}</p>
-        // <button onClick={this.matcher}>Match with {this.props.foundBusiness.name}</button>
-        //         <h3>Current Courses</h3>
-        //         {courses}
-        //         <h3>User Matches</h3>
-        //         {this.renderMatches()}
-        //     </div>
         )
     }
 }
