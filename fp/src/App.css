@@ -11,10 +11,10 @@
 
 
 .searchContainer {
-
-width: 42%;
+width: 450px;
+/* width: 42%;
 margin-top: -95px;
-margin-left: 180px;
+margin-left: 180px; */
   /* margin-top: -100em; set to a negative number 1/2 of your height */
   /* margin-left: -35em; set to a negative number 1/2 of your width */ 
 
@@ -22,21 +22,21 @@ margin-left: 180px;
 }
 #searchInput {
   width: 100%;
-  margin-right:300px;
-
+  /* margin-right:300px; */
   border: 1px solid #000;
   border-radius: 30px;
-  font-size: 12px;
+  /* font-size: 12px; */
   background-color: white;
   background-image:url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
 
-  background-position: 10px 7px;
+  background-position: 10px 5px;
   background-repeat: no-repeat;
-  padding: 8px 20px 8px 40px;
+  padding: 8px 10px 8px 20px;
   -webkit-transition: width 0.8s ease-in-out;
   transition: width 0.8s ease-in-out;
   outline: none;
   opacity: 0.9;
+  text-indent: 20px;
 
 }
 
@@ -99,11 +99,7 @@ margin-left: 180px;
   min-height: 100vh;
   
   }
-  ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  }
+
   h2,
   h3,
   a {
@@ -112,41 +108,43 @@ margin-left: 180px;
   a {
   text-decoration: none;
   }
+
   .logo {
-  margin-left: -120px;
-  font-size: 1.45em;
-  }
-  .main-nav {
-  display: inline;  
-	margin: 0 auto;
-  }
-  .logo a,
-  .main-nav a {
-  padding: 10px 15px;
-  text-align: center;
-  display: inline;
-  min-width: 800px;
-  }
-  .main-nav a {
-  margin-top: -19px;  
-  margin-right: -200px;
-  color:rgb(244, 247, 248);
-  font-size: .9em;
+    /* height: 50px; */
+    margin-top: 35px;
+    float: left;
+    color: #2487c9;
+    margin-left: 50px;
   }
 
-  .coursesnav {
-    margin-top:   -20px;
-    margin-right: 75px;
+
+  .main-nav {
+    float: right;
+    list-style: none;
   }
-  .businessnav {
-    margin-top:   -8px;
-    margin-right: -165px;
+
+  nav {
+    background-color: whitesmoke;
+    border-bottom: 1px solid black;
   }
-  .profilenav {
-    margin-top:   -8px;
-    margin-right: -400px;
-    color:rgb(244, 247, 248);
+
+  .main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
   }
+
+  .main-nav li a {
+    /* padding: 8px 0; */
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+  }
+
   .login {
     margin-top:   -8px;
     margin-right: -650px;
@@ -166,13 +164,6 @@ margin-left: 180px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  }
-  
-  #logo{
-  max-width: 10%;
-  max-height: 10%;
-  margin-top: -40px;
-  margin-left: -70%;
   }
 
 /* end navbar css */

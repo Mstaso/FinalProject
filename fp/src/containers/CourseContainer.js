@@ -135,7 +135,7 @@ class CourseContainer extends React.Component {
     }
     
     render(){
-
+        console.log(this.props.searchValue)
         return (
             <>
             
