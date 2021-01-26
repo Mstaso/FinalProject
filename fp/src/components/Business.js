@@ -20,6 +20,7 @@ class Business extends React.Component {
     componentDidMount() {
         this.props.fetchUsercourses()
         // try and have loggedinuser initialized with usercourses so you dont have to fetch in cdm.
+        // test
     }  
     
     courseToggleHidden (e) {
