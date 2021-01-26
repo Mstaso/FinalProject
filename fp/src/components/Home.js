@@ -7,6 +7,8 @@ import { setCategory } from '../redux/actions'
 
 const banner = require('../banner.jpg')
 
+const hero = require('../hero.jpg')
+
 const homebanner1 = require('../homebanner1.png')
 
 const homebanner2 = require('../homebanner2.jpg')
@@ -24,10 +26,10 @@ class Home extends React.Component {
     }
 
     render(){
-        return(
+        return(    
             <div >
                <div className="banner-div">
-               <img id="banner" src={banner}/>
+               {/* <img id="banner" src={hero}/> */}
                <div className="banner-info">
                 <h3>Match With Your Next Employer</h3> 
                 <br></br>
@@ -37,40 +39,29 @@ class Home extends React.Component {
                 <br></br>
                 <button onClick={this.clickHandler}>Sign Up</button>
                </div>
-                </div> 
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>  
+                </div>
      
-            <div class="divider">
-            <h3>Featured Businesses</h3>
-            <br></br>  
-            <br></br> 
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br> 
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br> 
-            <br></br>
-            <br></br>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+            
+            <h3 class="featured"> Featured Businesses</h3>
+            
+ 
             <div id="columns" > 
                 <BusinessContainer />
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <br></br>
             <br></br>
             <br></br>

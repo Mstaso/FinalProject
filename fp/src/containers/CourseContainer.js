@@ -40,8 +40,12 @@ class CourseContainer extends React.Component {
          
     }
     displayCourses(data) {
-        let coursesThroughSearch =  data.filter(course => 
+        let coursesThroughSearch = []
+        this.props.searchValue ?
+        coursesThroughSearch =  data.filter(course => 
             course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
+            :
+            coursesThroughSearch = data
             let slice = coursesThroughSearch.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
