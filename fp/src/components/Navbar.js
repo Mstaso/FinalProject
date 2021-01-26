@@ -19,8 +19,6 @@ class Navbar extends React.Component {
             <div class="row">
           <h1 class="logo"><a href="#"><NavLink to="/home">Course Matcher</NavLink></a></h1>
           <ul class="main-nav" >
-
-          <li><Search/></li>  
           <li> <a href="#"><NavLink to="/courses" exact>Courses</NavLink></a></li>
           <li><a href="#"><NavLink to="/businesses" exact>Businesses</NavLink></a></li>
 

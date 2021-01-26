@@ -7,7 +7,12 @@
   pointer-events: none;
 }
 
-/* Search Form Css */
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Search Css */
 
 
 .searchContainer {
@@ -101,11 +106,7 @@ margin-left: 180px; */
   }
 
   .logo {
-    /* height: 50px; */
-    margin-top: 35px;
     float: left;
-    color: #2487c9;
-    margin-left: 50px;
   }
 
 
@@ -121,13 +122,11 @@ margin-left: 180px; */
 
   .main-nav li {
     display: inline-block;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 50px;
     margin-top: 10px;
   }
 
   .main-nav li a {
-    /* padding: 8px 0; */
     color: black;
     text-decoration: none;
     text-transform: uppercase;
@@ -364,7 +363,7 @@ footer h4 a {
 /* Home Banner CSS */
 
 .banner-div{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(hero.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(hero.jpg);
   background-size: cover;
   background-position: center;
   height: 70vh;
