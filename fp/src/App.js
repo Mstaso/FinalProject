@@ -44,7 +44,6 @@ componentDidMount(){
         <Route path="/home" render={() => <Home />} />
         <Route path="/courses" render={() => <CourseContainer/>} />
         <Route path="/businesses" render={() => <BusinessContainer />} />
-        {/* <Route path="/template" render={() => <UserTemplateContainer courses={this.props.courses} />} /> */}
         <Route path="/users" render={() => <UserContainer />} />
         </Switch>
       </div>

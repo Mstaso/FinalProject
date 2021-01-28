@@ -12,7 +12,7 @@
   margin: 0 auto;
 }
 
-/* Search Css */
+/* Search CSS */
 
 
 .searchContainer {
@@ -33,7 +33,6 @@ margin-left: 180px; */
   /* font-size: 12px; */
   background-color: white;
   background-image:url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
-
   background-position: 10px 5px;
   background-repeat: no-repeat;
   padding: 8px 10px 8px 20px;
@@ -45,7 +44,7 @@ margin-left: 180px; */
 
 }
 
-/* User Float Container CSS */
+/* User Container CSS */
 .user-float {
   width: 260px;
   height: 350px;
@@ -396,12 +395,12 @@ footer h4 a {
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
-  width: 7em; 
+  width: 10em; 
   background: #3498db;
   border: 1px solid #2487c9;
   color: #fff;
   outline: none;
-  border-radius: 0 .6em .6em 0;
+  border-radius: 100vh;
   padding: .45em;
 }
 
