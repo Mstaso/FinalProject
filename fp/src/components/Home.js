@@ -13,6 +13,8 @@ const homebanner1 = require('../homebanner1.png')
 
 const homebanner2 = require('../homebanner2.jpg')
 
+const credentials = require('../misc/credentialscopy.json')
+
 class Home extends React.Component {
 
 
@@ -26,6 +28,7 @@ class Home extends React.Component {
     }
 
     render(){
+        console.log(credentials.projectId)
         return(    
             <div >
                <div className="banner-div">
