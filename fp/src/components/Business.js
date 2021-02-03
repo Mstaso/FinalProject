@@ -97,19 +97,11 @@ class Business extends React.Component {
         return (
             this.props.business ? 
             <NavLink to={`/businesses/${this.props.business.id}`} >
-           <div>
-            <figure class="business-card">         
+
+            <div class="business-card col span-1-of-6 ">
                     <img src={this.props.business.logo} alt="profile-sample4" class="bus-logo"/>
-                    <h2>{this.props.business.name}</h2>
-                    <p>
-                        {this.props.business.industry}
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    </p>
-                    
-                </figure>
-            </div>
+                    <h3>{this.props.business.name}</h3>
+                </div>
             </NavLink>
             :
             <div>

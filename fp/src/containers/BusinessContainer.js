@@ -65,7 +65,7 @@ class BusinessContainer extends React.Component {
                 <Route path="/home" render={() => {
 
                     return (
-                        <>
+                        <div class="row">
                             {
                                 this.props.businesses.length === 0 ? <h1>Loading</h1> :
                                 <>
@@ -74,7 +74,7 @@ class BusinessContainer extends React.Component {
                             }
                         
                         
-                        </>
+                        </div>
                     )
                 }} />
             </Switch>       

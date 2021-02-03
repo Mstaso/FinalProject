@@ -4,6 +4,7 @@ import BusinessContainer from '../containers/BusinessContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setCategory } from '../redux/actions'
+import strings from '../misc/localizable.strings'
 
 const banner = require('../banner.jpg')
 
@@ -26,20 +27,20 @@ class Home extends React.Component {
         this.props.setCategory(e.target.value)
         this.props.history.push("/courses");
     }
+    
 
     render(){
-        console.log(credentials.projectId)
+
         return(    
             <div >
                <div className="banner-div">
-               {/* <img id="banner" src={hero}/> */}
                <div className="banner-info">
                 <h3>Match With Your Next Employer</h3> 
-                <br></br>
+                
                 <p>
                     Find and land a new job by taking courses relevant to up and coming businesses
                 </p>
-                <br></br>
+         
                 <button onClick={this.clickHandler}>Sign Up</button>
                </div>
                 </div>
@@ -48,9 +49,9 @@ class Home extends React.Component {
             <h3 class="featured"> Featured Businesses</h3>
             
  
-            <div id="columns" > 
+           
                 <BusinessContainer />
-            </div>
+ 
             <br></br>
             <br></br>
             <br></br>

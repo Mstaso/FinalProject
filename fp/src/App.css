@@ -92,6 +92,8 @@ margin-left: 180px; */
     margin-top: -460px;
   }
 
+
+
 /* Navbar Css */
 * {
   box-sizing: border-box;
@@ -378,20 +380,34 @@ footer h4 a {
   position: relative;
   top: 300px;
   color: white;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .banner-info h3 {
   color: white;
+  margin-bottom: 30px;
 }
 
 .featured {
   margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.featured:after {
+  display: block;
+  height: 2px;
+  background-color: #2487c9;
+  content: ' ';
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+
 }
 
 .banner-info button {
   margin-top: 1em;
-  margin-left: -50px;
-	position: absolute;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -526,31 +542,40 @@ footer h4 a {
   border-color: rgb(187, 189, 192); */
 } 
 
+/* BUSINESS CARD CSS, INDEX VIEW */
+
 .business-card {
-  margin: 10px;
-  width: 200px;
-  height: 70px;
-  border-radius: 20px;
-  background-color: white
+  color: black;
 }
 
+.business-card h3, .business-card p {
+  text-align: center;
+
+}
+
+.business-card p {
+  font-size: 70%;
+}
+
+.bus-logo {
+  width: 35%;
+  height: auto;
+  border-radius: 20px;
+  /* margin-top: 10px; */
+  border-color: darkgray;
+}
+
+/* BUSINESS CARD CSS, SHOW VIEW */
 .bus-cover {
   margin-top: 10px;
-  /* width: 180px;
-  height: 100px; */
+  width: 180px;
+  height: 100px;
   vertical-align: top;
   opacity: 0.85;
   border-radius: 5px;
   
 }
-.bus-logo {
-  width: 60px;
-  height: 60px;
-  margin-right: 125px;
-  border-radius: 20px;
-  margin-top: 10px;
-  border-color: darkgray;
-}
+
 .business-card h2 {
   display: block;
   font-size: 1.2em;
@@ -562,12 +587,12 @@ footer h4 a {
 
 .business-card p {
 
-  font-size: 0.7em;
+  /* font-size: 0.7em;
   opacity: 0.8;
   color: rgb(72, 72, 72);
   margin-right: -60px;
-  /* line-height: 4.5; */
-  margin-top: 0px;
+  line-height: 4.5;
+  margin-top: 0px; */
 }
 
 #Other-Businesses {
