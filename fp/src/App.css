@@ -1,16 +1,39 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .row {
   max-width: 1140px;
   margin: 0 auto;
 }
+
+html {
+  background-color: #fff;
+  color: rgb(54, 54, 54);
+  font-family: 'Lato', 'Arial', 'sans-serif';
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headers */
+h1, 
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h2 {
+  font-size: 140%;
+  word-spacing: 2px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
 
 /* Search CSS */
 
@@ -95,19 +118,13 @@ margin-left: 180px; */
 
 
 /* Navbar Css */
-* {
-  box-sizing: border-box;
-  }
-  body {
-  font-family: "Open sans", sans-serif;
-  line-height: .5;
-  margin: 0;
-  min-height: 100vh;
-  
-  }
-
   .logo {
     float: left;
+    margin-top: 5px;
+    color: #3498db;
+    font-size: 150%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
   }
 
 
@@ -118,13 +135,15 @@ margin-left: 180px; */
 
   nav {
     background-color: whitesmoke;
+    height: 6vh;
     border-bottom: 1px solid black;
   }
 
   .main-nav li {
+    margin-top: 15px;
     display: inline-block;
     margin-left: 50px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 
   .main-nav li a {
@@ -134,11 +153,13 @@ margin-left: 180px; */
     font-size: 90%;
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.2s;
+    padding: 6px 0;
   }
 
   .main-nav li a:hover,
   .main-nav li a:active {
-    border-bottom: 2px solid #2487c9;
+    border-bottom: 2px solid #3498db;
+
 }
 
   .login {
@@ -173,18 +194,10 @@ margin-left: 180px; */
 
 
 /* Individual User, Business and Course CSS */
-@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400|Lato:400,300|Coda|Open+Sans);
-
 /* 
 * Art by @jofpin 
 * 2014
 */
-
-body {
-  background: white;
-  font-family: "Open sans", sans-serif;
- 
-}
 
 a {
   text-decoration: none;
@@ -367,27 +380,17 @@ footer h4 a {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(hero.jpg);
   background-size: cover;
   background-position: center;
-  height: 70vh;
-  margin-top: -19px;
+  height: 94vh;
+  /* margin-top: -19px; */
 }
-#banner {
- /* width: 100%; */
- height: 100vh;
- background-size: cover;
- background-position: center;
-}
+
 .banner-info {
   position: relative;
-  top: 300px;
+  top: 600px;
   color: white;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-}
-
-.banner-info h3 {
-  color: white;
-  margin-bottom: 30px;
 }
 
 .featured {
@@ -406,18 +409,26 @@ footer h4 a {
 
 }
 
-.banner-info button {
-  margin-top: 1em;
-  font-size: 13px;
-  font-weight: bold;
+.btn {
+  margin-top: 2em;
   cursor: pointer;
   width: 10em; 
   background: #3498db;
   border: 1px solid #2487c9;
   color: #fff;
-  outline: none;
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
   border-radius: 100vh;
-  padding: .45em;
+  color: #fff;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn:hover,
+.btn:active
+ {
+  background: #2377af;
 }
 
 .home-courses {
@@ -560,7 +571,7 @@ footer h4 a {
 .bus-logo {
   width: 35%;
   height: auto;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   /* margin-top: 10px; */
   border-color: darkgray;
 }
