@@ -28,12 +28,49 @@ h3 {
 }
 
 h2 {
-  font-size: 140%;
+  font-size: 180%;
   word-spacing: 2px;
-  text-align: center;
+  /* text-align: center; */
   letter-spacing: 1px;
 }
 
+/* BUTTONS */
+
+.btn {
+  text-align: center;
+  margin-top: 2em;
+  margin-right: 25px;
+  cursor: pointer;
+  width: 10em; 
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 100vh;
+  color: #fff;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:hover,
+.btn-full:active
+ {
+  background: #2377af;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: #3498db;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active
+ {
+  background: #2377af;
+  color: white;
+}
 
 /* Search CSS */
 
@@ -120,9 +157,9 @@ margin-left: 180px; */
 /* Navbar Css */
   .logo {
     float: left;
-    margin-top: 5px;
+    margin-top: 8px;
     color: #3498db;
-    font-size: 150%;
+    font-size: 130%;
     word-spacing: 4px;
     letter-spacing: 1px;
   }
@@ -385,13 +422,15 @@ footer h4 a {
 }
 
 .banner-info {
-  position: relative;
-  top: 600px;
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
 }
+
+/* How it Works Section */
 
 .featured {
   margin-top: 40px;
@@ -409,27 +448,7 @@ footer h4 a {
 
 }
 
-.btn {
-  margin-top: 2em;
-  cursor: pointer;
-  width: 10em; 
-  background: #3498db;
-  border: 1px solid #2487c9;
-  color: #fff;
-  display: inline-block;
-  padding: 10px 30px;
-  font-weight: 300;
-  text-decoration: none;
-  border-radius: 100vh;
-  color: #fff;
-  transition: background-color 0.2s, border 0.2s, color 0.2s;
-}
 
-.btn:hover,
-.btn:active
- {
-  background: #2377af;
-}
 
 .home-courses {
   width: 500px;

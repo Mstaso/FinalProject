@@ -38,10 +38,13 @@ class Home extends React.Component {
                     Find and land a new job by taking courses relevant to up and coming businesses
                 </p>
           */}
-                <a class="btn" onClick={this.clickHandler}>Sign Up</a>
+                <a class="btn btn-full" onClick={this.clickHandler}>Sign Up</a>
+                <a class="btn btn-ghost" href="#">Learn More</a>
                </div>
                 </div>
-     
+            <div class="how-it-works">
+            <h2>How it Works</h2>
+            </div>
             
             <h3 class="featured"> Featured Businesses</h3>
             
