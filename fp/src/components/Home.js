@@ -43,7 +43,34 @@ class Home extends React.Component {
                </div>
                 </div>
             <div class="how-it-works">
-            <h2>How it Works</h2>
+                <div class="row">
+                    <h2>How it Works</h2>         
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3 box">
+                        <ion-icon name="infinite-outline" class="icon-big" ></ion-icon>
+                        <h3>Courses</h3>
+                        <p>
+                           1000+ courses available on the platform
+                        </p>
+                    </div>
+                   
+                    <div class="col span-1-of-3 box">
+                         <ion-icon name="business-outline" class="icon-big"></ion-icon>
+                        <h3>Companies</h3>
+                        <p>
+                            Post job descriptions and select courses that are relevant to the position.
+                            {/* Complete courses selected by companies to be able to connect with them.   */}
+                        </p>
+                    </div>
+                    <div class="col span-1-of-3 box">
+                        <ion-icon name="bulb-outline" class="icon-big"></ion-icon>
+                        <h3>Match</h3>
+                        <p>
+                           Connect with a company by completing one or more of their selected courses.  
+                        </p>
+                    </div>
+                </div>
             </div>
             
             <h3 class="featured"> Featured Businesses</h3>

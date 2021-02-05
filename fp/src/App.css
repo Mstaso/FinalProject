@@ -34,6 +34,22 @@ h2 {
   letter-spacing: 1px;
 }
 
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  text-align: center;
+  margin-left: 15%;
+}
+
+/* ICONS */
+.icon-big {
+  font-size: 250%;
+  display: block;
+  color: #3498db;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+}
 /* BUTTONS */
 
 .btn {
@@ -431,6 +447,21 @@ footer h4 a {
 }
 
 /* How it Works Section */
+
+.how-it-works h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.how-it-works h2:after {
+  display: block;
+  height: 2px;
+  background-color: #2487c9;
+  content: ' ';
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
 
 .featured {
   margin-top: 40px;
