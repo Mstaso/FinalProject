@@ -44,7 +44,8 @@ class Home extends React.Component {
                 </div>
             <div class="how-it-works">
                 <div class="row">
-                    <h2>How it Works</h2>         
+                    <h2>How it Works</h2> 
+                    <p class="long-copy">Browse, take courses and match with companies by completing one or more of their selected courses </p>        
                 </div>
                 <div class="row">
                     <div class="col span-1-of-3 box">
@@ -72,89 +73,39 @@ class Home extends React.Component {
                     </div>
                 </div>
             </div>
-            
-            <h3 class="featured"> Featured Businesses</h3>
+            <div class="featured-courses">
+            <div class="row">
+                <div class="col span-1-of-2 box">
+                    <figure class="homebanner1-holder">
+                <img class="homebanner1" src={homebanner1} alt='cs-course-image'></img>
+                </figure>
+                </div>
+                <div class="col span-1-of-2 box">
+                    <h3>Computer-Science  Courses</h3>
+                    <p>Those studying computer science may end up taking a similarly broad range of career pathways. Many CS majors focus on building skills in software programming, coding, and web development, all of which are highly sought after by a wide variety of companies. However, others may focus on more specialized topics such as algorithmic problem solving, machine learning and artificial intelligence, cybersecurity, and even robotics!</p>
+                    <button class="btn btn-full" value="computer-science" onClick={this.categoryHandler}>View</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2 box">
+                <h3>Business Courses</h3>
+                <p>If you’re looking to advance your career in business, there are plenty of online courses available that can help you build these skills right away. Courses in finance, accounting, and business modeling can give you the tools you need to manage your cashflow wisely. Business planning, value chain management, and project management can help you optimize your operations for success.  Whatever your business background, online courses can take you further!</p>
+                <button class="btn btn-full" value="business" onClick={this.categoryHandler}>View </button>
+                </div>
+                <div class="col span-1-of-2 box">
+                <figure class="homebanner2-holder">
+                <img class="homebanner2" src={homebanner2}></img>
+                </figure>
+                </div>
+            </div>
+            </div>
+            <h2> Featured Companies</h2>
             
  
            
                 <BusinessContainer />
  
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <div class="home-courses">
-            <h3>Computer Science Courses</h3> 
-            <br></br>
-            <p>Those studying computer science may end up taking a similarly broad range of career pathways. Many CS majors focus on building skills in software programming, coding, and web development, all of which are highly sought after by a wide variety of companies. However, others may focus on more specialized topics such as algorithmic problem solving, machine learning and artificial intelligence, cybersecurity, and even robotics!</p>
-            <br></br>
-            <button value="computer-science" onClick={this.categoryHandler}>View Courses</button>
-            </div>
-            <img class="homebanner1" src={homebanner1}></img>
-            <br></br>
-            <br></br>  
-         
-            <div value="business" class="home-courses-2">
-
-            <h3>Business Courses</h3> 
-            <br></br>
-            <p>If you’re looking to advance your career in business, there are plenty of online courses available that can help you build these skills right away. Courses in finance, accounting, and business modeling can give you the tools you need to manage your cashflow wisely. Business planning, value chain management, and project management can help you optimize your operations for success.  Whatever your business background, online courses can take you further!</p>
-            <br></br>
-            <button value="business" onClick={this.categoryHandler}>View Courses</button>
-            <img src={homebanner2}></img>
-
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br>  
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br> 
-            <div class="divider">
-            <h3>Featured Courses</h3>
-            </div>   
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br>  
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>  
-            <br></br> 
-            <div id="columnshome">   
-                <CourseContainer />
-            </div>    
+        
             </div> 
         )
     }
