@@ -174,17 +174,11 @@ class CourseContainer extends React.Component {
                 <Route path="/courses" render={() => {
 
                     return (
-                        <>  
+                        <div class="courses-index">  
                         <FilterSetting filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
-                        
-                  
-                        <br></br>
-                        <br></br>  
-                        <br></br>
-                        <br></br>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
-                                <div id="columnscourses">
+                                <div>
                                 {this.state.coursesOnDisplay}
                                 </div>
                             }
@@ -201,7 +195,7 @@ class CourseContainer extends React.Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
                         
-                        </>
+                        </div>
                     )
                 }} />
                 <Route path="/home" render={() => {

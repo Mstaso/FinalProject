@@ -129,22 +129,24 @@ class Course extends React.Component {
             :
             this.props.course ? 
             
-                <div class="course-index">
+                <div class="row course-index">
                         <NavLink to={`/courses/${this.props.course.id}`}>
+                            <div class="course-image-holder">
                         <img class="course-cover" src={this.props.course.cover_photo}  />
                         <img class="course-image" src={this.props.course.image} />  
-
-                            <h3>{this.props.course.name}</h3>
-                          
-                        
+                        </div>
+                        <div class="course-info">
+                        <h4>{this.props.course.name}</h4>
                         <p> {this.props.course.category} | {this.props.course.subcategory} | {this.props.course.workload} </p>
-                            
+                        </div>  
                         </NavLink> 
                         {this.props.userCourseCompleter ?
-                        <button onClick={this.completeCourse} class="view-course"> Complete Course </button>
+                        <button onClick={this.completeCourse} class="btn btn-full"> Complete Course </button>
                         :
                         <NavLink to={`/courses/${this.props.course.id}`}>
-                        <button class="view-course"> View Course </button>
+                            <div class="course-btn-holder">
+                        <button class="btn btn-full"> View </button>
+                            </div>
                         </NavLink> 
                         }
                         

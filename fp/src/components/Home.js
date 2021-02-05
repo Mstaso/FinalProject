@@ -33,11 +33,6 @@ class Home extends React.Component {
                <div className="banner-div">
                <div className="banner-info">
                 <h2>Match With Your Next Employer</h2> 
-                
-                {/* <p>
-                    Find and land a new job by taking courses relevant to up and coming businesses
-                </p>
-          */}
                 <a class="btn btn-full" onClick={this.clickHandler}>Sign Up</a>
                 <a class="btn btn-ghost" href="#how-it-works">Learn More</a>
                </div>
@@ -61,7 +56,6 @@ class Home extends React.Component {
                         <h3>Companies</h3>
                         <p>
                             Post job descriptions and select courses that are relevant to the position.
-                            {/* Complete courses selected by companies to be able to connect with them.   */}
                         </p>
                     </div>
                     <div class="col span-1-of-3 box">

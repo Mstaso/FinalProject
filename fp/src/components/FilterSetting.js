@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Search from './Search'
 
 class FilterSetting extends React.Component {
 
@@ -17,17 +18,20 @@ class FilterSetting extends React.Component {
     this.props.subCategoryArray.length >= 3 ? optionsToRender = this.props.subCategoryArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
         return(
             <div class="filter">
-                <h2>
+                <h3>
                     {this.props.category.length > 3 ?
                     title = this.props.category
                     :
                     title = "All Categories"
                     }
                   
-                </h2>
-            <br></br>  
-            <br></br>
-            <form class="choosecategory" onChange={this.categoryHandler}>           
+                </h3>
+                <div class="row category1">
+                <div class="col span-1-of-3 box">
+                <Search />
+                </div>
+            <form class="col span-1-of-3 box" onChange={this.categoryHandler}>
+                <label>main</label>           
                 <select name="category"> 
                 <option value="all">All Categories</option>
                 <option value="business">Business</option>
@@ -43,15 +47,15 @@ class FilterSetting extends React.Component {
                 <option value="language-learning">Language-Learning</option>
                 </select>
             </form>
-         
-            <br></br>
-            <form class="subcategory" onChange={this.subcategoryHandler}>
-                <select name="subcategory">
+            <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+            <label>sub</label>
+                <select name="subcategory">  
                 <option value="all">All</option>
                 {optionsToRender}
                 </select>
             </form>
-        
+
+            </div>
         
             
         
