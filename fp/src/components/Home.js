@@ -99,13 +99,10 @@ class Home extends React.Component {
                 </div>
             </div>
             </div>
+            <div class="featured-companies">
             <h2> Featured Companies</h2>
-            
- 
-           
                 <BusinessContainer />
- 
-        
+            </div>
             </div> 
         )
     }
