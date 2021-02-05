@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Footer from './components/footer'
 import CourseContainer from './containers/CourseContainer';
 import BusinessContainer from './containers/BusinessContainer';
 import UserContainer from './containers/UserContainer';
@@ -46,6 +47,7 @@ componentDidMount(){
         <Route path="/businesses" render={() => <BusinessContainer />} />
         <Route path="/users" render={() => <UserContainer />} />
         </Switch>
+        <Footer />
       </div>
     );
   }

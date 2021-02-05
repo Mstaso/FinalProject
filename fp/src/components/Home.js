@@ -29,7 +29,7 @@ class Home extends React.Component {
     render(){
 
         return(    
-            <div >
+            <div>
                <div className="banner-div">
                <div className="banner-info">
                 <h2>Match With Your Next Employer</h2> 
@@ -39,10 +39,10 @@ class Home extends React.Component {
                 </p>
           */}
                 <a class="btn btn-full" onClick={this.clickHandler}>Sign Up</a>
-                <a class="btn btn-ghost" href="#">Learn More</a>
+                <a class="btn btn-ghost" href="#how-it-works">Learn More</a>
                </div>
                 </div>
-            <div class="how-it-works">
+            <div id="how-it-works" class="how-it-works">
                 <div class="row">
                     <h2>How it Works</h2> 
                     <p class="long-copy">Browse, take courses and match with companies by completing one or more of their selected courses </p>        

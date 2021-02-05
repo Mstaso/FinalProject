@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom';
-import Search from './Search'
 import { connect } from 'react-redux'
 import { userSignUp } from '../redux/actions'
 
