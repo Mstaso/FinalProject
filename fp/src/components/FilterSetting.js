@@ -28,7 +28,7 @@ class FilterSetting extends React.Component {
                 </h3>
                 <div class="row category1">
                 <div class="col span-1-of-3 box">
-                <Search />
+                <Search handleSearch={this.props.handleSearch}/>
                 </div>
             <form class="col span-1-of-3 box" onChange={this.categoryHandler}>
                 <label>main</label>           

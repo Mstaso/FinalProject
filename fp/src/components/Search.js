@@ -9,21 +9,23 @@ class Search extends React.Component {
         searchValue: ""
     }
 
-    submitHandler = (e) => {
-        e.preventDefault()
-        this.props.searchNow(this.state.searchValue)
-        this.props.history.push("/courses");
-    } 
+    // changeHandler = (e) => {
+    //     e.preventDefault()
+    //     this.props.searchNow(this.state.searchValue)
+    //     this.props.history.push("/courses");
+    // } 
 
     changeHandler = (e) => {
        this.setState({
         searchValue: e.target.value
        })
+       this.props.searchNow(this.state.searchValue)
+       this.props.handleSearch(this.state.searchValue)
     }
     render() {
         return (
             <div className="searchContainer">
-            <form onSubmit={this.submitHandler}>
+            <form onChange={this.changeHandler}>
                 <input id="searchInput" placeholder="Search Course" value={this.state.searchValue} name="searchValue" onChange={this.changeHandler}/>
             </form>
         </div>

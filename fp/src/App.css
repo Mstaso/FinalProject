@@ -395,33 +395,40 @@ margin-left: 40px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   width: 10%;
   height: 120px;
-  position: relative;
-  right: 120px;
-  top: 30px;
-  margin-left: 40px;
+  position: absolute;
+  left: 130px;
+  top: 50px;
 }
 
 .course-info {
-  margin-left: 400px;
+  margin-left: 300px;
+  /* height: 0; */
   text-decoration: none;
   color: black;
+  position: absolute;
+  top: 80px;
+  
 }
 
 .course-info p {
   font-size: 80%;
+  
 }
 
 .course-btn-holder {
   margin-left: 1000px;
 }
 .course-index hr {
-
+  margin-top: 50px;
 }
 
 .course-index button {
-
+/* position: absolute; */
 }
 
+.course-btn-holder {
+  margin-bottom: 20px;
+}
 
 /* User Container CSS */
 .user-float {
@@ -575,6 +582,10 @@ margin-left: 40px;
 .profile-user-page .user-profile-data, .profile-user-page .description-profile {
   text-align: center;
   padding: 0 1.5em; 
+}
+
+.user-profile-data button{
+  margin-left: 100px;
 }
 .profile-user-page .user-profile-data h1 {
   font-family: "Lato", sans-serif;

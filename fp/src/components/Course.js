@@ -141,13 +141,11 @@ class Course extends React.Component {
                         </div>  
                         </NavLink> 
                         {this.props.userCourseCompleter ?
+                        <div class="course-btn-holder">
                         <button onClick={this.completeCourse} class="btn btn-full"> Complete Course </button>
+                        </div>
                         :
-                        <NavLink to={`/courses/${this.props.course.id}`}>
-                            <div class="course-btn-holder">
-                        <button class="btn btn-full"> View </button>
-                            </div>
-                        </NavLink> 
+                        <div></div>
                         }
                         
                      <hr></hr>

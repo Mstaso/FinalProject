@@ -13,6 +13,7 @@ import ReactPaginate from 'react-paginate'
 class CourseContainer extends React.Component {
 
     state = {
+        searchValue: '',
         subcategory: 'all',
         offset: 0,
         coursesOnDisplay: [],
@@ -40,22 +41,38 @@ class CourseContainer extends React.Component {
          
     }
     displayCourses(data) {
-        let coursesThroughSearch = []
-        this.props.searchValue ?
-        coursesThroughSearch =  data.filter(course => 
-            course.name.toLowerCase().includes(this.props.searchValue.toLowerCase()))
-            :
-            coursesThroughSearch = data
-            let slice = coursesThroughSearch.slice(this.state.offset, this.state.offset + this.state.perPage)
+        // console.log(this.props.searchValue)
+        // let coursesThroughSearch = []
+        // console.log(this.props.searchValue)
+        // console.log("been hit 1")
+        // this.state.searchValue > 1?
+        // coursesThroughSearch =  data.filter(course => 
+        //     course.name.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+        //     :
+        //     coursesThroughSearch = data
+            // console.log("been hit 2")
+            let slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
                     
                     this.setState({
-                    pageCount: Math.ceil(coursesThroughSearch.length / this.state.perPage),
+                    pageCount: Math.ceil(data.length / this.state.perPage),
                     coursesOnDisplay: postData,
                     // subcategory: 'all'
                 })
         
+    }
+
+    handleSearch = (searchValue) => {
+        let coursesThroughSearch = this.props.courses.filter(course => 
+        course.name.toLowerCase().includes(searchValue.toLowerCase()))
+            this.displayCourses(coursesThroughSearch)
+        // searchValue ? 
+        // coursesThroughSearch =  data.filter(course => 
+        //     course.name.toLowerCase().includes(searchValue.toLowerCase()))
+        //     :
+        //     coursesThroughSearch = this.props.courses
+        //     return coursesThroughSearch;
     }
 
 
@@ -139,7 +156,6 @@ class CourseContainer extends React.Component {
     }
     
     render(){
-        console.log(this.props.searchValue)
         return (
             <>
             
@@ -175,7 +191,7 @@ class CourseContainer extends React.Component {
 
                     return (
                         <div class="courses-index">  
-                        <FilterSetting filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
+                        <FilterSetting handleSearch={this.handleSearch} filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
                                 <div>
