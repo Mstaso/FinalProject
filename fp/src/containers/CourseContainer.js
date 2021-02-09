@@ -13,7 +13,6 @@ import ReactPaginate from 'react-paginate'
 class CourseContainer extends React.Component {
 
     state = {
-        searchValue: '',
         subcategory: 'all',
         offset: 0,
         coursesOnDisplay: [],
@@ -64,7 +63,9 @@ class CourseContainer extends React.Component {
     }
 
     handleSearch = (searchValue) => {
-
+        let coursesThroughSearch = this.props.courses.filter(course => 
+            course.name.toLowerCase().includes(searchValue.toLowerCase()))
+                this.displayCourses(coursesThroughSearch)
         // searchValue ? 
         // coursesThroughSearch =  data.filter(course => 
         //     course.name.toLowerCase().includes(searchValue.toLowerCase()))
