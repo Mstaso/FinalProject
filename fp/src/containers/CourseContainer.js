@@ -64,9 +64,7 @@ class CourseContainer extends React.Component {
     }
 
     handleSearch = (searchValue) => {
-        let coursesThroughSearch = this.props.courses.filter(course => 
-        course.name.toLowerCase().includes(searchValue.toLowerCase()))
-            this.displayCourses(coursesThroughSearch)
+
         // searchValue ? 
         // coursesThroughSearch =  data.filter(course => 
         //     course.name.toLowerCase().includes(searchValue.toLowerCase()))
