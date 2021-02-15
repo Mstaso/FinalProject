@@ -77,10 +77,11 @@ class CourseContainer extends React.Component {
 
     displaySubFilter = (newcategory) => {
         let newCourses = this.props.courses.filter(course => course.category === newcategory)
-        this.setState({subCategoryArray: []})
+        console.log(this.state.subCategoryArray)
         newCourses.map(newcourse => this.findSingularSub(newcourse))
+        console.log(this.state.subCategoryArray)
         this.setState({subCategoryArray: this.state.subCategoryArray})
-
+        console.log(this.state.subCategoryArray)
     }
 
     findSingularSub = (newcourse) => {
@@ -128,6 +129,7 @@ class CourseContainer extends React.Component {
         this.setState({
             subcategory: "all"
         })
+        console.log(this.state.subCategoryArray)
         if(newcategory !== this.props.category){
             this.props.setCategory(newcategory) 
         }
