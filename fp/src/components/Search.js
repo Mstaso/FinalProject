@@ -26,7 +26,7 @@ class Search extends React.Component {
         return (
             <div className="searchContainer">
             <form onChange={this.changeHandler}>
-                <input id="searchInput" placeholder="Search Course" value={this.state.searchValue} name="searchValue" onChange={this.changeHandler}/>
+                <input id="searchInput" placeholder="Search All Courses" value={this.state.searchValue} name="searchValue" onChange={this.changeHandler}/>
             </form>
         </div>
         )
