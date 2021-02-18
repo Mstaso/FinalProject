@@ -18,6 +18,7 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>
                 <option value="finance">Finance</option>
                 <option value="business-strategy">Business Strategy</option>
                 <option value="marketing">Marketing</option>
@@ -33,6 +34,7 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>
                 <option value="data-analysis">Data Analysis</option>
                 <option value="machine-learning">Machine Learning</option>
                 <option value="probability-and-statistics">Probability and Statistics</option>
@@ -44,6 +46,7 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>
                 <option value="software-development">Software Development</option>
                 <option value="design-and-product">Design and Product</option>
                 <option value="algorithms">Algorithms</option>
@@ -57,6 +60,7 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>
                 <option value="patient-care">Patient Care</option>
                 <option value="healthcare-management">Healthcare Management</option>
                 <option value="public-health">Public Health</option>
@@ -79,6 +83,7 @@ class FilterSetting extends React.Component {
                 <option value="governance-and-society">Governance and Society</option>
                 <option value="law">Law</option>
                 <option value="economics">Economics</option>
+                <option value="all">All</option>
                     </select>
                 </form>
             )
@@ -92,6 +97,7 @@ class FilterSetting extends React.Component {
                 <option value="support-and-operations">Support and Operations</option>
                 <option value="data-management">Data Management</option>
                 <option value="networking">Networking</option>
+                <option value="all">All</option>
                     </select>
                 </form>
             )
@@ -101,12 +107,14 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>
                 <option value="physics-and-astronomy">Physics and Astronomy</option>
                 <option value="mechanical-engineering">Mechanical Engineering</option>
                 <option value="environmental-science-and-sustainability">Environmental Science and Sustanibility</option>
                 <option value="electrical-engineering">Electrical Engineering</option>
                 <option value="chemistry">Chemistry</option>
                 <option value="research-methods">Research Methods</option>
+
                     </select>
                 </form>
             ) 
@@ -115,6 +123,7 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>     
                 <option value="music-and-art">Music and Art</option>
                 <option value="history">History</option>
                 <option value="philosophy">philosophy</option>
@@ -126,11 +135,21 @@ class FilterSetting extends React.Component {
                 <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
                 <label>sub</label>
                     <select name="subcategory">
+                <option value="all">All</option>       
                 <option value="math-and-logic">Math and Logic</option>
                 <option value="other-languages">Other Languages</option>
                 <option value="learning-english">Learning English</option>
                     </select>
                 </form>
+            )
+        } else {
+            return (
+            <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+             <label>sub</label>
+                 <select name="subcategory">
+             <option value="all">All</option>
+                 </select>
+             </form>
             )
         }
     }
