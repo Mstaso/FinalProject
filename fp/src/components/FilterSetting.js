@@ -12,6 +12,129 @@ class FilterSetting extends React.Component {
         this.props.returnSubcategories(e.target.value)
     }
 
+    subcategoryOptions = () => {
+        if (this.props.category === "business"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="finance">Finance</option>
+                <option value="business-strategy">Business Strategy</option>
+                <option value="marketing">Marketing</option>
+                <option value="entrepreneurship">Entrepreneurship</option>
+                <option value="business-essentials">Business Essentials</option>
+                <option value="leadership-and-management">Leadership and Management</option>
+                    </select>
+                </form>
+            )
+            
+        } else if (this.props.category === "data-science") {
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="data-analysis">Data Analysis</option>
+                <option value="machine-learning">Machine Learning</option>
+                <option value="probability-and-statistics">Probability and Statistics</option>
+                    </select>
+                </form>
+            )
+        } else if (this.props.category === "computer-science"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="software-development">Software Development</option>
+                <option value="design-and-product">Design and Product</option>
+                <option value="algorithms">Algorithms</option>
+                <option value="mobile-and-web-development">Mobile and Web Development</option>
+                <option value="computer-security-and-networks">Computer Security and Networks</option>
+                    </select>
+                </form>
+            )
+        } else if (this.props.category === "life-sciences"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="patient-care">Patient Care</option>
+                <option value="healthcare-management">Healthcare Management</option>
+                <option value="public-health">Public Health</option>
+                <option value="health-informatics">Health Informatics</option>
+                <option value="psychology">Psychology</option>
+                <option value="basic-science">Basic Science</option>
+                <option value="research">Research</option>
+                <option value="nutrition">Nutrition</option>
+                <option value="animal-health">Animal Health</option>
+                <option value="psychology">Psychology</option>
+                    </select>
+                </form>
+            )
+        } else if (this.props.category === "social-sciences"){
+            return(
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="education">Education</option>
+                <option value="governance-and-society">Governance and Society</option>
+                <option value="law">Law</option>
+                <option value="economics">Economics</option>
+                    </select>
+                </form>
+            )
+        } else if (this.props.category === "information-technology"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="cloud-computing">Cloud Computing</option>
+                <option value="security">Security</option>
+                <option value="support-and-operations">Support and Operations</option>
+                <option value="data-management">Data Management</option>
+                <option value="networking">Networking</option>
+                    </select>
+                </form>
+            )
+           
+        } else if (this.props.category === "physical-science-and-engineering"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="physics-and-astronomy">Physics and Astronomy</option>
+                <option value="mechanical-engineering">Mechanical Engineering</option>
+                <option value="environmental-science-and-sustainability">Environmental Science and Sustanibility</option>
+                <option value="electrical-engineering">Electrical Engineering</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="research-methods">Research Methods</option>
+                    </select>
+                </form>
+            ) 
+        } else if (this.props.category === "arts-and-humanities"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="music-and-art">Music and Art</option>
+                <option value="history">History</option>
+                <option value="philosophy">philosophy</option>
+                    </select>
+                </form>
+            )
+        } else if (this.props.category === "language-learning"){
+            return (
+                <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+                <label>sub</label>
+                    <select name="subcategory">
+                <option value="math-and-logic">Math and Logic</option>
+                <option value="other-languages">Other Languages</option>
+                <option value="learning-english">Learning English</option>
+                    </select>
+                </form>
+            )
+        }
+    }
+
     render(){
         let title = "All Categories"
         let optionsToRender = []
@@ -47,13 +170,19 @@ class FilterSetting extends React.Component {
                 <option value="language-learning">Language-Learning</option>
                 </select>
             </form>
-            <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
-            <label>sub</label>
-                <select name="subcategory">  
-                <option value="all">All</option>
-                {optionsToRender}
-                </select>
-            </form>
+    
+                {this.props.category === "all" ? 
+             <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
+             <label>sub</label>
+                 <select name="subcategory">
+             <option value="all">All</option>
+                 </select>
+             </form>
+             :
+             this.subcategoryOptions()
+                }
+    
+                
 
             </div>
         

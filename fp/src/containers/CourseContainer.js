@@ -127,7 +127,8 @@ class CourseContainer extends React.Component {
 
     filterMainCategory = (newcategory) => {
         this.setState({
-            subcategory: "all"
+            subcategory: "all",
+            subCategoryArray: []
         })
         console.log(this.state.subCategoryArray)
         if(newcategory !== this.props.category){
@@ -192,7 +193,7 @@ class CourseContainer extends React.Component {
 
                     return (
                         <div class="courses-index">  
-                        <FilterSetting handleSearch={this.handleSearch} filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
+                        <FilterSetting handleSearch={this.handleSearch} filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} category={this.props.category} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
                             {
                                 this.props.courses.length === 0 ? <h1>Loading</h1> :
                                 <div>
