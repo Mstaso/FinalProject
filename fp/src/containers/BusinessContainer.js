@@ -43,23 +43,17 @@ class BusinessContainer extends React.Component {
                 <Route path="/businesses" render={() => {
 
                     return (
-                        <>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <br></br>  
-                        <br></br>
-                        <br></br>
+                        <div class="business-index">
                             {
                                 
                                 this.props.businesses.length === 0 ? <h1>Loading</h1> :
-                                <div id="columns">
+                                <div class="row">
                                 {businesses}
                                 </div>
                             }
                         
                         
-                        </>
+                        </div>
                     )
                 }} />
                 <Route path="/home" render={() => {

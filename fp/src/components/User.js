@@ -59,6 +59,7 @@ class User extends React.Component {
     }
 
     render(){
+        console.log(this.props.foundUser)
         let userCoursesInProgress = [];
         let completeduserCourses = [];
         if(this.props.foundUser) { 
