@@ -13,12 +13,11 @@ import ReactPaginate from 'react-paginate'
 class CourseContainer extends React.Component {
 
     state = {
-        subcategory: 'all',
         offset: 0,
         coursesOnDisplay: [],
         perPage: 10,
         currentPage: 0,
-        subCategoryArray: []
+        subcategory: "all"
     }
 
     componentDidMount(){
@@ -40,16 +39,6 @@ class CourseContainer extends React.Component {
          
     }
     displayCourses(data) {
-        // console.log(this.props.searchValue)
-        // let coursesThroughSearch = []
-        // console.log(this.props.searchValue)
-        // console.log("been hit 1")
-        // this.state.searchValue > 1?
-        // coursesThroughSearch =  data.filter(course => 
-        //     course.name.toLowerCase().includes(this.state.searchValue.toLowerCase()))
-        //     :
-        //     coursesThroughSearch = data
-            // console.log("been hit 2")
             let slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
             let postData = slice.map(course =>             
                 <Course course={course} key={course.id}/>)
@@ -57,7 +46,6 @@ class CourseContainer extends React.Component {
                     this.setState({
                     pageCount: Math.ceil(data.length / this.state.perPage),
                     coursesOnDisplay: postData,
-                    // subcategory: 'all'
                 })
         
     }
@@ -66,32 +54,7 @@ class CourseContainer extends React.Component {
         let coursesThroughSearch = this.props.courses.filter(course => 
             course.name.toLowerCase().includes(searchValue.toLowerCase()))
                 this.displayCourses(coursesThroughSearch)
-        // searchValue ? 
-        // coursesThroughSearch =  data.filter(course => 
-        //     course.name.toLowerCase().includes(searchValue.toLowerCase()))
-        //     :
-        //     coursesThroughSearch = this.props.courses
-        //     return coursesThroughSearch;
     }
-
-
-    displaySubFilter = (newcategory) => {
-        let newCourses = this.props.courses.filter(course => course.category === newcategory)
-        console.log(this.state.subCategoryArray)
-        newCourses.map(newcourse => this.findSingularSub(newcourse))
-        console.log(this.state.subCategoryArray)
-        this.setState({subCategoryArray: this.state.subCategoryArray})
-        console.log(this.state.subCategoryArray)
-    }
-
-    findSingularSub = (newcourse) => {
-        if(this.state.subCategoryArray.includes(newcourse.subcategory)){
-        } else {
-            this.state.subCategoryArray.push(newcourse.subcategory)
-        }
-      
-    } 
-    
     
 
     handlePageClick = (e) => {
@@ -126,19 +89,12 @@ class CourseContainer extends React.Component {
     }
 
     filterMainCategory = (newcategory) => {
-        this.setState({
-            subcategory: "all",
-            subCategoryArray: []
-        })
-        console.log(this.state.subCategoryArray)
         if(newcategory !== this.props.category){
             this.props.setCategory(newcategory) 
         }
         let data = []
         newcategory === "all" ? data = this.props.courses : data = this.props.courses.filter(course => course.category === newcategory)
-        this.displayCourses(data)
-        this.displaySubFilter(newcategory)
-        
+        this.displayCourses(data)        
     }
 
     returnSubcategories = (newSubcategory) => {

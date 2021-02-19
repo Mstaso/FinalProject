@@ -8,7 +8,7 @@ const defaultState = {
     usercourses: [],
     loggedInUser: {},
     searchValue: "", 
-    category: "all"
+    category: "all",
 }
 
 function courseReducer(currentState = defaultState.courses, action){

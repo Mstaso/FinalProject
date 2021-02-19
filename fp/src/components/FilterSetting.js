@@ -160,16 +160,18 @@ class FilterSetting extends React.Component {
     this.props.subCategoryArray.length >= 3 ? optionsToRender = this.props.subCategoryArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
         return(
             <div class="filter">
+
+                <div class="category1">
                 <div class="row">
                 <h2>Find Courses</h2>
                 </div>
-                <div class="row category1">
+                <div class="row">
                 <div class="col span-1-of-3 box">
                 <Search handleSearch={this.props.handleSearch}/>
                 </div>
             <form class="col span-1-of-3 box" onChange={this.categoryHandler}>
                 <label>Main </label>           
-                <select name="category"> 
+                <select class="course-select" name="category"> 
                 <option value="all">All Categories</option>
                 <option value="business">Business</option>
                 <option value="data-science">Data-Science</option>
@@ -187,8 +189,8 @@ class FilterSetting extends React.Component {
     
                 {this.props.category === "all" ? 
              <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
-             <label>sub</label>
-                 <select name="subcategory">
+             <label class="sub-label">sub</label>
+                 <select class="course-select" name="subcategory">
              <option value="all">All</option>
                  </select>
              </form>
@@ -197,7 +199,7 @@ class FilterSetting extends React.Component {
                 }
     
                 
-
+                </div>
             </div>
         
             

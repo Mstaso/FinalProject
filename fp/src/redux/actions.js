@@ -83,11 +83,8 @@ export const userCoursePatcher = (ucId) => {
             }})
         })
         .then(response => response.json())
-        // .then(data => this.props.fetchUsercourses())
         .then(data => {
             if (data.status !==401) {
-     
-                // dispatch(addUC(data))
                 dispatch(getUsers())    
             }
         })
@@ -154,3 +151,5 @@ export const postComment = (commentObj) => {
 // Category Actions
 export const setCategory = (category) => ({type: "set category", payload: category})
 
+// Subcategory
+export const setSubcategory = (subcategory) => ({type: "set subcategory", payload: subcategory})
