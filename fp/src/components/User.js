@@ -89,31 +89,24 @@ class User extends React.Component {
             
             :
             <div>
-                <div class="content-profile-page">
+                <div class="image-container">
+                <img class="cover-photo" src={this.props.foundUser.cover_photo} />
+                <img class="avatar" src={this.props.foundUser.profile_image} alt={this.props.foundUser.username}/>
+
+                        <div class="quick-info">
+                            <h3>{this.props.foundUser.username}</h3>
+                            <p>{this.props.foundUser.github}</p>      
+                        </div> 
+                        {/* good space for a button */}
+                </div>
+                {/* <div class="content-profile-page">
                 <div class="profile-user-page card">
                     <div class="img-user-profile">
                         <img class="profile-bgHome" src={this.props.foundUser.cover_photo} />
                         <img class="avatar" src={this.props.foundUser.profile_image} alt={this.props.foundUser.username}/>
                         </div>
                         
-                        <div class="user-profile-data">
-                            <h1>{this.props.foundUser.username}</h1>
-                            <p>{this.props.foundUser.github}</p>
-               
-                        </div> 
-                        <br></br>
-                        <br></br>
-                        <br></br>
                     <div class="description-profile">  <a href={this.props.foundUser.email} title={this.props.foundUser.email}><strong>{this.props.foundUser.email}</strong></a> | {this.props.foundUser.description}</div>
-                        <br></br>
-                        <br></br>
-                        <br></br>    
-                        <br></br>
-                        <br></br>
-                        <br></br> 
-                        <br></br>
-                        <br></br>
-                        <br></br> 
                     <ul class="data-user">
                         <li name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a><strong>{userCoursesInProgress.length}</strong><span>Courses in Progress</span></a></li>
                         <li name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a><strong>{completeduserCourses.length}</strong><span>Completed Courses</span></a></li>
@@ -141,7 +134,7 @@ class User extends React.Component {
             
             <div/>
             
-           
+            */}
             </div>
   
         )

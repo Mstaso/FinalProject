@@ -9,7 +9,9 @@ import { singleCourse } from '../redux/actions'
 import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
-
+// notes
+// check if state needs to be held in redux, currently category is but not subcategory
+// same for search state
 class CourseContainer extends React.Component {
 
     state = {
@@ -148,10 +150,10 @@ class CourseContainer extends React.Component {
                 <Route path="/courses" render={() => {
 
                     return (
-                        <div class="courses-index">  
-                        <FilterSetting handleSearch={this.handleSearch} filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} category={this.props.category} subCategoryArray={this.state.subCategoryArray} displaySubFilter={this.displaySubFilter}/>
+                        <div>  
+                        <FilterSetting handleSearch={this.handleSearch} filterMainCategory={this.filterMainCategory} returnSubcategories={this.returnSubcategories} category={this.props.category} />
                             {
-                                this.props.courses.length === 0 ? <h1>Loading</h1> :
+                                this.props.courses.length === 0 ? <div class="courses-index"><h1>Loading Courses</h1></div> :
                                 <div>
                                 {this.state.coursesOnDisplay}
                                 </div>
@@ -178,7 +180,7 @@ class CourseContainer extends React.Component {
                         <>
                             {
                                 this.state.coursesOnDisplay.length !== 10 ? <h1>Loading</h1> :
-                                <div id="columnscourses">
+                                <div>
                                 {this.state.coursesOnDisplay}
                                 </div>
                             }

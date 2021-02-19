@@ -33,15 +33,9 @@ class UserContainer extends React.Component {
                     let foundUser = this.props.users.find((user)=> user.id === id)
                     if(foundUser !== undefined) {
                         return (
-                        <div>
-                        <div class="other-users">
-                        <h3>Other Users</h3>
-                        {this.otherUsers(foundUser)}
-                        </div>
-                        <div class="main-user">
+                   
                         <User userCourseCompleter={this.userCourseCompleter} foundUser={foundUser} />
-                        </div>
-                        </div>
+                  
 
                     )
                     } else {
