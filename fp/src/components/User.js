@@ -77,13 +77,11 @@ class User extends React.Component {
         return (
             this.props.user ? 
             <NavLink to={`/users/${this.props.user.id}`}>
-                <div>
+                <div class="row index-container">
+                <img class="col" id="profsmall" src={this.props.user.profile_image} alt={this.props.user.username}/>
+                <h5 class="col">{this.props.user.username}</h5>
                 <br></br>
-                <br></br>
-                <h3 class="userfloatname">{this.props.user.username}</h3>
-                <img class="profsmall" src={this.props.user.profile_image} alt={this.props.user.username} style={{height: "50px", width: "50px"}}/>
-                <br></br>
-                <br></br>
+                <p>Software Engineer</p>
                  </div>
             </NavLink> 
             
@@ -95,9 +93,16 @@ class User extends React.Component {
 
                         <div class="quick-info">
                             <h3>{this.props.foundUser.username}</h3>
-                            <p>{this.props.foundUser.github}</p>      
+                            <p>Software Engineer</p>
+                            {/* <p>{this.props.foundUser.github}</p>       */}
                         </div> 
                         {/* good space for a button */}
+                </div>
+                <div class="about-description">
+                    <h4>About</h4>
+                <p>
+                {this.props.foundUser.description}
+                </p>
                 </div>
                 {/* <div class="content-profile-page">
                 <div class="profile-user-page card">

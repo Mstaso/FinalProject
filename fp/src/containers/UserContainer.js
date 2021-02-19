@@ -19,8 +19,7 @@ class UserContainer extends React.Component {
        return mappedOtherUsers
     }
     render(){
-        let users = this.props.users.map(user => <User key={user.id} user={user}/>)
-    
+        let users = this.props.users.map(user => <User key={user.id} user={user}/>);
         return (
             <>
             {this.props.users.length === 0 ? <h1>Loading</h1>: 
@@ -31,11 +30,18 @@ class UserContainer extends React.Component {
                 <Route path='/users/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
+                    let otherUsers = this.props.users.filter(user => user.id !== foundUser.id)
+                    let mappedOtherUsers = otherUsers.splice(0,5).map(user => <User user={user} key={user.id}/>)
+
                     if(foundUser !== undefined) {
                         return (
-                   
+                        <div>
+                            <div class="other-elements">
+                                <h4>Other Users</h4>
+                        {mappedOtherUsers}   
+                            </div>     
                         <User userCourseCompleter={this.userCourseCompleter} foundUser={foundUser} />
-                  
+                        </div>
 
                     )
                     } else {

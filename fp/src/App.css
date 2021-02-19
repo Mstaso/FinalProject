@@ -47,6 +47,9 @@ h4 {
   font-size: 105%;
 }
 
+h5 {
+  font-weight: 300;
+}
 /* ------------------- */
 /* PARAGRAPHS */
 /* ------------------- */
@@ -452,7 +455,7 @@ margin-left: 40px;
   
 }
 .image-container {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(220, 220, 220);
   border-radius: 15px;
   width: 60%;
@@ -487,6 +490,99 @@ margin-left: 40px;
   padding-bottom: 20px;
   text-align: center;
 }
+
+.quick-info p {
+  margin-top: 10px;
+  font-size: 80%;
+}
+
+.about-description {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 15px;
+  width: 60%;
+  background-color: rgb(245, 245, 245);
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.about-description h4,
+.about-description p {
+  margin: 10px 40px;
+}
+.about-description p {
+  font-size: 75%;
+}
+.about-description h4::after{
+  display: block;
+  height: 2px;
+  background-color: #2487c9;
+  content: ' ';
+  width: 80px;
+  margin-top: 10px;
+}
+
+/* Index */
+
+.other-elements{
+  width: 20%;
+  position: absolute;
+  right: 100px;
+  background-color: rgb(245, 245, 245);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.other-elements h4{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.other-elements h4::after{
+  margin: 0 auto;
+  display: block;
+  height: 2px;
+  background-color: #2487c9;
+  content: ' ';
+  width: 80px;
+  margin-top: 10px;
+}
+
+.index-container {
+  margin: 20px;
+}
+
+#profsmall{
+width: 55px;
+height: 55px;
+border-radius: 50%;
+box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
+}
+
+.index-container h5 {
+  font-size: 80%;
+  margin-left: 8%;
+  margin-top: 5%;
+  color: black;
+  text-decoration: none;
+}
+
+.index-container p {
+  font-size: 70%;
+  /* padding-left: 50px; */
+  text-align: center;
+  margin-top: 5%;
+  color: black;
+  text-decoration: none;
+}
+
+.index-container h5:hover,
+.index-container h5:active
+{
+  color: #2487c9;
+}
+
 /* User Container CSS */
 .user-float {
   width: 260px;
@@ -501,20 +597,6 @@ margin-left: 40px;
   background-color: whitesmoke;
 }
 
-.profsmall{
-  max-width: 14%;
-  max-height: 30%;
-  border-radius: 75px;
-  margin-right: 200px;
-  line-height: 1.5;
-  margin-top: -30px;
-}
-.userfloatname{
-  margin-right: -30px;
-  margin-bottom: -0px;
-  font-size: 16px;
-  color: #2487c9;
-}
 .other-users {
   /* height: 455px;
   position: relative;
