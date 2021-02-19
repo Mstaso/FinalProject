@@ -160,6 +160,9 @@ class FilterSetting extends React.Component {
     this.props.subCategoryArray.length >= 3 ? optionsToRender = this.props.subCategoryArray.map(option => <option key={option} value={option}>{option}</option>) : optionsToRender = []
         return(
             <div class="filter">
+                <div class="row">
+                <h2>Find Courses</h2>
+                </div>
                 <div class="row category1">
                 <div class="col span-1-of-3 box">
                 <Search handleSearch={this.props.handleSearch}/>
