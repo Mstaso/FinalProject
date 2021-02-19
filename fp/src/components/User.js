@@ -104,6 +104,12 @@ class User extends React.Component {
                 {this.props.foundUser.description}
                 </p>
                 </div>
+                <ul class="row">
+                        <li class="col span-1-of-3" name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a><strong>{userCoursesInProgress.length}</strong><span>Courses in Progress</span></a></li>
+                        <li class="col span-1-of-3" name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a><strong>{completeduserCourses.length}</strong><span>Completed Courses</span></a></li>
+                        <li class="col span-1-of-3" name="businessMatchisHiddin" onClick={this.businessMatchToggleHidden.bind(this)}><a><strong>{this.props.foundUser.businesses.length}</strong><span>Business Matches</span></a></li>
+                    </ul>
+                    
                 {/* <div class="content-profile-page">
                 <div class="profile-user-page card">
                     <div class="img-user-profile">
@@ -112,11 +118,7 @@ class User extends React.Component {
                         </div>
                         
                     <div class="description-profile">  <a href={this.props.foundUser.email} title={this.props.foundUser.email}><strong>{this.props.foundUser.email}</strong></a> | {this.props.foundUser.description}</div>
-                    <ul class="data-user">
-                        <li name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a><strong>{userCoursesInProgress.length}</strong><span>Courses in Progress</span></a></li>
-                        <li name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a><strong>{completeduserCourses.length}</strong><span>Completed Courses</span></a></li>
-                        <li name="businessMatchisHiddin" onClick={this.businessMatchToggleHidden.bind(this)}><a><strong>{this.props.foundUser.businesses.length}</strong><span>Business Matches</span></a></li>
-                    </ul>
+                
                     {this.state.CourseProgressisHidden ? <h1></h1> : <div>
                     <h2>Courses in Progress</h2>
                     <br></br>
