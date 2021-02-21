@@ -119,9 +119,11 @@ class Course extends React.Component {
         return (
             this.props.otherCourse ?
             <NavLink to={`/courses/${this.props.otherCourse.id}`}>
-            <div class="other-course">
-                <img src={this.props.otherCourse.image}></img>
-                <h4>{this.props.otherCourse.name}</h4>
+            <div class="row index-info-course">
+                <img class="col" id="profsmall" src={this.props.otherCourse.image}></img>
+                <div class="col">
+                <h5>{this.props.otherCourse.name}</h5>
+                </div>
             </div>
             </NavLink>
         
@@ -136,13 +138,13 @@ class Course extends React.Component {
                         <img class="course-image" src={this.props.course.image} />  
                         </div>
                         <div class="course-info">
-                        <h4>{this.props.course.name}</h4>
+                        <h5>{this.props.course.name}</h5>
                         <p> {this.props.course.category} | {this.props.course.subcategory} | {this.props.course.workload} </p>
                         </div>  
                         </NavLink> 
                         {this.props.userCourseCompleter ?
                         <div class="course-btn-holder">
-                        <button onClick={this.completeCourse} class="btn btn-full"> Complete Course </button>
+                        <button onClick={this.completeCourse} class="btn btn-full"> Complete </button>
                         </div>
                         :
                         <div></div>
@@ -154,60 +156,54 @@ class Course extends React.Component {
             
             :
             <div>
-                <div class="content-profile-page">
-                <div class="profile-user-page card">
-                    <div class="img-user-profile">
-                        <img class="profile-bgHome" src={this.props.foundCourse.cover_photo} />
-                        <img class="avatar" src={this.props.foundCourse.image} alt={this.props.foundCourse.image}/>
-                        </div>
-                        <div class="user-profile-data">
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <h1>{this.props.foundCourse.name}</h1>
-                            <p>{this.props.foundCourse.category}</p>                           
-                            <button onClick={this.enroll}>Enroll</button>
+                <div class="image-container">
+                <img class="cover-photo" src={this.props.foundCourse.cover_photo} />
+                <img class="avatar" src={this.props.foundCourse.image} alt={this.props.foundCourse.name}/>
+
+                        <div class="quick-info">
+                            <h3>{this.props.foundCourse.name}</h3>
+                            <p>{this.props.foundCourse.category}</p>
+                            {/* <p>{this.props.foundUser.github}</p>       */}
                         </div> 
-                        
-                    <div class="description-profile"> 
-                    <br></br>
-                    <p>{this.props.foundCourse.description}</p>
-                    </div>
-                    <br></br>
-                    <ul class="data-user">
-                        <li onClick={this.businessToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.businesses.length}</strong><span>Businesses</span></a></li>
-                        <li onClick={this.userToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.users.length}</strong><span>Users</span></a></li>
-                        <li onClick={this.commentToggleHidden.bind(this)}><a><strong>{this.props.foundCourse.comments.length}</strong><span>Comments</span></a></li>
+                        {/* good space for a button */}
+                        <button class="btn-small btn-full" onClick={this.enroll}>Enroll</button>
+                </div>
+                <div class="about-description">
+                    <h4>Description</h4>
+                <p>
+                {this.props.foundCourse.description}
+                </p>
+                </div>
+                <div class="main-info-container">
+                <ul class="row toggle-text">
+                        <li class="col span-1-of-3" onClick={this.businessToggleHidden.bind(this)}><a>{this.props.foundCourse.businesses.length} Businesses Using This Course</a></li>
+                        <li class="col span-1-of-3" onClick={this.userToggleHidden.bind(this)}><a>{this.props.foundCourse.users.length} Users enrolled </a></li>
+                        <li class="col span-1-of-3" onClick={this.commentToggleHidden.bind(this)}><a>{this.props.foundCourse.comments.length} Comments</a></li>
                     </ul>
                     {this.state.businessisHiddin ? <h1></h1> : 
                     <div > 
-                        <h2>Businesses</h2>
                         {courseBusinesses}
                     </div> }
                     {this.state.userisHidden ? <h1></h1> : <div> 
-                        <h2>Users</h2>
                         {users}
                         </div>}
                     {this.state.commentisHiddin ? <h1></h1> : <div > 
-                        <form id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
-                            <fieldset id="commentFieldset">
+                        <form class="comment-form" id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
+                    
                             <div class="form_grp">
-                            <textarea id="userCmnt"placeholder="Write your comment here." name='content' value={this.state.content} onChange={this.commentChangeHandler}></textarea>        
+                            <textarea id="userCmnt" name='content' value={this.state.content} onChange={this.commentChangeHandler}></textarea>        
                             </div>
                             <div class="form_grp">
                             <button type="submit" id="comment-button">Add Comment</button>
                             </div>
-                            </fieldset>
+                       
                         </form>
                         <div>
                         {this.renderComments()}
                         </div>
-                        </div>}            
-                    </div>
-                    </div>
-                        
-            <div/>    
-            <div/>
+                        </div>} 
+                    <div class="rounder"></div>
+                </div>  
             </div>
         )
     }

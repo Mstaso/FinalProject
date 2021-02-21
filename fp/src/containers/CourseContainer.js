@@ -127,15 +127,25 @@ class CourseContainer extends React.Component {
                     let foundCourse = this.props.courses.find((course) => course.id === id)
                     // console.log(foundCourse)
                     return (
+              
+                            // <div>
+                            //     <div class="other-elements">
+                            //         <h4>Other Users</h4>
+                            // {mappedOtherUsers}   
+                            //     </div>     
+                            // <User userCourseCompleter={this.userCourseCompleter} foundUser={foundUser} />
+                            // </div>
+    
+                
                         <div>
-                            <div id="other-courses">
-                                <h3>Other {foundCourse.category[0].toUpperCase() + foundCourse.category.slice(1)} Courses</h3>
-                                <hr></hr>
+                            <div class="other-elements">
+                                <h4>Similar Courses</h4>
+                                {/* <hr></hr> */}
                             {this.otherCourses(foundCourse)}
                             </div>
-                            <div id="main-course">
+                      
                             <Course foundCourse={foundCourse} />  
-                            </div>
+                         
                         </div>
 
                     )

@@ -79,9 +79,11 @@ class User extends React.Component {
             <NavLink to={`/users/${this.props.user.id}`}>
                 <div class="row index-container">
                 <img class="col" id="profsmall" src={this.props.user.profile_image} alt={this.props.user.username}/>
-                <h5 class="col">{this.props.user.username}</h5>
+                <div class="col index-info">
+                <h5>{this.props.user.username}</h5>
                 <br></br>
                 <p>Software Engineer</p>
+                </div>
                  </div>
             </NavLink> 
             
@@ -104,12 +106,27 @@ class User extends React.Component {
                 {this.props.foundUser.description}
                 </p>
                 </div>
-                <ul class="row">
-                        <li class="col span-1-of-3" name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a><strong>{userCoursesInProgress.length}</strong><span>Courses in Progress</span></a></li>
-                        <li class="col span-1-of-3" name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a><strong>{completeduserCourses.length}</strong><span>Completed Courses</span></a></li>
-                        <li class="col span-1-of-3" name="businessMatchisHiddin" onClick={this.businessMatchToggleHidden.bind(this)}><a><strong>{this.props.foundUser.businesses.length}</strong><span>Business Matches</span></a></li>
+                <div class="main-info-container">
+                <ul class="row toggle-text">
+                        <li class="col span-1-of-3" name="CourseProgressisHidden" onClick={this.courseProgressToggleHidden.bind(this)}><a>{userCoursesInProgress.length} Courses in Progress </a></li>
+                        <li class="col span-1-of-3" name="CompletedCoursesisHiddin" onClick={this.completedCourseToggleHidden.bind(this)}><a>{completeduserCourses.length} Completed Courses </a></li>
+                        <li class="col span-1-of-3" name="businessMatchisHiddin" onClick={this.businessMatchToggleHidden.bind(this)}><a>{this.props.foundUser.businesses.length} Business Matches</a></li>
                     </ul>
-                    
+                    {this.state.CourseProgressisHidden ? <h1></h1> : <div>
+                    <br></br>
+                    {userCoursesInProgress.map(course => <Course userCourseCompleter={this.userCourseCompleter} key={course.id} course={course} />)}
+                    </div>   } 
+                    {this.state.CompletedCoursesisHiddin ? <h1></h1> : <div>
+                        <br></br>
+                        {completeduserCourses.map(course => <Course course={course} key={course.id}/>)}
+                    </div>   }
+                    {this.state.businessMatchisHiddin ? <h1></h1> : <div>
+                        <br></br>
+                        {this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>)}
+                    </div>   }
+                    <div class="rounder"></div>
+                </div>  
+             
                 {/* <div class="content-profile-page">
                 <div class="profile-user-page card">
                     <div class="img-user-profile">

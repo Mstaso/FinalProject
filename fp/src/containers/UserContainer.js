@@ -48,7 +48,16 @@ class UserContainer extends React.Component {
                         fetch(`http://localhost:3000/api/v1/users${id}`)
                         .then(resp => resp.json())
                         .then(data => { 
-                            return <User foundUser={data}/>
+                            return (
+                                <div>
+                                    <div class="other-elements">
+                                        <h4>Other Users</h4>
+                                {mappedOtherUsers}   
+                                    </div>     
+                                <User userCourseCompleter={this.userCourseCompleter} foundUser={data} />
+                                </div>
+        
+                            )
                          })
                     }
                 }}/>
