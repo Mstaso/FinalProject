@@ -45,46 +45,20 @@ class Login extends React.Component {
 
     render () {
         return(      
-                <body className="background-login">
-                <div onClick={this.clickHandler}class="switch">
-                    <p>Don't have an account?</p>
+            <div className="background-login">
+                <div class="form-container">
+                            <form onSubmit={this.loginHandler}>
+                                <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
+                                <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />
+                                <a class="login-btn" type="submit" value="Login">Login</a>
+                            </form>
+                       
+                            <div onClick={this.clickHandler}class="switch">
+                            <p>Don't have an account?</p>
+                            </div>
+                            </div>  
                 </div>
-                <div class="container-logo">
-                    <div>
-                    <div class="loader">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </div>
-                        </div>
-                        </div>
-                        <div class="form-container">
-                        <br></br>
-                        <br></br>
-                        <h1 style={{ color: 'white' }}class="title">Course Matcher</h1>
-                        <br></br>
-                        <br></br>
-                        <form onSubmit={this.loginHandler}>
-                            <div class="information-container">
-                            <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <div class="information-container"> 
-                            <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <input class="loginButton" type="submit" value="Login"/>
-                        </form>
-                    </div>
-                </body>
+         
           )
     }
         
