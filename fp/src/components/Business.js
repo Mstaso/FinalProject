@@ -92,6 +92,9 @@ class Business extends React.Component {
 
 
     render(){
+        if(this.props.foundBusiness){
+            console.log(this.props.foundBusiness)
+        }
         let courses = []
         this.props.foundBusiness ?  courses = this.props.foundBusiness.courses.map(course => <Course course={course} key={course.id} />) :  courses = []
         return (
