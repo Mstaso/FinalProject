@@ -120,8 +120,7 @@ class User extends React.Component {
                         <br></br>
                         {completeduserCourses.map(course => <Course course={course} key={course.id}/>)}
                     </div>   }
-                    {this.state.businessMatchisHiddin ? <h1></h1> : <div>
-                        <br></br>
+                    {this.state.businessMatchisHiddin ? <h1></h1> : <div class="row bump">
                         {this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>)}
                     </div>   }
                     <div class="rounder"></div>

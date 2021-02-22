@@ -181,7 +181,7 @@ class Course extends React.Component {
                         <li class="col span-1-of-3" onClick={this.commentToggleHidden.bind(this)}><a>{this.props.foundCourse.comments.length} Comments</a></li>
                     </ul>
                     {this.state.businessisHiddin ? <h1></h1> : 
-                    <div > 
+                    <div class="row bump"> 
                         {courseBusinesses}
                     </div> }
                     {this.state.userisHidden ? <h1></h1> : <div> 
@@ -191,13 +191,14 @@ class Course extends React.Component {
                         <form class="comment-form" id={this.props.foundCourse.id} onSubmit={this.commentHandler}>
                     
                             <div class="form_grp">
-                            <textarea id="userCmnt" name='content' value={this.state.content} onChange={this.commentChangeHandler}></textarea>        
+                            <textarea class="comment-box" id="userCmnt" name='content' value={this.state.content} onChange={this.commentChangeHandler}></textarea>        
                             </div>
                             <div class="form_grp">
-                            <button type="submit" id="comment-button">Add Comment</button>
+                            <button type="submit" class="comment-btn btn-full">Add Comment</button>
                             </div>
                        
                         </form>
+                        <hr></hr>
                         <div>
                         {this.renderComments()}
                         </div>

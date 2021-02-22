@@ -12,7 +12,7 @@ class BusinessContainer extends React.Component {
 
     displayOtherBusinesses(foundBusiness) {
         let otherBusinesses = this.props.businesses.filter(business => business.id !== foundBusiness.id)
-        let mappedOtherBusinesses = otherBusinesses.map(business => <Business key={business.id} business={business}/>)
+        let mappedOtherBusinesses = otherBusinesses.map(business => <Business key={business.id} otherBusiness={business}/>)
         return mappedOtherBusinesses
     }
 
@@ -30,14 +30,19 @@ class BusinessContainer extends React.Component {
                     return (
                         <div>
                         
-                        <div id="Other-Businesses">
-                            <h3>Related Businesses</h3>
+                        <div class="other-elements">
+                            <h4>Related Businesses</h4>
                         {this.displayOtherBusinesses(foundBusiness)}
                         </div>
-                        <div id="main-business">
                         <Business foundBusiness={foundBusiness}/>
                         </div>
-                        </div>
+                    //     <div>
+                    //     <div class="other-elements">
+                    //         <h4>Other Users</h4>
+                    // {mappedOtherUsers}   
+                    //     </div>     
+                    // <User userCourseCompleter={this.userCourseCompleter} foundUser={data} />
+                    // </div>
                         )
                 }}/>
                 <Route path="/businesses" render={() => {

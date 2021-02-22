@@ -95,6 +95,18 @@ class Business extends React.Component {
         let courses = []
         this.props.foundBusiness ?  courses = this.props.foundBusiness.courses.map(course => <Course course={course} key={course.id} />) :  courses = []
         return (
+            this.props.otherBusiness ?
+            <NavLink to={`/businesses/${this.props.otherBusiness.id}`} >
+            <div class="row index-container">
+                <img class="col" id="profsmall" src={this.props.otherBusiness.logo} alt={this.props.otherBusiness.name}/>
+                <div class="col index-info">
+                <h5>{this.props.otherBusiness.name}</h5>
+                <br></br>
+                <p>{this.props.otherBusiness.industry}</p>
+                </div>
+            </div>
+            </NavLink>
+            :
             this.props.business ? 
             <NavLink to={`/businesses/${this.props.business.id}`} >
 
@@ -105,50 +117,38 @@ class Business extends React.Component {
             </NavLink>
             :
             <div>
-                <div class="content-profile-page">
-                <div class="profile-user-page card">
-                    <div class="img-user-profile">
-                        <img class="profile-bgHome" src={this.props.foundBusiness.cover_photo} />
-                        <img class="avatar" src={this.props.foundBusiness.logo} alt={this.props.foundBusiness.logo}/>
-                        </div>
-                        
-                        <div class="user-profile-data">
-                            <h1>{this.props.foundBusiness.name}</h1>
+                  <div class="image-container">
+                <img class="cover-photo" src={this.props.foundBusiness.cover_photo} />
+                <img class="avatar" src={this.props.foundBusiness.logo} alt={this.props.foundBusiness.name}/>
+
+                        <div class="quick-info">
+                            <h3>{this.props.foundBusiness.name}</h3>
                             <p>{this.props.foundBusiness.industry}</p>
                         </div> 
-                      
-                            <button onClick={this.matcher}> Match</button>
-                        <br></br>
-            <div class="description-profile"> 
+                        <button class="btn-small btn-full" onClick={this.matcher}>Match</button>
+                </div>
+
+            <div class="about-description">
+            <h4>About</h4> 
             <p>{this.props.foundBusiness.description}</p>
             </div>
-                    <ul class="data-user">
-                        <li onClick={this.courseToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.courses.length}</strong><span>Courses</span></a></li>
-                        <li onClick={this.matchToggleHidden.bind(this)}><a><strong>{this.props.foundBusiness.users.length}</strong><span>User Matches</span></a></li>
-                        <li onClick={this.jobToggleHidden.bind(this)}><a><strong>1</strong><span>Job Description</span></a></li>
+            <div class="main-info-container">
+                <ul class="row toggle-text">
+                        <li class="col span-1-of-3" onClick={this.courseToggleHidden.bind(this)}><a>{this.props.foundBusiness.courses.length}  Courses</a></li>
+                        <li class="col span-1-of-3" onClick={this.matchToggleHidden.bind(this)}><a>{this.props.foundBusiness.users.length}  User Matches</a></li>
+                        <li class="col span-1-of-3" onClick={this.jobToggleHidden.bind(this)}><a>Job Description</a></li>
                     </ul>
                     {this.state.jobisHiddin ? <h1></h1> : <div class="description-profile"> 
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                        <h2>Job Description</h2>
                         {this.props.foundBusiness.job}
                          </div> }     
                     {this.state.courseisHidden ? <h1></h1> : <div>
-                    <h2>Courses</h2>
-                    <br></br>
-                 
                     {courses}
-                 
                     </div>   }
                     {this.state.matchisHiddin ? <h1></h1> : <div> 
-                        <h2>User Matches</h2>
                         {this.renderUserMatches()}
                          </div> }
-                    </div>
-                    </div>
-            <div/>    
-            <div/>
+          
+                         </div>
             </div>
         )
     }

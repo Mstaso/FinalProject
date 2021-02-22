@@ -126,6 +126,23 @@ h5 {
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
+.comment-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 10em; 
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 15px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 100vh;
+  color: #fff;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
 /* Navbar Css */
 .logo {
   float: left;
@@ -596,6 +613,16 @@ margin-left: 40px;
 
 }
 
+.bump {
+  margin-top: 30px;
+}
+
+/* for business job description */
+.description-profile {
+font-size: 80%;
+padding: 10px;
+margin: 10px;
+}
 .rounder {
   height: 40px;
 }
@@ -609,10 +636,21 @@ margin-left: 40px;
   margin-top: 20px;
 }
 
-.form_grp {
+.comment-box {
   font-family: 'Lato', 'Arial', 'sans-serif';
-  margin-left: auto;
-  margin-right: auto;
+  width: 70%;
+  height: 50px;
+}
+
+.comment-content {
+  background-color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border: 1px solid rgb(220, 220, 220);
+  padding: 10px 30px;
+  font-size: 80%
 }
 
 /* Index */
@@ -660,7 +698,7 @@ box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   color: black;
   text-decoration: none;
   max-width: 200px;
-  
+  cursor: pointer;
 
 }
 .index-info h5 {
@@ -799,16 +837,7 @@ box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
 .user-profile-data button{
   margin-left: 100px;
 }
-.profile-user-page .description-profile {
-  color: #75787b;
-  line-height: 20px;
-  font-size: 0.98em; 
-  text-align: left;
-  bottom: 70px;
-  width: 780px;
-  left: 150px;
-  position: relative;
-}
+
 .profile-user-page .data-user {
   position: relative;
   bottom: 50px;
@@ -986,10 +1015,6 @@ box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
 
 /* BUSINESS CARD CSS, INDEX VIEW */
 
-.business-card p {
-  font-size: 70%;
-}
-
 .business-index {
   margin-top: 50px;
   min-height: 100vh;
@@ -1004,88 +1029,6 @@ box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   opacity: 0.85;
   border-radius: 5px;
   
-}
-
-.business-card h2 {
-  display: block;
-  font-size: 1.2em;
- 
-  color: rgb(2, 2, 2);
-  margin-right: -55px;
-  margin-top: -40px;
-}
-
-.business-card p {
-
-  /* font-size: 0.7em;
-  opacity: 0.8;
-  color: rgb(72, 72, 72);
-  margin-right: -60px;
-  line-height: 4.5;
-  margin-top: 0px; */
-}
-
-#Other-Businesses {
-height: 455px;
-position: relative;
-margin-left: 1000px;
-top: 20px;
-/* margin-top: 20px; */
-/* margin-bottom: -320px; */
-width: 250px;
-background-color: white;
-border-radius: 10px;
-/* line-height: 1.5; */
-border-style: solid;
-border-color: whitesmoke
-}
-
-#main-business {
-  /* position: relative; */
-  margin-top: -460px;
-}
-
-#other-courses {
-position: relative;
-margin-left: 930px;
-top: 20px;
-height: 455px;
-width: 350px;
-border-style: solid;
-border-color: whitesmoke
-}
-
-.other-course {
-  height: 100px;
-  /* margin-right: -270px; */
-}
-.other-course img{
-height: 50px;
-width: 50px;
-border-radius: 75%;
-margin-right: 210px;
-/* position: relative; */
-}
-
-
-.other-course h4{
-  text-align: left;
-  top: -65px;
-  position: relative;
-  margin-left: 120px;
-  line-height: 2;
-}
-
-.other-course p{
-  top: -85px;
-  position: relative;
-  text-align: left;
-  margin-left: 120px;
-  line-height: 1.5;
-}
-
-#main-course {
-  margin-top: -460px;
 }
 
 /* width: 260px;

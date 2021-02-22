@@ -30,6 +30,7 @@ class UserContainer extends React.Component {
                 <Route path='/users/:id' render={({ match }) => {
                     let id = parseInt(match.params.id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
+                    console.log(foundUser)
                     let otherUsers = this.props.users.filter(user => user.id !== foundUser.id)
                     let mappedOtherUsers = otherUsers.splice(0,5).map(user => <User user={user} key={user.id}/>)
 
