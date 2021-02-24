@@ -75,12 +75,14 @@ h5 {
   text-align: center;
   cursor: pointer;
   background-color: transparent;
-  border: 1px solid rgb(56, 56, 56);
+  border: 3px solid rgb(122, 122, 122);
   padding: 10px 30px;
   border-radius: 100vh;
   display: block;
   margin: 20px auto;
   width: 50%;
+  color: rgb(122, 122, 122);
+  font-weight: 400;
 }
 
 .btn {
@@ -389,29 +391,26 @@ color: white;
 }
 
 .category1 {
-
-  /* background-color: transparent; */
-  
-  /* background-color: white; */
   width: 80%;
   margin: 50px auto;
   height: auto;
   border-radius: 10px;
   display: inline-block;
   color: white;
-  /* box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); */
-
-}
-
-.category1 h2 {
-  color: rgb(39, 39, 39);
 }
 
 .box label {
   margin-right: 20px;
 }
 
+.box select {
+  padding: 8px 10px 8px 20px;
+  border-radius: 15px;
+  width: 250px;
+}
+
 .filter h2 {
+  color: rgb(39, 39, 39);
   margin-top: 20px;
   text-align: center;
 }
@@ -425,10 +424,6 @@ color: white;
   margin: 30px auto;
 
   
-}
-
-.course-select {
-  min-width: 200px;
 }
 /* Search CSS */
 
@@ -1278,12 +1273,10 @@ height: 94vh;
 .form-container {
   margin: auto 0;
   width: 30%;
-  /* width: 200px;
-  height: 200px; */
   background: rgba(255,255,255,0.4);
   backdrop-filter: blur(10px);
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 3px solid rgba(255,255,255,0.2);
 }
 
 .form-container input {
@@ -1301,6 +1294,8 @@ height: 94vh;
 .switch {
   cursor: pointer;
   margin-bottom: 30px;
+  font-weight: 400;
+  color: rgb(122, 122, 122);
 }
 
 
