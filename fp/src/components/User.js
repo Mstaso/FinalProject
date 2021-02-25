@@ -98,7 +98,6 @@ class User extends React.Component {
                             <p>Software Engineer</p>
                             {/* <p>{this.props.foundUser.github}</p>       */}
                         </div> 
-                        {/* good space for a button */}
                 </div>
                 <div class="about-description">
                     <h4>About</h4>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getUsers } from '../redux/actions'
+import { getUsers, userSignUp } from '../redux/actions'
 import User from '../components/User'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, withRouter} from 'react-router-dom'
 
 
 
@@ -31,7 +31,10 @@ class UserContainer extends React.Component {
                     let id = parseInt(match.params.id)
                     let foundUser = this.props.users.find((user)=> user.id === id)
                     console.log(foundUser)
-                    let otherUsers = this.props.users.filter(user => user.id !== foundUser.id)
+                    let otherUsers = []
+                    // handles case if foundUser is not defined, typically occurs directly after a user signs up.
+                    foundUser === undefined ? this.props.loggedInUser ? foundUser = this.props.loggedInUser :
+                    this.props.history.push("/login") : otherUsers = this.props.users.filter(user => user.id !== foundUser.id)
                     let mappedOtherUsers = otherUsers.splice(0,5).map(user => <User user={user} key={user.id}/>)
 
                     if(foundUser !== undefined) {
@@ -45,22 +48,7 @@ class UserContainer extends React.Component {
                         </div>
 
                     )
-                    } else {
-                        fetch(`http://localhost:3000/api/v1/users${id}`)
-                        .then(resp => resp.json())
-                        .then(data => { 
-                            return (
-                                <div>
-                                    <div class="other-elements">
-                                        <h4>Other Users</h4>
-                                {mappedOtherUsers}   
-                                    </div>     
-                                <User userCourseCompleter={this.userCourseCompleter} foundUser={data} />
-                                </div>
-        
-                            )
-                         })
-                    }
+                    } 
                 }}/>
                 <Route path="/users" render={() => {
 
@@ -104,10 +92,15 @@ class UserContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {users: state.users}
+    return {users: state.users,
+            loggedInUser: state.loggedInUser        
+    }
     }
   const mapDispatchToProps = (dispatch) => {
-    return { fetchUsers: ()=> dispatch(getUsers())}
+    return { 
+        fetchUsers: ()=> dispatch(getUsers()),
+        postUser: (userObj) => dispatch(userSignUp(userObj))
+    }
   } 
   
-  export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
+  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserContainer));

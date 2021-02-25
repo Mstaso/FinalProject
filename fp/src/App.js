@@ -19,7 +19,7 @@ class App extends React.Component {
 
 
 componentDidMount(){
-  // this.props.fetchUsers()
+  this.props.fetchUsers()
   if (this.props.courses.length === 0){
     this.props.fetchCourses()
   }

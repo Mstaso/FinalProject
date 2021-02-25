@@ -186,7 +186,7 @@ class FilterSetting extends React.Component {
     
                 {this.props.category === "all" ? 
              <form class="col span-1-of-3 box" onChange={this.subcategoryHandler}>
-             <label class="sub-label">sub</label>
+             <label class="sub-label">Sub</label>
                  <select class="course-select" name="subcategory">
              <option value="all">All</option>
                  </select>

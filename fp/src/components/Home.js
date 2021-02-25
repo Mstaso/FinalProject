@@ -3,7 +3,7 @@ import CourseContainer from '../containers/CourseContainer'
 import BusinessContainer from '../containers/BusinessContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setCategory } from '../redux/actions'
+import { setCategory, getUsers } from '../redux/actions'
 
 const banner = require('../banner.jpg')
 
@@ -15,6 +15,9 @@ const homebanner2 = require('../homebanner2.jpg')
 
 class Home extends React.Component {
 
+    componentDidMount() {
+        this.props.fetchUsers()
+    }
 
     clickHandler = () => {
         this.props.history.push("/signup");
@@ -102,7 +105,8 @@ class Home extends React.Component {
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return { setCategory: (category) => dispatch(setCategory(category)) }
+    return { setCategory: (category) => dispatch(setCategory(category)),
+            fetchUsers: ()=> dispatch(getUsers)} 
   } 
 
 export default withRouter(connect(null, mapDispatchToProps)(Home));

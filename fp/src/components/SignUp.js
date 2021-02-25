@@ -16,8 +16,6 @@ class SignUp extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault()
-        //double check 
-        // this.props.postUser(this.state)
         this.fetchRequest(this.state)
     }
     fetchRequest = (userObj) => {
@@ -39,12 +37,16 @@ class SignUp extends React.Component{
             }})
         })
         .then(response => response.json())
+        .catch(error => console.error(error))
         .then(data => {
-            console.log(data)
-            this.props.postUser(data.user)
-            localStorage.setItem("token", data.jwt)
-            this.props.fetchUsers()
-            this.props.history.push("/home")
+            if (data !== undefined){
+                console.log(data)
+                this.props.fetchUsers()
+                this.props.postUser(data.user)
+                localStorage.setItem("token", data.jwt)
+                this.props.history.push("/home")
+            }
+            
         }
             
             // {this.props.postUser(data)}, 
@@ -80,7 +82,7 @@ class SignUp extends React.Component{
                         <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
                         <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />
                         <br></br>
-                        <a class="login-btn" type="submit" value="Sign Up">Sign Up</a>
+                        <button type="submit" class="login-btn" value="Sign Up">Sign Up</button>
                     </form>
                     <div onClick={this.clickHandler}class="switch">
                                 <p>Already have an account?</p>

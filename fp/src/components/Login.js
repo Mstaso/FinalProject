@@ -30,10 +30,17 @@ class Login extends React.Component {
             body: JSON.stringify({user: this.state})
         })
             .then(resp => resp.json())
+            .catch(error => console.error(error))
             .then(data => {
-                localStorage.setItem("token", data.jwt)
-                this.props.postUser(data.user)
-                this.props.history.push("/home")
+                if (data.user){
+                    console.log(data)
+                    localStorage.setItem("token", data.jwt)
+                    this.props.postUser(data.user)
+                    this.props.history.push("/home")
+                } else {
+                    throw console.error("user does not exit");
+                }
+         
             })
         
 
@@ -50,10 +57,10 @@ class Login extends React.Component {
                             <form onSubmit={this.loginHandler}>
                                 <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeHandler} />
                                 <input type="text" name="password" placeholder="Password" value={this.state.password} onChange={this.changeHandler} />
-                                <a class="login-btn" type="submit" value="Login">Login</a>
+                                <button class="login-btn" type="submit" value="Login"><a>Login</a></button>
                             </form>
                        
-                            <div onClick={this.clickHandler}class="switch">
+                            <div onClick={this.clickHandler} class="switch">
                             <p>Don't have an account?</p>
                             </div>
                             </div>  
