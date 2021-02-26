@@ -11,6 +11,7 @@ import ReactPaginate from 'react-paginate'
 
 class CourseContainer extends React.Component {
 
+    
     state = {
         offset: 0,
         coursesOnDisplay: [],
@@ -20,6 +21,7 @@ class CourseContainer extends React.Component {
     }
 
     componentDidMount(){
+        document.body.scrollTop = 0;
         this.receivedCourses() 
         this.props.setCategory("all")
     }

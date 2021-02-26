@@ -26,6 +26,10 @@ class Course extends React.Component {
         }
       }
 
+      componentDidMount() {
+        document.body.scrollTop = 0;
+      }
+
     businessToggleHidden (e) {
         this.setState({
             userisHidden: true,

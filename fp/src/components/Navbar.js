@@ -19,7 +19,7 @@ class Navbar extends React.Component {
           <h1 class="logo"><a href="#"><NavLink to="/home">Course Matcher</NavLink></a></h1>
           <ul class="main-nav" >
           <li> <a href="#"><NavLink to="/courses" exact>Courses</NavLink></a></li>
-          <li><a href="#"><NavLink to="/businesses" exact>Businesses</NavLink></a></li>
+          <li><a href="#"><NavLink to="/businesses" exact>Companies</NavLink></a></li>
 
           {this.props.loggedInUser != null ? <li><a href="#"><NavLink to={`/users/${this.props.loggedInUser.id}`} exact>Profile</NavLink></a></li> :
           <li><a href="#"><NavLink to="/login" exact>Profile</NavLink></a></li>}

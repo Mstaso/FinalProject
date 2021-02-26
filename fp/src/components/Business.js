@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom'
 import Course from './Course'
 import User from './User'
 import { connect } from 'react-redux'
-import { getUsercourses } from '../redux/actions'
 import { matchPost } from '../redux/actions'
 
 class Business extends React.Component {
@@ -16,6 +15,10 @@ class Business extends React.Component {
           jobisHiddin: true
         }
       }
+
+      componentDidMount() {
+        document.body.scrollTop = 0;
+    }
 
     courseToggleHidden (e) {
         this.setState({
@@ -74,6 +77,14 @@ class Business extends React.Component {
             this.setState({
                 matchisHiddin: false  
             })
+        } else {
+            this.setState({
+                courseisHidden: true,
+                jobisHiddin: true
+            })
+            this.setState({
+                matchisHiddin: false  
+            })
         }
 
     }
@@ -83,10 +94,14 @@ class Business extends React.Component {
         this.props.foundBusiness.users.length >= 1 ? users = this.props.foundBusiness.users.map(user => <User user={user} key={user.id}/>) : users = []
         return users
     }
-    renderMatchPercentage = () => {
-        let matches = []
-        this.props.foundBusiness.matches.length >= 1 ? matches = this.props.foundBusiness.matches.map(match => matches.push(match.match_percentage)) : matches = []
-        console.log(matches)
+
+    isLoggedInUserMatch = () => {
+        if (this.props.foundBusiness.matches.find(match => match.user_id === this.props.loggedInUser.id)){
+
+        } else {
+            return (<h5 class="user-intro bump">Please complete one or more of this businesses selected courses to be able to create a match</h5>)
+        }
+        
     }
 
 
@@ -147,8 +162,8 @@ class Business extends React.Component {
                     {courses}
                     </div>   }
                     {this.state.matchisHiddin ? <h1></h1> : <div> 
+                        {this.isLoggedInUserMatch()}
                         {this.renderUserMatches()}
-                        {this.renderMatchPercentage()}
                          </div> }
           
                          </div>

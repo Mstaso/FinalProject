@@ -16,6 +16,7 @@ const homebanner2 = require('../homebanner2.jpg')
 class Home extends React.Component {
 
     componentDidMount() {
+        document.body.scrollTop = 0;
         this.props.fetchUsers()
     }
 

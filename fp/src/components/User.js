@@ -19,6 +19,10 @@ class User extends React.Component {
         }
       }
 
+    componentDidMount() {
+        document.body.scrollTop = 0;
+    }
+
     courseProgressToggleHidden () {
         this.setState({
             CompletedCoursesisHiddin: true,
@@ -87,7 +91,7 @@ class User extends React.Component {
             </NavLink> 
             
             :
-            <div>
+            <body>
                 <div class="image-container">
                 <img class="cover-photo" src={this.props.foundUser.cover_photo} />
                 <img class="avatar" src={this.props.foundUser.profile_image} alt={this.props.foundUser.username}/>
@@ -131,7 +135,7 @@ class User extends React.Component {
                     </div>   }
                     <div class="rounder"></div>
                 </div>  
-            </div>
+            </body>
   
         )
     }

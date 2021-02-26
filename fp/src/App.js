@@ -19,6 +19,7 @@ class App extends React.Component {
 
 
 componentDidMount(){
+  document.body.scrollTop = 0;
   this.props.fetchUsers()
   if (this.props.courses.length === 0){
     this.props.fetchCourses()
