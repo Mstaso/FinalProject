@@ -59,7 +59,6 @@ class User extends React.Component {
     }
 
     render(){
-        console.log(this.props.foundUser)
         let userCoursesInProgress = [];
         let completeduserCourses = [];
         if(this.props.foundUser) { 
@@ -82,7 +81,7 @@ class User extends React.Component {
                 <div class="col index-info">
                 <h5>{this.props.user.username}</h5>
                 <br></br>
-                <p>Software Engineer</p>
+                <p>{this.props.user.title}</p>
                 </div>
                  </div>
             </NavLink> 
@@ -95,8 +94,7 @@ class User extends React.Component {
 
                         <div class="quick-info">
                             <h3>{this.props.foundUser.username}</h3>
-                            <p>Software Engineer</p>
-                            {/* <p>{this.props.foundUser.github}</p>       */}
+                            <p>{this.props.foundUser.title}</p>
                         </div> 
                 </div>
                 <div class="about-description">
@@ -113,7 +111,16 @@ class User extends React.Component {
                     </ul>
                     {this.state.CourseProgressisHidden ? <h1></h1> : <div>
                     <br></br>
-                    {userCoursesInProgress.map(course => <Course userCourseCompleter={this.userCourseCompleter} key={course.id} course={course} />)}
+                    
+                    {
+                    userCoursesInProgress.length >= 1 ?
+                    userCoursesInProgress.map(course => <Course userCourseCompleter={this.userCourseCompleter} key={course.id} course={course} />)
+                        :
+                        // console.log("check")
+                        
+                        <h5 class="user-intro">Browse, take courses and match with companies by completing one or more of their selected courses</h5>
+                       
+                    }
                     </div>   } 
                     {this.state.CompletedCoursesisHiddin ? <h1></h1> : <div>
                         <br></br>
@@ -124,39 +131,6 @@ class User extends React.Component {
                     </div>   }
                     <div class="rounder"></div>
                 </div>  
-             
-                {/* <div class="content-profile-page">
-                <div class="profile-user-page card">
-                    <div class="img-user-profile">
-                        <img class="profile-bgHome" src={this.props.foundUser.cover_photo} />
-                        <img class="avatar" src={this.props.foundUser.profile_image} alt={this.props.foundUser.username}/>
-                        </div>
-                        
-                    <div class="description-profile">  <a href={this.props.foundUser.email} title={this.props.foundUser.email}><strong>{this.props.foundUser.email}</strong></a> | {this.props.foundUser.description}</div>
-                
-                    {this.state.CourseProgressisHidden ? <h1></h1> : <div>
-                    <h2>Courses in Progress</h2>
-                    <br></br>
-                    {userCoursesInProgress.map(course => <Course userCourseCompleter={this.userCourseCompleter} key={course.id} course={course} />)}
-                    </div>   }
-                    {this.state.CompletedCoursesisHiddin ? <h1></h1> : <div>
-                        <h2>Completed Courses</h2>
-                        <br></br>
-                        {completeduserCourses.map(course => <Course course={course} key={course.id}/>)}
-                    </div>   }
-                    {this.state.businessMatchisHiddin ? <h1></h1> : <div>
-                        <h2>Business Matches</h2>
-                        <br></br>
-                        {this.props.foundUser.businesses.map(business => <Business business={business} key={business.id}/>)}
-                    </div>   }
-                    </div>
-                    </div >
-                        
-            <div/>
-            
-            <div/>
-            
-            */}
             </div>
   
         )

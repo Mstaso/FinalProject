@@ -9,9 +9,6 @@ import { singleCourse } from '../redux/actions'
 import FilterSetting from '../components/FilterSetting'
 import ReactPaginate from 'react-paginate'
 
-// notes
-// check if state needs to be held in redux, currently category is but not subcategory
-// same for search state
 class CourseContainer extends React.Component {
 
     state = {

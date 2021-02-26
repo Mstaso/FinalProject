@@ -74,15 +74,21 @@ h5 {
 .login-btn {
   text-align: center;
   cursor: pointer;
-  background-color: transparent;
-  border: 2px solid rgb(122, 122, 122);
+  background: #3498db;
+  border: 2px solid #2487c9;
   padding: 10px 30px;
   display: block;
   border-radius: 100vh;
   margin: 30px auto;
   width: 30%;
-  color: rgb(122, 122, 122);
+  color: white;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
+.login-btn:hover,
+.login-btn:active {
+  background: #2377af;
+}
+
 
 .btn {
   text-align: center;
@@ -501,15 +507,6 @@ margin-left: 40px;
   display: none;
 }
 
-.course-index button {
-/* position: absolute; */
-}
-
-/* Show Page CSS */
-.show-container {
-  /* background-color: rgb(230, 230, 230); */
-  
-}
 .image-container {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid rgb(220, 220, 220);
@@ -517,7 +514,6 @@ margin-left: 40px;
   width: 55%;
   background-color: rgb(245, 245, 245);
   margin-top: 20px;
-  /* margin-left: 150px; */
   margin-left: 12%;
   position: relative;
 
@@ -615,8 +611,11 @@ margin-left: 40px;
 .main-info-container li:hover,
 .main-info-container li:active {
   color: #65b8f0;
-  /* background-color: white; */
 
+}
+
+.user-intro {
+  text-align: center;
 }
 
 .bump {
@@ -664,7 +663,6 @@ margin: 10px;
 .other-elements{
   width: 275px;
   position: absolute;
-  /* right: 150px; */
   right: 12%;
   background-color: rgb(245, 245, 245);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -743,282 +741,6 @@ box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   max-width: 200px;
 }
 
-
-/* User Container CSS */
-.user-float {
-  width: 260px;
-  height: 350px;
-  float:right;
-  margin-top: 75px;
-  margin-left: 10px;
-  margin-right: 100px;
-  border-style: solid;
-  border-radius: 20px;
-  border-color: rgb(187, 189, 192);
-  background-color: whitesmoke;
-}
-
-.other-users {
-  /* height: 455px;
-  position: relative;
-  margin-left: 950px;
-  top: 20px;
-  margin-top: 20px;
-  margin-bottom: -320px;
-  width: 300px;
-  background-color: white;
-  border-radius: 10px;
-  line-height: 1.5;
-  border-style: solid;
-  border-color: whitesmoke */
-  }
-  
-  .main-user {
-    /* position: relative; */
-    /* margin-top: -460px; */
-  }
-
-
-
-
-
-  .login {
-    margin-top:   -8px;
-    margin-right: -650px;
-  }
-  .header {
-  /* padding-top: 0em;
-  padding-bottom: -35em; */
-  height: 90px;
-  border: 1px solid #a2a2a2;
-  background-color: #525151;
-  -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  }
-
-
-
-/* Description CSS */
-.description {
-  /* display: inline-block; */
-  /* width: 50%;
-  padding: 20px; */
-  line-height: 36px;
-}
-
-
-
-/* Individual User, Business and Course CSS */
-/* 
-* Art by @jofpin 
-* 2014
-*/
-
-.profile-user-page button {
-  margin-left: -605px;
-  margin-top: -2em;
-	position: absolute;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 7em; 
-  background: #3498db;
-  border: 1px solid #2487c9;
-  color: #fff;
-  outline: none;
-  border-radius: 0 .6em .6em 0;
-  padding: .45em;
-}
-
-.profile-user-page button:hover {
-  background: #51a7e0;
-  transition: background .2s ease-in-out;
-  border: 1px solid #2487c9;
-}
-
-.user-profile-data button{
-  margin-left: 100px;
-}
-
-.profile-user-page .data-user {
-  position: relative;
-  bottom: 50px;
-  margin-bottom: 0;
-  cursor: pointer;
-  padding: 0;
-  list-style: none;
-  display: table;
-  width: 100.15%; 
-}
-.profile-user-page .data-user li {
-  margin: 0;
-  padding: 0;
-  width: 33.33334%;
-  display: table-cell;
-  text-align: center;
-  border-left: 0.1em solid transparent; 
-}
-.profile-user-page .data-user li:first-child {
-  border-left: 0; 
-}
-.profile-user-page .data-user li:first-child a {
-  border-bottom-left-radius: 0.3rem; 
-  }
-.profile-user-page .data-user li:last-child a {
-  border-bottom-right-radius: 0.3rem; 
-}
-.profile-user-page .data-user li a, .profile-user-page .data-user li strong {
-  display: block; 
-}
-.profile-user-page .data-user li a {
-  background-color: #f7f7f7;
-  border-top: 1px solid rgba(242,242,242,0.5);
-  border-bottom: .2em solid #f7f7f7;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4),0 1px 1px rgba(255,255,255,0.4);
-  padding: .93em 0;
-  color: #46494c; 
-}
-.profile-user-page .data-user li a strong, .profile-user-page .data-user li a span {
-  font-weight: 600;
-  line-height: 1; 
-}
-.profile-user-page .data-user li a strong {
-  font-size: 2em; 
-}
-.profile-user-page .data-user li a span {
-  color: #717a7e; 
-}
-.profile-user-page .data-user li a:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-bottom: .2em solid #3498db;
-  color: #3498db; 
-}
-.profile-user-page .data-user li a:hover span {
-  color: #3498db; 
-}
-
-
-.featured {
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
-.featured:after {
-  display: block;
-  height: 2px;
-  background-color: #2487c9;
-  content: ' ';
-  width: 300px;
-  margin: 0 auto;
-  margin-top: 30px;
-
-}
-
-
-
-.home-courses {
-  width: 30%;
-  height: auto;
-  position: relative;
-  border-radius: 10px;
-  margin-top: -50px;
-  margin-left: 50px;
-  background-color: lightblue;
-}
-
-/* .home-courses h3 {
- margin-right: -1080px;
-}
-.home-courses p {
-  position: relative;
-  right: -675px;
-  width: 500px;
-  line-height: 1.75;
-  text-align: left;
- }
- .home-courses button {
-  position: relative;
-  right: -475px;
-  line-height: 1.75;
-  text-align: left;
-  background: #3498db;
-  border: 1px solid #2487c9;
-  color: #fff;
-  outline: none;
-  border-radius: 0 .6em .6em 0;
-  padding: .45em;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
- } */
-
-
-.home-courses-2 {
-  margin-top: 120px;
-  width: 500px;
-  height: 250px;
-  border-radius: 10px;
-  margin-left: 720px;
-  background-color: rgba(100, 173, 170, 0.644)
-}
-
-.home-courses-2 h3 {
-  margin-left: -1600px;
-}
-.home-courses-2 p {
-  position: relative;
-  text-align: left;
-  left: -625px;
-  width: 500px;
-  line-height: 1.75;
-}
-
-.home-courses-2 img {
-  width: 500px;
-  height: 250px;
-  margin-left: -225px;
-  border-radius: 10px;
-  margin-top: -300px;
-}
-
-.home-courses-2 button {
-  position: relative;
-  right: 690px;
-  line-height: 1.75;
-  background: #3498db;
-  border: 1px solid #2487c9;
-  color: #fff;
-  outline: none;
-  border-radius: 0 .6em .6em 0;
-  padding: .45em;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-
-/* Business Index CSS */
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
-
-.divider{
-  margin-top: 100px;
-  width: 1400px;
-  position: relative;
-  height: 10px;
-  /* background-color: #34495e; */
-}
-
-.divider h3{
-  position: absolute;
-  bottom: -5px;
-  right: 680px;
-  /* color: white */
-}
-
 /* BUSINESS CARD CSS, INDEX VIEW */
 
 .business-index {
@@ -1026,242 +748,12 @@ box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
   min-height: 100vh;
 }
 
-/* BUSINESS CARD CSS, SHOW VIEW */
-.bus-cover {
-  margin-top: 10px;
-  width: 180px;
-  height: 100px;
-  vertical-align: top;
-  opacity: 0.85;
-  border-radius: 5px;
-  
-}
-
-/* width: 260px;
-height: 350px;
-float:right;
-margin-top: 75px;
-margin-left: 10px;
-margin-right: 100px;
-border-style: solid;
-border-radius: 20px;
-border-color: rgb(187, 189, 192);
-background-color: whitesmoke; */
-
- /* .snip1336 {
-  display: inline-block;
-  font-family: 'Roboto', Arial, sans-serif;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  width: 200px;
-  height: 200px; 
-  min-width: 190px;
-  max-width: 215px; 
-  width: 100%;
-  color: #ffffff;
-  text-align: left;
-  line-height: 1.4em;
-  background-color: #141414;
-}
-.snip1336 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-.snip1336 img {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: top;
-  opacity: 0.85;
-}
-.snip1336 figcaption {
-  width: 100%;
-  background-color: #141414;
-  padding: 25px;
-  position: relative;
-}
-.snip1336 figcaption:before {
-  position: absolute;
-  content: '';
-  bottom: 100%;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 55px 0 0 400px;
-  border-color: transparent transparent transparent #141414;
-}
-.snip1336 figcaption a {
-  padding: 5px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  font-size: 0.7em;
-  text-transform: uppercase;
-  margin: 10px 0;
-  display: inline-block;
-  opacity: 0.65;
-  width: 47%;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-.snip1336 figcaption a:hover {
-  opacity: 1;
-}
-.snip1336 .profile {
-  border-radius: 50%;
-  position: absolute;
-  bottom: 90%;
-  left: 25px;
-  z-index: 1;
-  max-width: 90px;
-  opacity: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-.snip1336 .follow {
-  margin-right: 4%;
-  border-color: #2980b9;
-  color: #2980b9;
-}
-.snip1336 h2 {
-  margin: 0 0 5px;
-  font-weight: 300;
-  color:  rgb(255, 255, 255);
-}
-.snip1336 h2 span {
-  display: block;
-  font-size: 0.5em;
-  color: rgb(64, 208, 224);
-}
-.snip1336 p {
-  margin: 0 0 10px;
-  font-size: 0.8em;
-  letter-spacing: 1px;
-  opacity: 0.8;
-  color: rgb(64, 208, 224)
-}
-
-#columns {
-  column-width: 205px;
-  column-gap: 20px;
-  width: 55%;
-  margin-left: 100px;
-}
-
-.snip1336courses img {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: top;
-  opacity: 0.85;
-} */
-
-
-
-
-
-
-.snip1336two {
-  display: inline-block;
-  font-family: 'Roboto', Arial, sans-serif;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  width: 200px;
-  height: 200px;
-  color: #ffffff;
-  text-align: left;
-  line-height: 1.4em;
-}
-.snip1336two * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-.snip1336two img {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: top;
-  opacity: 0.85;
-}
-.snip1336two figcaption {
-  width: 100%;
-  background-color: whitesmoke;
-  padding: 25px;
-  position: relative;
-}
-.snip1336two figcaption:before {
-  position: absolute;
-  content: '';
-  bottom: 85%;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 55px 0 0 400px;
-  border-color: transparent transparent transparent whitesmoke;
-}
-.snip1336two figcaption a {
-  padding: 5px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  font-size: 0.7em;
-  text-transform: uppercase;
-  margin: 10px 0;
-  display: inline-block;
-  opacity: 0.65;
-  width: 47%;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-.snip1336two figcaption a:hover {
-  opacity: 1;
-}
-.snip1336two .profile {
-  border-radius: 50%;
-  position: absolute;
-  bottom: 84%;
-  left: 25px;
-  z-index: 1;
-  max-width: 90px;
-  opacity: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-.snip1336two .follow {
-  margin-right: 4%;
-  border-color: #2980b9;
-  color: #2980b9;
-}
-.snip1336two h2 {
-  margin: 0 0 5px;
-  font-weight: 300;
-  color:  rgb(0, 0, 0);
-}
-
-.snip1336two p {
-  margin: 0 0 10px;
-  font-size: 0.8em;
-  letter-spacing: 1px;
-  opacity: 0.8;
-  color: rgb(72, 78, 79)
-}
-
-.snip1336coursestwo img {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: top;
-  opacity: 0.85;
-} 
-
 /* Login CSS */
 
 .background-login {
-background: linear-gradient(90deg,#dfefff 6%,#87c5ff 25%,#7cd5ff 45%,#36d8ee 55%,#1c87eb 94%);
+background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(hero.jpg);
+background-size: cover;
+background-position: center;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -1272,10 +764,9 @@ height: 94vh;
 .form-container {
   margin: auto 0;
   width: 30%;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(10px);
+  background: rgb(54, 54, 54, 0.4);
   border-radius: 10px;
-  border: 3px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
   font-weight: 400;
 }
 
@@ -1291,7 +782,7 @@ height: 94vh;
   cursor: pointer;
   margin-bottom: 30px;
   
-  color: rgb(122, 122, 122);
+  color: white;
 }
 
 

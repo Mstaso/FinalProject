@@ -163,9 +163,7 @@ class Course extends React.Component {
                         <div class="quick-info">
                             <h3>{this.props.foundCourse.name}</h3>
                             <p>{this.props.foundCourse.category}</p>
-                            {/* <p>{this.props.foundUser.github}</p>       */}
                         </div> 
-                        {/* good space for a button */}
                         <button class="btn-small btn-full" onClick={this.enroll}>Enroll</button>
                 </div>
                 <div class="about-description">

@@ -17,12 +17,6 @@ class Business extends React.Component {
         }
       }
 
-    componentDidMount() {
-        this.props.fetchUsercourses()
-        // try and have loggedinuser initialized with usercourses so you dont have to fetch in cdm.
-        // test
-    }  
-    
     courseToggleHidden (e) {
         this.setState({
             matchisHiddin: true,
@@ -89,6 +83,11 @@ class Business extends React.Component {
         this.props.foundBusiness.users.length >= 1 ? users = this.props.foundBusiness.users.map(user => <User user={user} key={user.id}/>) : users = []
         return users
     }
+    renderMatchPercentage = () => {
+        let matches = []
+        this.props.foundBusiness.matches.length >= 1 ? matches = this.props.foundBusiness.matches.map(match => matches.push(match.match_percentage)) : matches = []
+        console.log(matches)
+    }
 
 
     render(){
@@ -149,6 +148,7 @@ class Business extends React.Component {
                     </div>   }
                     {this.state.matchisHiddin ? <h1></h1> : <div> 
                         {this.renderUserMatches()}
+                        {this.renderMatchPercentage()}
                          </div> }
           
                          </div>
@@ -159,13 +159,11 @@ class Business extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        loggedInUser: state.loggedInUser,
-        usercourses: state.usercourses,
+        loggedInUser: state.loggedInUser
     }
     }
 const mapDispatchToProps = (dispatch) => {
     return { 
-        fetchUsercourses: ()=> dispatch(getUsercourses()),
         createMatch: (matchObj) => dispatch(matchPost(matchObj))
         }
     }
